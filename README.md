@@ -1,3 +1,3 @@
 # Online-Auction---PTUDW
 
-Final project - Team 10
+Midterm project - Team 10
