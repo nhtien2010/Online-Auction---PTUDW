@@ -4,11 +4,14 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Bidder Profile</title>
+    <title>Profile</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
     <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
     <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="assets/css/Contact-Form-v2-Modal--Full-with-Google-Map.css">
     <link rel="stylesheet" href="assets/css/Footer-Dark.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="assets/css/Login-Form-Dark.css">
     <link rel="stylesheet" href="assets/css/Navbar-with-menu-and-login.css">
     <link rel="stylesheet" href="assets/css/Navigation-Clean.css">
@@ -20,38 +23,44 @@
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 
-<body><div class="col-md-12">
-    <div class="row" style="height: 39px;">
-        <div class="col"></div>
-    </div>
-</div>
-    <nav class="navbar navbar-light navbar-expand-md navigation-clean-search">
-        <div class="container"><a class="navbar-brand" href="#">Online Auction</a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
-            <div class="collapse navbar-collapse" id="navcol-1">
+<body> <nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top">
+     
+  <a class="navbar-brand" href="#"><i class="fa fa-legal"></i> Online Auction</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="nav navbar-nav">
-                    <li class="nav-item" role="presentation"><a class="nav-link active" href="#">Link 1</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="#">Link 2</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link active" href="#">Home</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="#">Category</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="#">Link 3</a></li>
                 </ul>
             </div>
+    <div class="input-group col-md-4">
+            <input class="form-control py-2 border-right-0 border" type="search" id="search-input" placeholder="At least 2 characters">
+            <span class="input-group-append">
+              <button class="btn btn-outline-secondary border-left-0 border" type="button">
+                    <i class="fa fa-search"></i>
+              </button>
+            </span>
         </div>
-        <form class="form-inline mr-auto" target="_self">
-                    <div class="form-group"><label for="search-field"><i class="fa fa-search"></i></label><input class="form-control search-field" type="search" name="search" id="search-field"></div>
-                </form>
-            <div class="btn-group" style="margin-left: 2%;"><button class="btn btn-primary" type="button">User Name</button><button class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-expanded="false" type="button"></button>
-                <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="Seller1.html">My Profile</a><a class="dropdown-item" role="presentation" href="Seller_2%20-%20Product.html">Product</a><a class="dropdown-item" role="presentation" href="#">Something else</a></div>
-            </div>
-    </nav>
 
+      <div class="btn-group">
+          <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false" type="button"><i class="fas fa-user"></i></button>
+                <div class="dropdown-menu dropdown-menu-right" role="menu"><a class="dropdown-item" role="presentation" href="Seller1.html">My Profile</a><a class="dropdown-item" role="presentation" href="Seller_2%20-%20Product.html">Product</a><a class="dropdown-item" role="presentation" href="#">Logout</a>
+          </div>
+     </div>
+</nav>
 
 <div href ="assets/css/Profile.css" class="container bootstrap snippets" style="margin-top:2%">
     <div class="row" id="user-profile">
         <div class="col-lg-3 col-md-4 col-sm-4">
             <div class="main-box clearfix">
-                <h2>John Doe</h2>
+                <h2>Minh Thuong</h2>
                 <img src="" class="profile-img img-responsive center-block">
                 <div class="profile-label">
-                    <span class="label label-danger">Admin</span>
+                    <span class="label label-danger">Bidder</span>
                 </div>
 
                 <div class="profile-stars">
@@ -60,13 +69,13 @@
                     <i class="fa fa-star"></i>
                     <i class="fa fa-star"></i>
                     <i class="fa fa-star-o"></i>
-                    <span>Super User</span>
+                    <span>8.6</span>
                 </div>
 
                 <div class="profile-details">
                     <ul class="fa-ul">
-                        <li><i class="fa-li fa fa-truck"></i>Actions: <span>456</span></li>
-                        <li><i class="fa-li fa fa-comment"></i>Posts: <span>828</span></li>
+                        <li><i class="fa-li fa fa-cubes"></i>Sales: <span>456</span></li>
+                        <li><i class="fa-li fa fa-gavel"></i>Auctions: <span>828</span></li>
                     </ul>
                 </div>
             </div>
@@ -85,77 +94,61 @@
                     <div class="col-sm-8">
                         <div class="profile-user-details clearfix">
                             <div class="profile-user-details-label">
-                                First Name
+                                First Name:
                             </div>
                             <div class="profile-user-details-value">
-                                John
+                                Thuong
                             </div>
                         </div>
                         <div class="profile-user-details clearfix">
                             <div class="profile-user-details-label">
-                                Last Name
+                                Last Name:
                             </div>
                             <div class="profile-user-details-value">
-                                Doe
+                                Minh
                             </div>
                         </div>
                         <div class="profile-user-details clearfix">
                             <div class="profile-user-details-label">
-                                Address
+                                Email:
                             </div>
                             <div class="profile-user-details-value">
-                                10880 Malibu Point,
-                                <br> Malibu, Calif., 90265
-                            </div>
-                        </div>
-                        <div class="profile-user-details clearfix">
-                            <div class="profile-user-details-label">
-                                Email
-                            </div>
-                            <div class="profile-user-details-value">
-                                johndoe@bootdey.com
-                            </div>
-                        </div>
-                        <div class="profile-user-details clearfix">
-                            <div class="profile-user-details-label">
-                                Phone number
-                            </div>
-                            <div class="profile-user-details-value">
-                                011 223 344 556 677
+                                minhthuong@gmail.com
                             </div>
                         </div>
                     </div>
-                    <div style="margin-top:2%">
+                    <div style="margin-top:2%; margin-left:2%;margin-right:2%">
                         <ul class="nav nav-tabs">
-                <li class="nav-item"><a class="nav-link active" role="tab" data-toggle="tab" href="#tab-1">Watchlist</a></li>
-                <li class="nav-item"><a class="nav-link" role="tab" data-toggle="tab" href="#tab-2">Participating Auctions</a></li>
-                <li class="nav-item"><a class="nav-link" role="tab" data-toggle="tab" href="#tab-3">Won Auctions</a></li>
-            </ul>
+        <li class="nav-item"><a class="nav-link active" role="tab" data-toggle="tab" href="#tab-1">Watchlist</a></li>
+        <li class="nav-item"><a class="nav-link" role="tab" data-toggle="tab" href="#tab-2">Participating Auctions</a></li>
+        <li class="nav-item"><a class="nav-link" role="tab" data-toggle="tab" href="#tab-3">Won Auctions</a></li>
+    </ul>
             <div class="tab-content">
-                <div class="tab-pane active" role="tabpanel" id="tab-1">
-                    <div class="projects-horizontal">
-                <div class="container">
-                    <div class="row projects">
-                    </div>
-                </div>
-            </div>
-                </div>
-                <div class="tab-pane" role="tabpanel" id="tab-2">
-                    <div class="projects-horizontal">
-                <div class="container">
-                    <div class="row projects"></div>
-                </div>
-            </div>
-            <div>
-                <div class="tab-pane" role="tabpanel" id="tab-3">
-                    <p>Content for tab 3.</p>
-                </div>
+    <div class="tab-pane active" role="tabpanel" id="tab-1">
+        <div class="projects-horizontal">
+            <div class="container">
+                <div id= "watchList" class="row projects"></div>
             </div>
         </div>
+    </div>
+    <div class="tab-pane" role="tabpanel" id="tab-2">
+        <div class="projects-horizontal">
+            <div class="container">
+                <div id="participatingAuctions" class="row projects"></div>
+            </div>
+        </div>
+    </div>
+    <div class="tab-pane" role="tabpanel" id="wonAuctions">
+        <div class="projects-horizontal">
+            <div class="container">
+                <div id="participatingAuctions" class="row projects"></div>
+            </div>
+        </div>
+    </div>
+</div>
         </div>
         </div>
                 </div>
-            </div>
         </div>
     </div>
 </div>
@@ -232,6 +225,8 @@
     </div>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/bidderViewList.js"></script>
+    <script src="assets/js/Contact-Form-v2-Modal--Full-with-Google-Map.js"></script>
     <script src="assets/js/Profile-Edit-Form.js"></script>
     <script src="assets/js/sellerProduct.js"></script>
 </body>
