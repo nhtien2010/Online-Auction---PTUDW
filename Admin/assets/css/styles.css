@@ -41,13 +41,14 @@ form {
 }
 
 .col {
+  margin: 5px;
 }
 
-.col.text-center.d-lg-flex.justify-content-lg-center.align-items-lg-center {
+.add-user-button {
+  padding-top: 30px;
+  padding-bottom: 100px;
 }
 
-.col.text-center.d-lg-flex.justify-content-lg-center.align-items-lg-center {
-  /*margin: 10px10px 10px 10px;*/
-  padding: 10px;
+.fa fa-arrow-down {
 }
 
