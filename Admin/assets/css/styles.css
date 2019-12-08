@@ -2,18 +2,18 @@
 }
 
 form {
-  flex-wrap: wrap;
+  /*flex-wrap: wrap;*/
 }
 
 .inner_form {
-  flex-wrap: wrap;
-  padding: 20px;
+  /*flex-wrap: wrap;*/
+  /*padding: 20px;*/
 }
 
 .first_wrap {
-  border-right: 0;
-  padding: 10px 50px;
-  margin-top: 20px;
+  /*border-right: 0;*/
+  /*padding: 10px 50px;*/
+  /*margin-top: 20px;*/
 }
 
 .second_wrap {
