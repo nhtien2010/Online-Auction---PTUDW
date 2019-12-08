@@ -11,47 +11,188 @@
     <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
     <link rel="stylesheet" href="assets/css/Contact-Form-v2-Modal--Full-with-Google-Map.css">
     <link rel="stylesheet" href="assets/css/Footer-Dark.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="assets/css/Login-Form-Dark.css">
     <link rel="stylesheet" href="assets/css/Navbar-with-menu-and-login.css">
     <link rel="stylesheet" href="assets/css/Navigation-Clean.css">
     <link rel="stylesheet" href="assets/css/Navigation-with-Button.css">
-    <link rel="stylesheet" href="assets/css/Navigation-with-Search.css">
     <link rel="stylesheet" href="assets/css/Profile-Edit-Form.css">
     <link rel="stylesheet" href="assets/css/Profile.css">
     <link rel="stylesheet" href="assets/css/Projects-Horizontal.css">
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 
-<body><nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top">
+<body> 
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top">
      
-  <a class="navbar-brand" href="#"><i class="fa fa-legal"></i> Online Auction</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+        <a class="navbar-brand" href="#"><i class="fa fa-legal"></i> Online Auction</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navcol-1">
+                      <ul class="nav navbar-nav">
+                          <li class="nav-item" role="presentation"><a class="nav-link active" href="#">Home</a></li>
+                          <li class="nav-item" role="presentation"><a class="nav-link" href="#">Category</a></li>
+                          <li class="nav-item" role="presentation"><a class="nav-link" href="#">Link 3</a></li>
+                      </ul>
+                  </div>
+          <div class="input-group col-md-4">
+                  <input class="form-control py-2 border-right-0 border" type="search" id="search-input" placeholder="At least 2 characters">
+                  <span class="input-group-append">
+                    <button class="btn btn-outline-secondary border-left-0 border" type="button">
+                          <i class="fa fa-search"></i>
+                    </button>
+                  </span>
+              </div>
+      
+            <div class="btn-group">
+                <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false" type="button"><i class="fas fa-user"></i></button>
+                      <div class="dropdown-menu dropdown-menu-right" role="menu"><a class="dropdown-item" role="presentation" href="Seller1.html">My Profile</a><a class="dropdown-item" role="presentation" href="Seller_2%20-%20Product.html">Product</a><a class="dropdown-item" role="presentation" href="#">Logout</a>
+                </div>
+           </div>
+      </nav>
 
-  <div class="collapse navbar-collapse" id="navcol-1">
-                <ul class="nav navbar-nav">
-                    <li class="nav-item" role="presentation"><a class="nav-link active" href="#">Home</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="#">Category</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="#">Link 3</a></li>
-                </ul>
+<div href ="assets/css/Profile.css" class="container bootstrap snippets" style="margin-top:2%">
+    <div class="row" id="user-profile">
+        <div class="col-lg-3 col-md-4 col-sm-4">
+            <div class="main-box clearfix">
+                <h2>Thuong Minh</h2>
+                <img src="" class="profile-img img-responsive center-block">
+                <div class="profile-label">
+                    <span class="label label-danger">Seller</span>
+                </div>
+
+                <div class="profile-stars">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-o"></i>
+                    <span>8.6</span>
+                </div>
+
+                <div class="profile-details">
+                    <ul class="fa-ul">
+                        <li><i class="fa-li fa fa-cubes"></i>Sales: <span>456</span></li>
+                        <li><i class="fa-li fa fa-gavel"></i>Auctions: <span>828</span></li>
+                    </ul>
+                </div>
             </div>
-    <div class="input-group col-md-4">
-            <input class="form-control py-2 border-right-0 border" type="search" id="search-input" placeholder="At least 2 characters">
-            <span class="input-group-append">
-              <button class="btn btn-outline-secondary border-left-0 border" type="button">
-                    <i class="fa fa-search"></i>
-              </button>
-            </span>
         </div>
 
-      <div class="btn-group">
-          <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false" type="button"><i class="fas fa-user"></i></button>
-                <div class="dropdown-menu dropdown-menu-right" role="menu"><a class="dropdown-item" role="presentation" href="Seller1.html">My Profile</a><a class="dropdown-item" role="presentation" href="Seller_2%20-%20Product.html">Product</a><a class="dropdown-item" role="presentation" href="#">Logout</a>
-          </div>
-     </div>
-</nav>
+        <div class="col-lg-9 col-md-8 col-sm-8">
+            <div class="main-box clearfix">
+                <div class="profile-header">
+                    <h3><span>User info</span></h3>
+                    <a href="#" class="btn btn-primary edit-profile">
+                        <i class="fa fa-pencil-square fa-lg"></i> Edit profile
+                    </a>
+                </div>
+
+                <div class="row profile-user-info">
+                    <div class="col-sm-8">
+                        <div class="profile-user-details clearfix">
+                            <div class="profile-user-details-label">
+                                First Name:
+                            </div>
+                            <div class="profile-user-details-value">
+                                Minh
+                            </div>
+                        </div>
+                        <div class="profile-user-details clearfix">
+                            <div class="profile-user-details-label">
+                                Last Name:
+                            </div>
+                            <div class="profile-user-details-value">
+                                Thuong
+                            </div>
+                        </div>
+                        <div class="profile-user-details clearfix">
+                            <div class="profile-user-details-label">
+                                Email:
+                            </div>
+                            <div class="profile-user-details-value">
+                                thuongminh@gmail.com
+                            </div>
+                        </div>
+                    </div>                 
+</div>
+        </div>
+        </div>
+                </div>
+        </div>
+    </div>
+    <div class="footer-dark">
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6 col-md-3 item">
+                        <h3>Services</h3>
+                        <ul>
+                            <li><a href="#">Web design</a></li>
+                            <li><a href="#">Development</a></li>
+                            <li><a href="#">Hosting</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-6 col-md-3 item">
+                        <h3>About</h3>
+                        <ul>
+                            <li><a href="#">Company</a></li>
+                            <li><a href="#">Team</a></li>
+                            <li><a href="#">Careers</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6 item text">
+                        <h3>Company Name</h3>
+                        <p>Praesent sed lobortis mi. Suspendisse vel placerat ligula. Vivamus ac sem lacus. Ut vehicula rhoncus elementum. Etiam quis tristique lectus. Aliquam in arcu eget velit pulvinar dictum vel in justo.</p>
+                    </div>
+                    <div class="col item social"><a href="#"><i class="icon ion-social-facebook"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-instagram"></i></a></div>
+                </div>
+                <p class="copyright">Company Name © 2017</p>
+            </div>
+        </footer>
+    </div>
+
+    <div class="container profile profile-view" id="profile">
+        <div class="row">
+            <div class="col-md-12 alert-col relative">
+                <div class="alert alert-info absolue center" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button><span>Profile save with success</span></div>
+            </div>
+        </div>
+        <form>
+            <div class="form-row profile-row">
+                <div class="col-md-4 relative">
+                    <div class="avatar">
+                        <div class="avatar-bg center"></div>
+                    </div><input type="file" class="form-control" name="avatar-file"></div>
+                <div class="col-md-8">
+                    <h1>Profile </h1>
+                    <hr>
+                    <div class="form-row">
+                        <div class="col-sm-12 col-md-6">
+                            <div class="form-group"><label>Firstname </label><input class="form-control" type="text" name="firstname"></div>
+                        </div>
+                        <div class="col-sm-12 col-md-6">
+                            <div class="form-group"><label>Lastname </label><input class="form-control" type="text" name="lastname"></div>
+                        </div>
+                    </div>
+                    <div class="form-group"><label>Email </label><input class="form-control" type="email" autocomplete="off" required="" name="email"></div>
+                    <div class="form-row">
+                        <div class="col-sm-12 col-md-6">
+                            <div class="form-group"><label>Password </label><input class="form-control" type="password" name="password" autocomplete="off" required=""></div>
+                        </div>
+                        <div class="col-sm-12 col-md-6">
+                            <div class="form-group"><label>Confirm Password</label><input class="form-control" type="password" name="confirmpass" autocomplete="off" required=""></div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="form-row">
+                        <div class="col-md-12 content-right"><button class="btn btn-primary form-btn" type="submit">SAVE </button><button class="btn btn-danger form-btn" type="reset">CANCEL </button></div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/bidderViewList.js"></script>
