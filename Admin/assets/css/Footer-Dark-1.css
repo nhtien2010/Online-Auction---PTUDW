@@ -190,3 +190,8 @@ tbody tr:hover {
   color: rgb(244,244,0);
 }
 
+.category-info {
+  background-color: white;
+  padding: 30px;
+}
+
