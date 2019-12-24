@@ -1,11 +1,5 @@
 window.onresize = function() {WidthResize()};
 
-var header = document.getElementById("header");
-var sticky = header.offsetTop;
-var category = document.getElementById("category");
-var widthresize = document.getElementsByClassName("center");
-var fullform = document.getElementById("fullform");
-var thinform = document.getElementById("thinform");
 var list = document.getElementsByClassName("list");
 var names = document.getElementsByClassName("name");
 var information = document.getElementsByClassName("information");
@@ -17,14 +11,11 @@ var order = document.getElementById("order");
 var centerlimit = screen.width * 0.40;
 
 window.onload = function() { 
-    for(var i = 0; i < widthresize.length; i++) {
-    widthresize[i].style.width = centerlimit + 'px';
-    }
     var size = window.innerWidth / screen.width;
     if(size > 0.4) {
         filter.style.display = "block";
         toggle.style.display = "none";
-        catalog.classList.remove("width75");
+        catalog.classList.remove("col-12");
         for(let item of information) {
             item.style.width = screen.width * 0.08 + "px";
         }
@@ -32,7 +23,7 @@ window.onload = function() {
     else {
         filter.style.display = "none";
         toggle.style.display = "inline-block";
-        catalog.classList.add("width75");
+        catalog.classList.add("col-12");
         if(list[0].offsetWidth / 4.1 > 96) {
             for(let item of information) {
                 item.style.width = list[0].offsetWidth / 4.1 + "px";
@@ -65,27 +56,6 @@ window.onload = function() {
         }
     }
 
-    thinform.style.marginLeft = "5px";
-    fullform.style.width = centerlimit + "px";
-    fullform.style.marginLeft = (window.innerWidth / 2) - (centerlimit / 2) + 'px';
-
-    if(window.innerWidth < centerlimit) {
-    thinform.style.display = "block";
-    fullform.style.display = "none";
-
-    for(let item of widthresize) {
-      item.style.marginLeft = "5px";
-    }
-    }
-    else {
-    thinform.style.display = "none";
-    fullform.style.display = "block";
-
-    for(let item of widthresize) {
-      item.style.marginLeft = (window.innerWidth / 2) - (centerlimit / 2) + "px";  
-    }
-    }
-    
     if(this.document.URL.split('=')[1])
         this.document.getElementById("search").value = this.document.URL.split('=')[1];
     Sort();
@@ -96,7 +66,7 @@ function WidthResize() {
     if(size > 0.4) {
         filter.style.display = "block";
         toggle.style.display = "none";
-        catalog.classList.remove("width75");
+        catalog.classList.remove("col-12");
         for(let item of information) {
             item.style.width = screen.width * 0.08 + "px";
         }
@@ -104,7 +74,7 @@ function WidthResize() {
     else {
         filter.style.display = "none";
         toggle.style.display = "inline-block";
-        catalog.classList.add("width75");
+        catalog.classList.add("col-12");
         if(list[0].offsetWidth / 4.1 > 96) {
             for(let item of information) {
                 item.style.width = list[0].offsetWidth / 4.1 + "px";
@@ -135,24 +105,6 @@ function WidthResize() {
         for(var i = 0; i < names.length; i++)
         {
             names[i].style.fontSize = "11px";
-        }
-    }
-
-    if(window.innerWidth < centerlimit) {
-        thinform.style.display = "block";
-        fullform.style.display = "none";
-
-        for(let item of widthresize) {
-            item.style.marginLeft = "5px";  
-        }
-    }
-    else {
-        thinform.style.display = "none";
-        fullform.style.display = "block";
-        fullform.style.marginLeft = (window.innerWidth / 2) - (centerlimit / 2) + "px";
-
-        for(let item of widthresize) {
-            item.style.marginLeft = (window.innerWidth / 2) - (centerlimit / 2) + "px";  
         }
     }
 }

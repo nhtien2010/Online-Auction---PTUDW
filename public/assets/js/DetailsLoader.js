@@ -3,9 +3,6 @@ var storage = document.getElementById("storage");
 var representaion = document.getElementById("representation");
 var productinformation = document.getElementById("productinformation");
 var sellerinformation = document.getElementById("sellerinformation");
-var fullform = document.getElementById("fullform");
-var thinform = document.getElementById("thinform");
-var footer = document.getElementsByClassName("footer");
 var information = document.getElementsByClassName("information");
 var list = document.getElementsByClassName("list");
 var centerlimit = screen.width*0.4;
@@ -17,8 +14,6 @@ window.onload = function() {
     sellerinformation.style.width = screen.width * 0.12 + 'px';
     productinformation.style.width = screen.width * 0.27 + 'px';  
     storage.style.width = screen.width * 0.6 + 'px';
-    thinform.style.marginLeft = "0px";
-    fullform.style.width = centerlimit + "px";
     
     this.WidthResize();
 }
@@ -41,16 +36,6 @@ function WidthResize() {
         productinformation.style.width = screen.width * 0.27 + 'px';  
         storage.style.width = screen.width * 0.6 + 'px';
         storage.style.marginLeft = '3px';
-    }
-
-    if(window.innerWidth < centerlimit) {
-        thinform.style.display = "block";
-        fullform.style.display = "none";
-    }
-    else {
-        thinform.style.display = "none";
-        fullform.style.display = "block";
-        footer[0].style.marginLeft = (window.innerWidth - centerlimit) / 2 + 'px';
     }
 
     if(size > 0.4) {

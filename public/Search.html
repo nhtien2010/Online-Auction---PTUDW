@@ -3,33 +3,118 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"> 
+    <link rel="stylesheet" href="assets/css/Footer-Dark.css">
+    <link rel="stylesheet" href="assets/css/Dropdown-submenu.css">
+    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     
     <title>Auction</title>
-    <link rel="stylesheet" href="CSS/Base.css">
-    <link rel="stylesheet" href="CSS/Search.css">
+    <link rel="stylesheet" href="assets/css/Base.css">
+    <link rel="stylesheet" href="assets/css/Search.css">
     <style>
      
     </style>
-
-    
-    
   </head>
   
   <body id="#Body">
-    <div style="position: static;height: 110px;display: block;"></div>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top">
+
+        <div class="d-flex flex-grow-1">
+            <a class="navbar-brand" href="Index.html"><i class="fa fa-legal"></i> Online Auction</a>
+        </div>
+
+        <button class="navbar-toggler order-0" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="navbar-collapse collapse flex-shrink-1 flex-grow-0 order-0" id="navbarSupportedContent">
+            <ul class="navbar-nav">
+                <li class="nav-item" role="presentation"><a class="nav-link" href="Index.html">Home</a></li>
+                <li class="nav-item" role="presentation">
+                  <div class="dropdown">
+                    <a class="btn btn-primary dropdown-toggle bg-transparent border-0" style="margin-top: 2px;" role="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Category</a>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
+                      <li class="dropdown-item dropdown-submenu">
+                        <a href="Search.html">Continent</a>
+                        <ul class="dropdown-menu">
+                          <li class="dropdown-item"><a href="Search.html">Plain</a></li>
+                          <li class="dropdown-item"><a href="Search.html">Mountain</a></li>
+                          <li class="dropdown-item"><a href="Search.html">Valley</a></li>
+                          <li class="dropdown-item"><a href="Search.html">Forest</a></li>
+                        </ul>
+                      </li>
+                      <li class="dropdown-item dropdown-submenu">
+                        <a href="Search.html">Ocean</a>
+                        <ul class="dropdown-menu">
+                          <li class="dropdown-item"><a href="Search.html">Surface Ocean</a></li>
+                          <li class="dropdown-item"><a href="Search.html">Deep Ocean</a></li>
+                          <li class="dropdown-item"><a href="Search.html">Seafloor Sediments</a></li>
+                        </ul>
+                      </li>
+                      <li class="dropdown-item dropdown-submenu">
+                        <a href="Search.html">Sky</a>
+                        <ul class="dropdown-menu">
+                          <li class="dropdown-item"><a href="Search.html">Troposphere</a></li>
+                          <li class="dropdown-item"><a href="Search.html">Stratosphere</a></li>
+                          <li class="dropdown-item"><a href="Search.html">Mesosphere</a></li>
+                          <li class="dropdown-item"><a href="Search.html">Thermosphere</a></li>
+                          <li class="dropdown-item"><a href="Search.html">Exosphere</a></li>
+                        </ul>
+                      </li>
+                      <li class="dropdown-item dropdown-submenu">
+                        <a href="Search.html">Space</a>
+                        <ul class="dropdown-menu">
+                          <li class="dropdown-item"><a href="Search.html">Star</a></li>
+                          <li class="dropdown-item"><a href="Search.html">Galaxy</a></li>
+                          <li class="dropdown-item"><a href="Search.html">Cosmos</a></li>
+                          <li class="dropdown-item"><a href="Search.html">Universe</a></li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+            </ul>
+        </div>
+
+        <form class="mr-2 my-auto w-100 d-inline-block order-1" action="Search.html">
+            <div class="input-group">
+                <input name="searchtext" id="search" type="text" class="form-control border border-right-0" placeholder="Search...">
+                <span class="input-group-append">
+                    <button class="btn btn-outline-light border border-left-0" type="submit">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </span>
+            </div>
+        </form>
+
+
+        <div class="btn-group-toggle navbar-collapse collapse flex-shrink-1 flex-grow-0 order-2" id="navbarSupportedContent">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false" type="button"><i class="fas fa-user"></i></button>
+                    <div class="dropdown-menu dropdown-menu-right" role="menu">
+                        <a class="dropdown-item" role="presentation" href="Bidder_1 - Profile.html">My Profile</a>
+                        <a class="dropdown-item" role="presentation" href="Index.html">Logout</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+    </nav>
     
     <ul id="path">
-        <li><a href="Auction.html">Home</a></li>
+        <li><a href="Index.html">Home</a></li>
         <li> &gt; Search Results</li>
     </ul>
 
     <hr style="margin: 3px;border: 0.5px solid gray;margin-bottom: 5px;">
     <div class="row" id="holder">
-        <div class="col-xs-2" id="filter">
+        <div class="col-2" id="filter">
             <div class="filter">
                 <h5>Price</h5>
                 <div class="content"> 
@@ -47,19 +132,24 @@
                 <div class="content"> 
                     <form>
                         <div class="radio">
-                            <label><input type="radio" name="optradio" checked>All Listings</label>
+                          <input type="radio" name="optradio" checked>
+                          <label>All Listings</label>
                         </div>
                         <div class="radio">
-                            <label><input type="radio" name="optradio">Accepts Offers</label>
+                          <input type="radio" name="optradio">
+                          <label>Accepts Offers</label>
                         </div>
                         <div class="radio">
-                            <label><input type="radio" name="optradio">Auction</label>
+                          <input type="radio" name="optradio">
+                          <label>Auction</label>
                         </div>
                         <div class="radio">
-                            <label><input type="radio" name="optradio">Buy It Now</label>
+                          <input type="radio" name="optradio">
+                          <label>Buy It Now</label>
                         </div>
                         <div class="radio">
-                            <label><input type="radio" name="optradio">Classified Ads</label>
+                          <input type="radio" name="optradio">
+                          <label>Classified Ads</label>
                         </div>
                     </form>
                 </div>
@@ -70,19 +160,24 @@
                 <div class="content"> 
                     <form>
                         <div class="radio">
-                            <label><input type="radio" name="optradio" checked>All Locations</label>
+                          <input type="radio" name="optradio" checked>
+                          <label>All Locations</label>
                         </div>
                         <div class="radio">
-                            <label><input type="radio" name="optradio">Vegeta</label>
+                          <input type="radio" name="optradio">
+                          <label>Vegeta</label>
                         </div>
                         <div class="radio">
-                            <label><input type="radio" name="optradio">Runeterra</label>
+                          <input type="radio" name="optradio">
+                          <label>Runeterra</label>
                         </div>
                         <div class="radio">
-                            <label><input type="radio" name="optradio">Gourmet</label>
+                          <input type="radio" name="optradio">
+                          <label>Gourmet</label>
                         </div>
                         <div class="radio">
-                            <label><input type="radio" name="optradio">Azeroth</label>
+                          <input type="radio" name="optradio">
+                          <label>Azeroth</label>
                         </div>
                     </form>
                 </div>
@@ -93,19 +188,24 @@
                 <div class="content"> 
                     <form>
                         <div class="checkbox">
-                            <label><input type="checkbox" name="optradio" checked>Free International Shipping</label>
+                          <input type="checkbox" name="optradio" checked>
+                          <label>Free International Shipping</label>
                         </div>
                         <div class="checkbox">
-                            <label><input type="checkbox" name="optradio">Ocean Shipping</label>
+                          <input type="checkbox" name="optradio">
+                          <label>Ocean Shipping</label>
                         </div>
                         <div class="checkbox">
-                            <label><input type="checkbox" name="optradio">Sky Shipping</label>
+                          <input type="checkbox" name="optradio">
+                          <label>Sky Shipping</label>
                         </div>
                         <div class="checkbox">
-                            <label><input type="checkbox" name="optradio">Galaxy Shipping</label>
+                          <input type="checkbox" name="optradio">
+                          <label>Galaxy Shipping</label>
                         </div>
                         <div class="checkbox">
-                            <label><input type="checkbox" name="optradio">Cosmos Shipping</label>
+                          <input type="checkbox" name="optradio">
+                          <label>Cosmos Shipping</label>
                         </div>
                     </form>
                 </div>
@@ -116,45 +216,55 @@
                 <div class="content"> 
                     <form>
                         <div class="checkbox">
-                            <label><input type="checkbox" name="optradio" checked>Free Returns</label>
+                          <input type="checkbox" name="optradio" checked>
+                          <label>Free Returns</label>
                         </div>
                         <div class="checkbox">
-                            <label><input type="checkbox" name="optradio">Returns Accepted</label>
+                          <input type="checkbox" name="optradio">
+                          <label>Returns Accepted</label>
                         </div>
                         <div class="checkbox">
-                            <label><input type="checkbox" name="optradio">Authorized Seller</label>
+                          <input type="checkbox" name="optradio">
+                          <label>Authorized Seller</label>
                         </div>
                         <div class="checkbox">
-                            <label><input type="checkbox" name="optradio">Completed Items</label>
+                          <input type="checkbox" name="optradio">
+                          <label>Completed Items</label>
                         </div>
                         <div class="checkbox">
-                            <label><input type="checkbox" name="optradio">Sold Items</label>
+                          <input type="checkbox" name="optradio">
+                          <label>Sold Items</label>
                         </div>
                         <div class="checkbox">
-                            <label><input type="checkbox" name="optradio">Deals & Savings</label>
+                          <input type="checkbox" name="optradio">
+                          <label>Deals & Savings</label>
                         </div>
                         <div class="checkbox">
-                            <label><input type="checkbox" name="optradio">Sale Items</label>
+                          <input type="checkbox" name="optradio">
+                          <label>Sale Items</label>
                         </div>
                         <div class="checkbox">
-                            <label><input type="checkbox" name="optradio">Listed as Lots</label>
+                          <input type="checkbox" name="optradio">
+                          <label>Listed as Lots</label>
                         </div>
                         <div class="checkbox">
-                            <label><input type="checkbox" name="optradio">Search in Description</label>
+                          <input type="checkbox" name="optradio">
+                          <label>Search in Description</label>
                         </div>
                         <div class="checkbox">
-                            <label><input type="checkbox" name="optradio">Benefits Charity</label>
+                          <input type="checkbox" name="optradio">
+                          <label>Benefits Charity</label>
                         </div>
                         <div class="checkbox">
-                            <label><input type="checkbox" name="optradio">Authenticity Verified</label>
+                          <input type="checkbox" name="optradio">
+                          <label>Authenticity Verified</label>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
         
-        <div class="col-xs-10" style="border: 1px solid gray;padding: 0;margin: 0;" id="catalog">
-           
+        <div class="col-10" style="border: 1px solid gray;padding: 0;margin: 0;" id="catalog"> 
             <div>
                 <select id="order" onchange="Sort()">
                     <option value="price">Price</option>
@@ -170,7 +280,7 @@
                     <li>
                        <div class="information">
                             <a href="Detail.html">
-                                <img src="Image/laughing.png" class="product" alt="smile">
+                                <img src="assets/img/laughing.png" class="product" alt="smile">
                                 <p class="name">Smile Face</p>
                                 <p class="left">Erod Nelps</p>
                                 <p class="right time">13d</p>
@@ -185,7 +295,7 @@
                     <li>
                        <div class="information">
                             <a href="Detail.html">
-                            <img src="Image/happy.png" class="product" alt="smile">
+                            <img src="assets/img/happy.png" class="product" alt="smile">
                             <p class="name">Happy Face</p>
                             <p class="left">Erod Nelps</p>
                             <p class="right time">15m</p>
@@ -200,7 +310,7 @@
                     <li>
                        <div class="information">
                             <a href="Detail.html">
-                            <img src="Image/crying.png" class="product" alt="smile">
+                            <img src="assets/img/crying.png" class="product" alt="smile">
                             <p class="name">Crying Face</p>
                             <p class="left">Erod Nelps</p>
                             <p class="right time">12h</p>
@@ -215,7 +325,7 @@
                     <li>
                        <div class="information">
                             <a href="Detail.html">
-                            <img src="Image/laughing.png" class="product" alt="smile">
+                            <img src="assets/img/laughing.png" class="product" alt="smile">
                             <p class="name">Smile Face</p>
                             <p class="left">Erod Nelps</p>
                             <p class="right time">18h</p>
@@ -230,7 +340,7 @@
                     <li>
                        <div class="information">
                             <a href="Detail.html">
-                            <img src="Image/thinking.png" class="product" alt="smile">
+                            <img src="assets/img/thinking.png" class="product" alt="smile">
                             <p class="name">Thinking Face</p>
                             <p class="left">Erod Nelps</p>
                             <p class="right time">16d</p>
@@ -245,7 +355,7 @@
                     <li>
                        <div class="information">
                             <a href="Detail.html">
-                            <img src="Image/thinking.png" class="product" alt="smile">
+                            <img src="assets/img/thinking.png" class="product" alt="smile">
                             <p class="name">Thinking Face</p>
                             <p class="left">Erod Nelps</p>
                             <p class="right time">19m</p>
@@ -264,232 +374,139 @@
   
 
     <hr style="margin: 0;border: 0.5px solid slategray;margin-top: 5px;">
-    <div class="footer">
-        <div id="fullform">
-          <div>
-            <h4>Buy</h4>
-            <ul>
-              <li>
-                <a>Registration</a>
-              </li>
-              <li>
-                <a>Refund</a>
-              </li>
-              <li>
-                <a>Bidding & Buying</a>
-              </li>
-              <li>
-                <a>Stores</a>
-              </li>
-              <li>
-                <a>Guide</a>
-              </li>
-            </ul>
-          </div>
-          <div>
-            <h4>Sell</h4>
-            <ul>
-              <li>
-                <a>Start Selling</a>
-              </li>
-              <li>
-                <a>Learn to Sell</a>
-              </li>
-              <li>
-                <a>Business Seller</a>
-              </li>
-              <li>
-                <a>Affiliates</a>
-              </li>
-            </ul>
-          </div>
-          <div>
-            <h4>Tools & Apps</h4>
-            <ul>
-              <li>
-                <a>Developers</a>
-              </li>
-              <li>
-                <a>Security Center</a>
-              </li>
-              <li>
-                <a>Official Time</a>
-              </li>
-              <li>
-                <a>Site Map</a>
-              </li>
-            </ul>
-          </div>
-          <div>
-            <h4>About</h4>
-            <ul>
-              <li>
-                <a>Company</a>
-              </li>
-              <li>
-                <a>Policies</a>
-              </li>
-              <li>
-                <a>Advertise</a>
-              </li>
-              <li>
-                <a>Investors</a>
-              </li>
-              <li>
-                <a>News</a>
-              </li>
-            </ul>
-          </div>
-          <div>
-            <h4>Help & Contact</h4>
-            <ul>
-              <li>
-                <a>Resolution Center</a>
-              </li>
-              <li>
-                <a>Seller Information Center</a>
-              </li>
-              <li>
-                <a>Contact Us</a>
-              </li>
-            </ul>
-          </div>
-          <div>
-            <h4>Community</h4>
-            <ul>
-              <li>
-                <a>Announcements</a>
-              </li>
-              <li>
-                <a>Answer Center</a>
-              </li>
-              <li>
-                <a>Discuss Boards</a>
-              </li>
-              <li>
-                <a>Groups</a>
-              </li>
-              <li>
-                <a>Top Shared</a>
-              </li>
-            </ul>
-          </div>
-          <div>
-            <h4>Stay Connected</h4>
-            <ul>
-              <li>
-                <a>Facebook</a>
-              </li>
-              <li>
-                <a>Twitter</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-  
-        <div id="thinform">
-          <ul>
-            <li>
-              <a>Buy</a>
-            </li>
-             <li>
-              <a>Sell</a>
-            </li>
-             <li>
-              <a>Tools & Apps</a>
-            </li>
-             <li>
-              <a>About</a>
-            </li>
-             <li>
-              <a>Help & Contact</a>
-            </li>
-             <li>
-              <a>Community</a>
-            </li>
-             <li>
-              <a>Stay Connected</a>
-            </li>
-          </ul>
-        </div>
-        
-        <p>@WebNerdyTeam 2019-2019</p>
-      </div>
-    <div id="header">
-        <ul style="background-color: lightgray;text-align: right;height: 20px;">
-           <li> <a href="Profile/Bidder_1 - Profile.html">Profile</a ></li>
-          <li> <a href="Login.html">Login</a> </li>
-        </ul>
-        <form action="Search.html" style="border: none; border-top: 0.5px solid gray;">
-          <br>
-          <a href="Auction.html" style="float: left;width: 120px;height: 28px;text-align: center;"> <b>ONLINE <br> AUCTION </b></a>
-           <input name="searchtext" style="height: inherit;float: left; width: calc(100% - 184px);height: 36px;padding-left: 10px;" type="text" id="search" placeholder="Search...">
-          <button type="submit" class="button" style="float: left;border: 0.5px solid grey;border-left: none;cursor: pointer;height: 36px;width: 40px;"> <i class="fa fa-search fa-lg" aria-hidden="true"></i></button>
-          <br>
-        </form>
-        <ul style="width: 60px;height: 48px;">
-          <li id="category">
-            <p style="margin: 0;height:40px;font-weight: bold;">Category</p>            
-            <ul>
-              <li>
-                <div class="level1">
-                  <a href="Search.html">A</a>
-                  <div class="level2 frame">
-                    <ul>
-                        <li><a href="Search.html">I</a></li>             
-                        <li><a href="Search.html">II</a></li>
-                        <li><a href="Search.html">III</a></li>
-                        <li><a href="Search.html">IV</a></li>
-                    </ul>
-                  </div>
+    
+    <div class="footer-dark sticky-bottom">
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6 col-md-3 item">
+                        <h3>Buy</h3>
+                        <ul>
+                          <li>
+                            <a>Registration</a>
+                          </li>
+                          <li>
+                            <a>Refund</a>
+                          </li>
+                          <li>
+                            <a>Bidding & Buying</a>
+                          </li>
+                          <li>
+                            <a>Stores</a>
+                          </li>
+                          <li>
+                            <a>Guide</a>
+                          </li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-6 col-md-3 item">
+                        <h3>Sell</h3>
+                        <ul>
+                          <li>
+                            <a>Start Selling</a>
+                          </li>
+                          <li>
+                            <a>Learn to Sell</a>
+                          </li>
+                          <li>
+                            <a>Business Seller</a>
+                          </li>
+                          <li>
+                            <a>Affiliates</a>
+                          </li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-6 col-md-3 item">
+                        <h3>Tools & Apps</h3>
+                        <ul>
+                          <li>
+                            <a>Developers</a>
+                          </li>
+                          <li>
+                            <a>Security Center</a>
+                          </li>
+                          <li>
+                            <a>Official Time</a>
+                          </li>
+                          <li>
+                            <a>Site Map</a>
+                          </li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-6 col-md-3 item">
+                        <h3>About</h3>
+                        <ul>
+                          <li>
+                            <a>Company</a>
+                          </li>
+                          <li>
+                            <a>Policies</a>
+                          </li>
+                          <li>
+                            <a>Advertise</a>
+                          </li>
+                          <li>
+                            <a>Investors</a>
+                          </li>
+                          <li>
+                            <a>News</a>
+                          </li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-6 col-md-3 item">
+                        <h3>Help & Contact</h3>
+                        <ul>
+                          <li>
+                            <a>Resolution Center</a>
+                          </li>
+                          <li>
+                            <a>Seller Information Center</a>
+                          </li>
+                          <li>
+                            <a>Contact Us</a>
+                          </li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-6 col-md-3 item">
+                        <h3>Community</h3>
+                        <ul>
+                          <li>
+                            <a>Announcements</a>
+                          </li>
+                          <li>
+                            <a>Answer Center</a>
+                          </li>
+                          <li>
+                            <a>Discuss Boards</a>
+                          </li>
+                          <li>
+                            <a>Groups</a>
+                          </li>
+                          <li>
+                            <a>Top Shared</a>
+                          </li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-6 col-md-3 item">
+                        <h3>Stay Connected</h3>
+                        <ul>
+                          <li>
+                            <a>Facebook</a>
+                          </li>
+                          <li>
+                            <a>Twitter</a>
+                          </li>
+                        </ul>
+                    </div>
                 </div>
-              </li>
-              <li>
-                <div class="level1">
-                  <a href="Search.html">B</a>
-                  <div class="level2 frame">
-                    <ul>
-                        <li><a href="Search.html">I</a></li>             
-                        <li><a href="Search.html">II</a></li>
-                        <li><a href="Search.html">III</a></li>
-                        <li><a href="Search.html">IV</a></li>
-                    </ul>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <div class="level1">
-                  <a href="Search.html">C</a>
-                  <div class="level2 frame">
-                    <ul>
-                        <li><a href="Search.html">I</a></li>             
-                        <li><a href="Search.html">II</a></li>
-                        <li><a href="Search.html">III</a></li>
-                        <li><a href="Search.html">IV</a></li>
-                    </ul>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <div class="level1">
-                  <a href="Search.html">D</a>
-                  <div class="level2 frame">
-                    <ul>
-                        <li><a href="Search.html">I</a></li>             
-                        <li><a href="Search.html">II</a></li>
-                        <li><a href="Search.html">III</a></li>
-                        <li><a href="Search.html">IV</a></li>
-                    </ul>
-                  </div>
-                </div>
-              </li>
-             </ul>
-           </li>
-         </ul>
+                <div class="col item social"><a href="#"><i class="icon ion-social-facebook"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-instagram"></i></a></div>
+                <p class="copyright">Web Nerdy Team © 2017</p>
+            </div>
+        </footer>
     </div>
 
-    <script src="Script/Sort.js"></script>
-    <script src="Script/Search.js"></script>
+    <script src="assets/js/Sort.js"></script>
+    <script src="assets/js/Search.js"></script>
    
   </body>
  
