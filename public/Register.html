@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    
+    <title>Auction</title>
+    <link rel="stylesheet" href="CSS/Base.css">
+    <link rel="stylesheet" href="CSS/Search.css">
+    <style>
+        input {
+            width: 100%;
+            display: block;
+        }
+    </style>
+
+    
+    
+  </head>
+  
+  <body>
+    <div style="position: static;height: 130px;display: block;"></div>
+   
+    <div style="margin: 0 auto;width:200px;background-color: white;padding: 5px;">
+        <form action="Auction.html" id="register">
+              <h1 style="margin: 0;">Register</h1>
+              <hr style="margin: 0;">
+          
+              <label><b>Email</b></label>
+              <input type="text" placeholder="Email" required >
+          
+              <label><b>Password</b></label>
+              <input type="password" placeholder="Password" required>
+              
+              <label><b>Repeat Password</b></label>
+              <input type="password" placeholder="Password" required>
+
+              <label><b>Name</b></label>
+              <input type="password" placeholder="Name" required>
+
+              <label><b>Address</b></label>
+              <input type="password" placeholder="Address" required>
+
+              <button type="submit" onclick="Announcement()">Register</button>
+              <a style="float: right;" href="Login.html"> Login</a>
+        </form>
+    </div>
+
+    <script>
+        function Announcement(){
+            var check = 0;
+            for(let item of document.getElementById("register").getElementsByTagName("input"))
+            {
+                if(item.value === "")
+                check = 1;
+            }
+            if(check == 0)
+                alert("Successful!")
+        }
+    </script>
+    
+    
+    <hr style="border: 0.5px solid gray;">
+    <div class="footer">
+        <div id="fullform">
+          <div>
+            <h4>Buy</h4>
+            <ul>
+              <li>
+                <a>Registration</a>
+              </li>
+              <li>
+                <a>Refund</a>
+              </li>
+              <li>
+                <a>Bidding & Buying</a>
+              </li>
+              <li>
+                <a>Stores</a>
+              </li>
+              <li>
+                <a>Guide</a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4>Sell</h4>
+            <ul>
+              <li>
+                <a>Start Selling</a>
+              </li>
+              <li>
+                <a>Learn to Sell</a>
+              </li>
+              <li>
+                <a>Business Seller</a>
+              </li>
+              <li>
+                <a>Affiliates</a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4>Tools & Apps</h4>
+            <ul>
+              <li>
+                <a>Developers</a>
+              </li>
+              <li>
+                <a>Security Center</a>
+              </li>
+              <li>
+                <a>Official Time</a>
+              </li>
+              <li>
+                <a>Site Map</a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4>About</h4>
+            <ul>
+              <li>
+                <a>Company</a>
+              </li>
+              <li>
+                <a>Policies</a>
+              </li>
+              <li>
+                <a>Advertise</a>
+              </li>
+              <li>
+                <a>Investors</a>
+              </li>
+              <li>
+                <a>News</a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4>Help & Contact</h4>
+            <ul>
+              <li>
+                <a>Resolution Center</a>
+              </li>
+              <li>
+                <a>Seller Information Center</a>
+              </li>
+              <li>
+                <a>Contact Us</a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4>Community</h4>
+            <ul>
+              <li>
+                <a>Announcements</a>
+              </li>
+              <li>
+                <a>Answer Center</a>
+              </li>
+              <li>
+                <a>Discuss Boards</a>
+              </li>
+              <li>
+                <a>Groups</a>
+              </li>
+              <li>
+                <a>Top Shared</a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4>Stay Connected</h4>
+            <ul>
+              <li>
+                <a>Facebook</a>
+              </li>
+              <li>
+                <a>Twitter</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+  
+        <div id="thinform">
+          <ul>
+            <li>
+              <a>Buy</a>
+            </li>
+             <li>
+              <a>Sell</a>
+            </li>
+             <li>
+              <a>Tools & Apps</a>
+            </li>
+             <li>
+              <a>About</a>
+            </li>
+             <li>
+              <a>Help & Contact</a>
+            </li>
+             <li>
+              <a>Community</a>
+            </li>
+             <li>
+              <a>Stay Connected</a>
+            </li>
+          </ul>
+        </div>
+        <p>@WebNerdyTeam 2019-2019</p>
+      </div>
+    <div id="header">
+        <ul style="background-color: lightgray;text-align: right;height: 20px;">
+           <li> <a href="Profile/Bidder_1 - Profile.html">Profile</a ></li>
+          <li> <a href="Login.html">Login</a> </li>
+        </ul>
+        <form action="Search.html" style="border: none; border-top: 0.5px solid gray;">
+          <br>
+          <a href="Auction.html" style="float: left;width: 120px;height: 28px;text-align: center;"> <b>ONLINE <br> AUCTION </b></a>
+           <input name="searchtext" style="height: inherit;float: left; width: calc(100% - 184px);height: 36px;padding-left: 10px;" type="text" id="search" placeholder="Search...">
+          <button type="submit" class="button" style="float: left;border: 0.5px solid grey;border-left: none;cursor: pointer;height: 36px;width: 40px;"> <i class="fa fa-search fa-lg" aria-hidden="true"></i></button>
+          <br>
+        </form>
+        <ul style="width: 60px;height: 48px;">
+          <li id="category">
+            <p style="margin: 0;height:40px;font-weight: bold;">Category</p>            
+            <ul>
+              <li>
+                <div class="level1">
+                  <a href="Search.html">A</a>
+                  <div class="level2 frame">
+                    <ul>
+                        <li><a href="Search.html">I</a></li>             
+                        <li><a href="Search.html">II</a></li>
+                        <li><a href="Search.html">III</a></li>
+                        <li><a href="Search.html">IV</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="level1">
+                  <a href="Search.html">B</a>
+                  <div class="level2 frame">
+                    <ul>
+                        <li><a href="Search.html">I</a></li>             
+                        <li><a href="Search.html">II</a></li>
+                        <li><a href="Search.html">III</a></li>
+                        <li><a href="Search.html">IV</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="level1">
+                  <a href="Search.html">C</a>
+                  <div class="level2 frame">
+                    <ul>
+                        <li><a href="Search.html">I</a></li>             
+                        <li><a href="Search.html">II</a></li>
+                        <li><a href="Search.html">III</a></li>
+                        <li><a href="Search.html">IV</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="level1">
+                  <a href="Search.html">D</a>
+                  <div class="level2 frame">
+                    <ul>
+                        <li><a href="Search.html">I</a></li>             
+                        <li><a href="Search.html">II</a></li>
+                        <li><a href="Search.html">III</a></li>
+                        <li><a href="Search.html">IV</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+             </ul>
+           </li>
+         </ul>
+    </div>
+
+    <script src="Script/Form.js"></script>
+   
+  </body>
+ 
+
+</html>
