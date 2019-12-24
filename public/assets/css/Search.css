@@ -1,9 +1,3 @@
-#header{
-    height: 110px;
-}
-#category {
-    display: block;
-}
 #path {
     padding-left: 5px;
     margin: 0;
@@ -25,18 +19,11 @@ h5 {
 .content label {
     font-size: 12px;
 }
-.radio {
-    margin: 0;
-    padding: 0;
-}
 .list ul {
     text-align: left;
 }
 .list {
     margin: 0;
-}
-.width75 {
-    width: calc(99%);
 }
 #order {
     width: 120px;

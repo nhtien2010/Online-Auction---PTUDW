@@ -12,101 +12,14 @@
     display:inline;
     padding-right: 10px;
     }
-  #header {
-    position: fixed;
-    width: calc(100% - 4px);
-    top: 0;
-    background-color: white;
-    height: 86px;
-    border: 0.5px solid grey;
-    margin: 0px 1px 0px 3px;
-  }
-  #header ul{
-   margin: 0;
-  }
-  #header > ul > li {
-    display: inline;
-    padding-right: 10px;
-  }
-  .footer {
-    width: auto;
-    background-color:whitesmoke;
-  }
-  .footer h4 {
-    color: dimgray;
-  }
-  .footer div div {
-    color:lightgrey;
-    float: left;
-    padding: 10px;
-  }
-  .footer a {
-    color:gray;
-  }
-  .footer a:hover {
-    text-decoration: underline;
-    color: dimgray;
-  }
-  .footer p {
-    float: right;
-    padding-right: 20px;
-  }
   a {
     text-decoration: none;
     cursor: pointer;
-  }
-  a:hover{
-    text-decoration: none;
-  }
-  .menu {
-    position: absolute;
-    width: calc(100% - 4px);
-    top: 86px;
-    height: 82px;
-    margin: 0px 1px 0px 3px;
-    padding: 0;
-    border: none;
-    background-color:white;
-    overflow: hidden;
-  }
-  .menu ul {
-    background-color: white;
-    width: 200px;
-    border: 0.5px solid grey;
-    border-top: none;
-    height: auto;
-  }
-  .menu li:hover {
-    background-color: lightgrey;
-  }
-  .menu > li {
-    border: none;
-    height: 20px;
-  }
-  .menu > div {
-    color:black;
-  }
-  .menu a {
-    border: none;
     color: black;
   }
-  .menu a:hover {
-    color:orange;
-  }
-  .menu .level1 {
-    display: block;
-  }
-  .menu .level2 {
-    display: none;
-    position: fixed;
-    top: 86px;
-    left: 200.5px;
-  }
-  .menu .level1:hover .level2 {
-    display: block;
-  }
-  .level1 a {
-    padding-left: 10px;
+  a:hover{
+    color: slategray;
+    text-decoration: none;
   }
   .product {
     height: 80%;
@@ -174,72 +87,4 @@
   .price {
     font-weight: bold;
     color: orange;
-  }
-  #category {
-    position: relative;
-    display: none;
-    left: 32px;
-    top: 10px;
-    width: 56px;
-  }
-  #category p:hover {
-    color: orange;
-  }
-  #category a:hover {
-    color: orange;
-  }
-  #category li:hover {
-    background-color: lightgray;
-  }
-  #category > ul {
-    margin-top: 20px;
-    background-color: white;
-    position: fixed;
-    top: 89px;
-    left: 3px;
-    width: 200px;
-    text-align: left;
-  }
-  #category > ul > li {
-    width: 200px;
-  }
-  #category .frame {
-    background-color: white;
-  }
-  #category .level1 {
-    display: none;
-  }
-  #category .level2 {
-    display: none;
-    position: fixed;
-    top: 109px;
-    left: 201.5px;
-  }
-  #category:hover ul {
-    border: 0.5px solid grey;
-    display: block;
-  }
-  #category:hover .level1 {
-    display: block;
-  }
-  #category .level1:hover .level2 {
-    display: block;
-  }
-  .frame {
-    width: 200px;
-    box-shadow: none;
-  }
-  .base {
-    margin-left: 25px;
-  }
-  .widthresize {
-    margin-left: calc(50% - 500px);
-  }
-  #thinform{
-    display: none;
-    width: auto;
-  }
-  #thinform li {
-    display: inline-block;
-    padding: auto;
   }
