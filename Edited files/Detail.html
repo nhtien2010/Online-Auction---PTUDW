@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="assets/css/Footer-Dark.css">
+    <link rel="stylesheet" href="assets/css/Dropdown-submenu.css">
+    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    
+    <title>Auction</title>
+    <link rel="stylesheet" href="assets/css/Base.css">
+    <link rel="stylesheet" href="assets/css/Search.css">
+    <link rel="stylesheet" href="assets/css/Detail.css">
+    <style>
+     
+    </style>
+
+    
+    
+  </head>
+  
+  <body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top">
+
+        <div class="d-flex flex-grow-1">
+            <a class="navbar-brand" href="Index.html"><i class="fa fa-legal"></i> Online Auction</a>
+        </div>
+
+        <button class="navbar-toggler order-0" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="navbar-collapse collapse flex-shrink-1 flex-grow-0 order-0" id="navbarSupportedContent">
+            <ul class="navbar-nav">
+                <li class="nav-item" role="presentation"><a class="nav-link" href="Index.html">Home</a></li>
+                <li class="nav-item" role="presentation">
+                  <div class="dropdown">
+                    <a class="btn btn-primary dropdown-toggle bg-transparent border-0" style="margin-top: 2px;" role="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Category</a>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
+                      <li class="dropdown-item dropdown-submenu">
+                        <a href="Search.html">Continent</a>
+                        <ul class="dropdown-menu">
+                          <li class="dropdown-item"><a href="Search.html">Plain</a></li>
+                          <li class="dropdown-item"><a href="Search.html">Mountain</a></li>
+                          <li class="dropdown-item"><a href="Search.html">Valley</a></li>
+                          <li class="dropdown-item"><a href="Search.html">Forest</a></li>
+                        </ul>
+                      </li>
+                      <li class="dropdown-item dropdown-submenu">
+                        <a href="Search.html">Ocean</a>
+                        <ul class="dropdown-menu">
+                          <li class="dropdown-item"><a href="Search.html">Surface Ocean</a></li>
+                          <li class="dropdown-item"><a href="Search.html">Deep Ocean</a></li>
+                          <li class="dropdown-item"><a href="Search.html">Seafloor Sediments</a></li>
+                        </ul>
+                      </li>
+                      <li class="dropdown-item dropdown-submenu">
+                        <a href="Search.html">Sky</a>
+                        <ul class="dropdown-menu">
+                          <li class="dropdown-item"><a href="Search.html">Troposphere</a></li>
+                          <li class="dropdown-item"><a href="Search.html">Stratosphere</a></li>
+                          <li class="dropdown-item"><a href="Search.html">Mesosphere</a></li>
+                          <li class="dropdown-item"><a href="Search.html">Thermosphere</a></li>
+                          <li class="dropdown-item"><a href="Search.html">Exosphere</a></li>
+                        </ul>
+                      </li>
+                      <li class="dropdown-item dropdown-submenu">
+                        <a href="Search.html">Space</a>
+                        <ul class="dropdown-menu">
+                          <li class="dropdown-item"><a href="Search.html">Star</a></li>
+                          <li class="dropdown-item"><a href="Search.html">Galaxy</a></li>
+                          <li class="dropdown-item"><a href="Search.html">Cosmos</a></li>
+                          <li class="dropdown-item"><a href="Search.html">Universe</a></li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+            </ul>
+        </div>
+
+        <form class="mr-2 my-auto w-100 d-inline-block order-1" action="Search.html">
+            <div class="input-group">
+                <input name="searchtext" id="search" type="text" class="form-control border border-right-0" placeholder="Search...">
+                <span class="input-group-append">
+                    <button class="btn btn-outline-light border border-left-0" type="submit">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </span>
+            </div>
+        </form>
+
+
+        <div class="btn-group-toggle navbar-collapse collapse flex-shrink-1 flex-grow-0 order-2" id="navbarSupportedContent">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false" type="button"><i class="fas fa-user"></i></button>
+                    <div class="dropdown-menu dropdown-menu-right" role="menu">
+                        <a class="dropdown-item" role="presentation" href="Bidder_1 - Profile.html">My Profile</a>
+                        <a class="dropdown-item" role="presentation" href="Index.html">Logout</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+    </nav>
+    
+    <ul id="path">
+        <li><a href="Index.html">Home</a></li>
+        <li> <a href="Search.html"> &gt; Sky</a></li>
+        <li> <a href="Search.html"> &gt; Exosphere</a></li>
+    </ul>
+
+    <hr style="margin: 3px;border: 0.5px solid gray;margin-bottom: 5px;">
+    
+    <div id="storage">
+        <div class="part" style="margin-left:3px;width: 30%;padding: 0;" id="representation">
+            <div class="mainimage">
+                <img id="mainimage" style="width:100%" src="assets/img/laughing.png">
+            </div>
+            <div class="imagelist">
+                <div class="part">
+                  <img src="assets/img/laughing.png" alt="1" onmouseover="ShowImage(this)" onmouseout="CloseImage()" onclick="ViewImage(this)">
+                </div>
+                <div class="part">
+                  <img src="assets/img/thinking.png" alt="2" onmouseover="ShowImage(this)" onmouseout="CloseImage()" onclick="ViewImage(this)">
+                </div>
+                <div class="part">
+                  <img src="assets/img/happy.png" alt="3" onmouseover="ShowImage(this)" onmouseout="CloseImage()" onclick="ViewImage(this)">
+                </div>
+                <div class="part">
+                  <img src="assets/img/crying.png" alt="4" onmouseover="ShowImage(this)" onmouseout="CloseImage()" onclick="ViewImage(this)">
+                </div>
+            </div>
+        </div>
+        <div class="part" id="productinformation">
+          <h2 style="margin: 0;">Smile Face</h2>
+          <b style="padding-left: 10px;">Bidded: 69 times</b>
+          <hr style="border: 0.5px solid slategray;">
+          <p>End in: 10m</p>
+          <p>Current: <b>100$</b></p>
+          <p>Deal: 200$</p>
+          <p>Bidder: Derek Zohar (9.6 Rated)</p>
+          <p>Start: 12/01/2019</p>
+          <input type="text" placeholder="$" id="offer">
+          <button style="background-color: lightcyan; border-radius: 15px; width: 50px;" onclick="Bid()">Bid</button>
+        </div>
+        <div class="part" id="sellerinformation">
+            <h4 style="margin: 0;">Seller Information</h4>
+            <a href="Seller_1 - Profile.html">Erod Nelps (9.3 Rated)</a>
+            <p><small>96.69% Positive feedback</small></p>
+            <hr style="border: 0.1px solid slategray;border-style:dashed;">
+            <a>Save This Seller</a>
+            <a href="">Contact Seller</a>
+            <a href="">Visit Store</a>
+            <a href="">See other Items</a>
+        </div>
+    </div>
+    
+    <div style="width: auto;margin: 3px;border: 0.5px solid gray; border-radius: 25px;padding: 5px;margin: 20px calc(10%) 0px calc(10%);">
+      <h3>Description</h3>
+      <p>The Mona Lisa might have the most iconic smile in history, but one could argue the yellow smiley face comes pretty close.
+
+          What began as an unusual assignment for graphic designer Harvey Ball eventually turned into a world-famous symbol of happiness. In fact, the smiley face can trace its modest origins back to an insurance company in Worcester, Massachusetts in 1963. (Did you know Post-It notes were invented by accident, too?)
+          
+          After a series of tough transitions, the company’s employees struggled to maintain a cheery workplace. So, the company hired Ball in the hopes that he would design an image to boost morale. (By the way, science has confirmed some pretty convincing reasons to smile more.) In just 10 minutes, Ball drew a simple, smiling face on a yellow background. The price for his genius masterpiece? Only $45.
+          
+          At first, the company simply printed the face on buttons and posters to give to its employees. But the image quickly gained popularity, and yellow smiley faces started popping up on everything from greeting cards to T-shirts to stickers. Neither Ball nor the insurance company trademarked the soon-to-be iconic design.
+          
+          “The simple yellow smiley face created in 1963 (probably) has led to tens of thousands of variations and has appeared on everything from pillows and posters to perfume and pop art,” according to the Smithsonian. “Its meaning has changed with social and cultural values: from the optimistic message of a 1960s insurance company, to commercialized logo, to an ironic fashion statement, to a symbol of rave culture imprinted on ecstasy pills, to a wordless expression of emotions in text messages.”
+          
+          Over time, many legal battles ensued over who could truly claim ownership over the legendary design. (At one point, even Walmart got involved!) But it’s still widely accepted that Ball was the first to invent the iconic yellow smiley face.
+          
+          Regardless of its origins, one thing is clear. While initially intended to cheer up a small company in Massachusetts, the smiley face’s positive message now reaches across the world.</p>
+    </div>
+
+    <div class="list" style="text-align: left;margin: 20px calc(10%) 0px calc(10%);">
+      <h4>Related Items</h4>
+        <ul style="border: 0.5px solid gray;">
+            <li>
+               <div class="information">
+                    <a href="Detail.html">
+                        <img src="assets/img/crying.png" class="product" alt="smile">
+                        <p class="name">Crying Face</p>
+                        <p class="left">Erod Nelps</p>
+                        <p class="right time">13d</p>
+                        <br>
+                        <p class="left">200$</p>
+                        <p class="right">12/1/2019</p>
+                        <br>
+                        <p class="price">101$</p>
+                    </a>
+                </div>
+            </li>
+            <li>
+               <div class="information">
+                    <a href="Detail.html">
+                    <img src="assets/img/laughing.png" class="product" alt="smile">
+                    <p class="name">Smile Face</p>
+                    <p class="left">Erod Nelps</p>
+                    <p class="right time">15m</p>
+                    <br>
+                    <p class="left">200$</p>
+                    <p class="right">12/1/2019</p>
+                    <br>
+                    <p class="price">103$</p>
+                    </a>
+                </div>
+            </li>
+            <li>
+               <div class="information">
+                    <a href="Detail.html">
+                    <img src="assets/img/thinking.png" class="product" alt="smile">
+                    <p class="name">Thinking Face</p>
+                    <p class="left">Erod Nelps</p>
+                    <p class="right time">12h</p>
+                    <br>
+                    <p class="left">200$</p>
+                    <p class="right">12/1/2019</p>
+                    <br>
+                    <p class="price">99$</p>
+                    </a>
+                </div>
+            </li>
+            <li>
+               <div class="information">
+                    <a href="Detail.html">
+                    <img src="assets/img/laughing.png" class="product" alt="smile">
+                    <p class="name">Smile Face</p>
+                    <p class="left">Erod Nelps</p>
+                    <p class="right time">18h</p>
+                    <br>
+                    <p class="left">200$</p>
+                    <p class="right">12/1/2019</p>
+                    <br>
+                    <p class="price">102$</p>
+                    </a>
+                </div>
+            </li>
+            <li>
+               <div class="information">
+                    <a href="Detail.html">
+                    <img src="assets/img/happy.png" class="product" alt="smile">
+                    <p class="name">Happy Face</p>
+                    <p class="left">Erod Nelps</p>
+                    <p class="right time">16d</p>
+                    <br>
+                    <p class="left">200$</p>
+                    <p class="right">12/1/2019</p>
+                    <br>
+                    <p class="price">100$</p>
+                    </a>
+                </div>
+            </li>
+            <li>
+               <div class="information">
+                    <a href="Detail.html">
+                    <img src="assets/img/crying.png" class="product" alt="smile">
+                    <p class="name">Crying Face</p>
+                    <p class="left">Erod Nelps</p>
+                    <p class="right time">19m</p>
+                    <br>
+                    <p class="left">200$</p>
+                    <p class="right">12/1/2019</p>
+                    <br>
+                    <p class="price">107$</p>
+                    </a>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <hr style="margin: 0;border: 0.5px solid slategray;margin-top: 5px;">
+    <div class="footer-dark sticky-bottom">
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6 col-md-3 item">
+                        <h3>Buy</h3>
+                        <ul>
+                          <li>
+                            <a>Registration</a>
+                          </li>
+                          <li>
+                            <a>Refund</a>
+                          </li>
+                          <li>
+                            <a>Bidding & Buying</a>
+                          </li>
+                          <li>
+                            <a>Stores</a>
+                          </li>
+                          <li>
+                            <a>Guide</a>
+                          </li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-6 col-md-3 item">
+                        <h3>Sell</h3>
+                        <ul>
+                          <li>
+                            <a>Start Selling</a>
+                          </li>
+                          <li>
+                            <a>Learn to Sell</a>
+                          </li>
+                          <li>
+                            <a>Business Seller</a>
+                          </li>
+                          <li>
+                            <a>Affiliates</a>
+                          </li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-6 col-md-3 item">
+                        <h3>Tools & Apps</h3>
+                        <ul>
+                          <li>
+                            <a>Developers</a>
+                          </li>
+                          <li>
+                            <a>Security Center</a>
+                          </li>
+                          <li>
+                            <a>Official Time</a>
+                          </li>
+                          <li>
+                            <a>Site Map</a>
+                          </li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-6 col-md-3 item">
+                        <h3>About</h3>
+                        <ul>
+                          <li>
+                            <a>Company</a>
+                          </li>
+                          <li>
+                            <a>Policies</a>
+                          </li>
+                          <li>
+                            <a>Advertise</a>
+                          </li>
+                          <li>
+                            <a>Investors</a>
+                          </li>
+                          <li>
+                            <a>News</a>
+                          </li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-6 col-md-3 item">
+                        <h3>Help & Contact</h3>
+                        <ul>
+                          <li>
+                            <a>Resolution Center</a>
+                          </li>
+                          <li>
+                            <a>Seller Information Center</a>
+                          </li>
+                          <li>
+                            <a>Contact Us</a>
+                          </li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-6 col-md-3 item">
+                        <h3>Community</h3>
+                        <ul>
+                          <li>
+                            <a>Announcements</a>
+                          </li>
+                          <li>
+                            <a>Answer Center</a>
+                          </li>
+                          <li>
+                            <a>Discuss Boards</a>
+                          </li>
+                          <li>
+                            <a>Groups</a>
+                          </li>
+                          <li>
+                            <a>Top Shared</a>
+                          </li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-6 col-md-3 item">
+                        <h3>Stay Connected</h3>
+                        <ul>
+                          <li>
+                            <a>Facebook</a>
+                          </li>
+                          <li>
+                            <a>Twitter</a>
+                          </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col item social"><a href="#"><i class="icon ion-social-facebook"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-instagram"></i></a></div>
+                <p class="copyright">Web Nerdy Team © 2017</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="assets/js/DetailsLoader.js"></script>
+    <script src="assets/js/ImageHandler.js"></script>
+    <script src="assets/js/Bid.js"></script>
+   
+  </body>
+ 
+
+</html>
