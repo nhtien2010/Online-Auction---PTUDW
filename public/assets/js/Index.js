@@ -9,15 +9,6 @@ var names = document.getElementsByClassName("name");
 var centerlimit = screen.width * 0.60;
 
 window.onload = function() {
-    var text = this.document.URL.split('=')[1];
-    if(text)
-        text = text.split('%40')[0];
-    if(text)
-        if(text === "admin")
-            document.location.href = "admin.html";
-            else
-            this.document.location.href = "index.html"
-        
     for(var i = 0; i < widthresize.length; i++) {
         widthresize[i].style.width = centerlimit + 'px';
     }
