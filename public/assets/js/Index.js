@@ -1,3 +1,4 @@
+
 window.onresize = function() {WidthResize()};
 
 var widthresize = document.getElementsByClassName("center");
@@ -14,6 +15,8 @@ window.onload = function() {
     if(text)
         if(text === "admin")
             document.location.href = "admin.html";
+            else
+            this.document.location.href = "index.html"
         
     for(var i = 0; i < widthresize.length; i++) {
         widthresize[i].style.width = centerlimit + 'px';

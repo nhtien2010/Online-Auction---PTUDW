@@ -1,31 +1,8 @@
-.navbar-expand-md .navbar-nav {
-}
 
-form {
-  /*flex-wrap: wrap;*/
-}
 
-.inner_form {
-  /*flex-wrap: wrap;*/
-  /*padding: 20px;*/
-}
 
-.first_wrap {
-  /*border-right: 0;*/
-  /*padding: 10px 50px;*/
-  /*margin-top: 20px;*/
-}
 
-.second_wrap {
-  width: %;
-  margin-bottom: 30;
-}
 
-.d-flex.first_wrap {
-}
-
-.form-control {
-}
 
 .form-control {
   width: 200px;
@@ -48,7 +25,3 @@ form {
   padding-top: 30px;
   padding-bottom: 100px;
 }
-
-.fa fa-arrow-down {
-}
-
