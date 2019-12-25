@@ -9,4 +9,4 @@ if(text)
     else if(text === "seller")
         document.location.href = "seller_1 - profile.html"
 
-window.history.replaceState({}, "Auction", "Index.html");
+window.history.replaceState({}, "Auction", "index.html");
