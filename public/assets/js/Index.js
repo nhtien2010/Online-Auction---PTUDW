@@ -16,7 +16,7 @@ window.onload = function() {
     welcome.style.fontSize = 0.02 * window.innerWidth + 14 + "px";
     WidthResize();
   
-    window.history.replaceState({}, "Auction", "Index.html");
+    window.history.replaceState({}, "Auction", "index.html");
 }
 
 function WidthResize() {
