@@ -1,0 +1,1074 @@
+<main>
+  <ul class="list-group list-group-horizontal ml-2">
+    <li><a class="text-primary" href="/"><small>Home</small></a></li>
+    <li><small>&gt; Search Results</small></li>
+  </ul>
+
+  <hr style="margin: 3px;border: 0.5px solid gray;margin-bottom: 5px;">
+
+  <nav class="row navbar-expand-md navbar-light m-0 p-0">
+    <div class="navbar-collapse collapse col-md-2 col-12" style="height: fit-content;" id="navbarFilter">
+      <ul class="nav flex-column">
+        <li class="nav-item">
+          <div class="filter">
+            <h5>Price</h5>
+            <div>
+              <form>
+                <input class="col-4" type="text">
+                $ -
+                <input class="col-4" type="text">
+                $
+              </form>
+            </div>
+          </div>
+        </li>
+        <li class="nav-item">
+          <div class="filter">
+            <h5>Buying Format</h5>
+            <div class="content">
+              <form>
+                <div class="radio">
+                  <input type="radio" name="optradio" checked>
+                  <label>All Listings</label>
+                </div>
+                <div class="radio">
+                  <input type="radio" name="optradio">
+                  <label>Accepts Offers</label>
+                </div>
+                <div class="radio">
+                  <input type="radio" name="optradio">
+                  <label>Auction</label>
+                </div>
+                <div class="radio">
+                  <input type="radio" name="optradio">
+                  <label>Buy It Now</label>
+                </div>
+                <div class="radio">
+                  <input type="radio" name="optradio">
+                  <label>Classified Ads</label>
+                </div>
+              </form>
+            </div>
+          </div>
+        </li>
+        <li class="nav-item">
+          <div class="filter">
+            <h5>Location</h5>
+            <div class="content">
+              <form>
+                <div class="radio">
+                  <input type="radio" name="optradio" checked>
+                  <label>All Locations</label>
+                </div>
+                <div class="radio">
+                  <input type="radio" name="optradio">
+                  <label>Vegeta</label>
+                </div>
+                <div class="radio">
+                  <input type="radio" name="optradio">
+                  <label>Runeterra</label>
+                </div>
+                <div class="radio">
+                  <input type="radio" name="optradio">
+                  <label>Gourmet</label>
+                </div>
+                <div class="radio">
+                  <input type="radio" name="optradio">
+                  <label>Azeroth</label>
+                </div>
+              </form>
+            </div>
+          </div>
+        </li>
+        <li class="nav-item">
+          <div class="filter">
+            <h5>Delivery Options</h5>
+            <div class="content">
+              <form>
+                <div class="checkbox">
+                  <input type="checkbox" name="optradio" checked>
+                  <label>Free International Shipping</label>
+                </div>
+                <div class="checkbox">
+                  <input type="checkbox" name="optradio">
+                  <label>Ocean Shipping</label>
+                </div>
+                <div class="checkbox">
+                  <input type="checkbox" name="optradio">
+                  <label>Sky Shipping</label>
+                </div>
+                <div class="checkbox">
+                  <input type="checkbox" name="optradio">
+                  <label>Galaxy Shipping</label>
+                </div>
+                <div class="checkbox">
+                  <input type="checkbox" name="optradio">
+                  <label>Cosmos Shipping</label>
+                </div>
+              </form>
+            </div>
+          </div>
+        </li>
+        <li class="nav-item">
+          <div class="filter">
+            <h5>Show Only</h5>
+            <div class="content">
+              <form>
+                <div class="checkbox">
+                  <input type="checkbox" name="optradio" checked>
+                  <label>Free Returns</label>
+                </div>
+                <div class="checkbox">
+                  <input type="checkbox" name="optradio">
+                  <label>Returns Accepted</label>
+                </div>
+                <div class="checkbox">
+                  <input type="checkbox" name="optradio">
+                  <label>Authorized Seller</label>
+                </div>
+                <div class="checkbox">
+                  <input type="checkbox" name="optradio">
+                  <label>Completed Items</label>
+                </div>
+                <div class="checkbox">
+                  <input type="checkbox" name="optradio">
+                  <label>Sold Items</label>
+                </div>
+                <div class="checkbox">
+                  <input type="checkbox" name="optradio">
+                  <label>Deals & Savings</label>
+                </div>
+                <div class="checkbox">
+                  <input type="checkbox" name="optradio">
+                  <label>Sale Items</label>
+                </div>
+                <div class="checkbox">
+                  <input type="checkbox" name="optradio">
+                  <label>Listed as Lots</label>
+                </div>
+                <div class="checkbox">
+                  <input type="checkbox" name="optradio">
+                  <label>Search in Description</label>
+                </div>
+                <div class="checkbox">
+                  <input type="checkbox" name="optradio">
+                  <label>Benefits Charity</label>
+                </div>
+                <div class="checkbox">
+                  <input type="checkbox" name="optradio">
+                  <label>Authenticity Verified</label>
+                </div>
+              </form>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="col-12 col-md-10 border border-dark p-0">
+      <div class="clearfix">
+        <button class="navbar-toggler navbar-toggler-right border border-dark" type="button" data-toggle="collapse"
+          data-target="#navbarFilter" aria-controls="navbarFilter" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon small"></span>
+        </button>
+
+        <select class="float-right" onchange="Sort()" id="order">
+          <option value="5">Price</option>
+          <option value="4">Time Remain</option>
+        </select>
+      </div>
+
+      <hr class="m-0 border border-secondary">
+
+      <div class="row m-0 page">
+        <div class="col-4 col-sm-3 col-lg-2 product">
+          <a href="/detail">
+            <img src="/assets/img/happy.png" class="rounded img-fluid m-1" alt="smile">
+            <h5 class="text-center">Happy Face</h5>
+            <p class="text-center m-0">Erod Nelps</p>
+            <div class="clearfix">
+              <p class="float-left m-0">200$</p>
+              <p class="float-right m-0">69 Bids</p>
+            </div>
+            <div class="clearfix">
+              <p class="float-left m-0">12/1/2019</p>
+              <p class="float-right text-danger m-0">13d</p>
+            </div>
+            <p class="text-center text-info font-weight-bold">10$</p>
+          </a>
+        </div>
+        <div class="col-4 col-sm-3 col-lg-2 product">
+          <a href="/detail">
+            <img src="/assets/img/crying.png" class="rounded img-fluid m-1" alt="smile">
+            <h5 class="text-center">Crying Face</h5>
+            <p class="text-center m-0">Erod Nelps</p>
+            <div class="clearfix">
+              <p class="float-left m-0">200$</p>
+              <p class="float-right m-0">69 Bids</p>
+            </div>
+            <div class="clearfix">
+              <p class="float-left m-0">12/1/2019</p>
+              <p class="float-right text-danger m-0">13h</p>
+            </div>
+            <p class="text-center text-info font-weight-bold">159$</p>
+          </a>
+        </div>
+        <div class="col-4 col-sm-3 col-lg-2 product">
+          <a href="/detail">
+            <img src="/assets/img/happy.png" class="rounded img-fluid m-1" alt="smile">
+            <h5 class="text-center">Happy Face</h5>
+            <p class="text-center m-0">Erod Nelps</p>
+            <div class="clearfix">
+              <p class="float-left m-0">200$</p>
+              <p class="float-right m-0">69 Bids</p>
+            </div>
+            <div class="clearfix">
+              <p class="float-left m-0">12/1/2019</p>
+              <p class="float-right text-danger m-0">24m</p>
+            </div>
+            <p class="text-center text-info font-weight-bold">72$</p>
+          </a>
+        </div>
+        <div class="col-4 col-sm-3 col-lg-2 product">
+          <a href="/detail">
+            <img src="/assets/img/thinking.png" class="rounded img-fluid m-1" alt="smile">
+            <h5 class="text-center">Thinking Face</h5>
+            <p class="text-center m-0">Erod Nelps</p>
+            <div class="clearfix">
+              <p class="float-left m-0">200$</p>
+              <p class="float-right m-0">69 Bids</p>
+            </div>
+            <div class="clearfix">
+              <p class="float-left m-0">12/1/2019</p>
+              <p class="float-right text-danger m-0">31d</p>
+            </div>
+            <p class="text-center text-info font-weight-bold">93$</p>
+          </a>
+        </div>
+        <div class="col-4 col-sm-3 col-lg-2 product">
+          <a href="/detail">
+            <img src="/assets/img/crying.png" class="rounded img-fluid m-1" alt="smile">
+            <h5 class="text-center">Crying Face</h5>
+            <p class="text-center m-0">Erod Nelps</p>
+            <div class="clearfix">
+              <p class="float-left m-0">200$</p>
+              <p class="float-right m-0">69 Bids</p>
+            </div>
+            <div class="clearfix">
+              <p class="float-left m-0">12/1/2019</p>
+              <p class="float-right text-danger m-0">72h</p>
+            </div>
+            <p class="text-center text-info font-weight-bold">108$</p>
+          </a>
+        </div>
+        <div class="col-4 col-sm-3 col-lg-2 product">
+          <a href="/detail">
+            <img src="/assets/img/smile.png" class="rounded img-fluid m-1" alt="smile">
+            <h5 class="text-center">Smile Face</h5>
+            <p class="text-center m-0">Erod Nelps</p>
+            <div class="clearfix">
+              <p class="float-left m-0">200$</p>
+              <p class="float-right m-0">69 Bids</p>
+            </div>
+            <div class="clearfix">
+              <p class="float-left m-0">12/1/2019</p>
+              <p class="float-right text-danger m-0">11m</p>
+            </div>
+            <p class="text-center text-info font-weight-bold">101$</p>
+          </a>
+        </div>
+        <div class="col-4 col-sm-3 col-lg-2 product">
+          <a href="/detail">
+            <img src="/assets/img/smile.png" class="rounded img-fluid m-1" alt="smile">
+            <h5 class="text-center">Smile Face</h5>
+            <p class="text-center m-0">Erod Nelps</p>
+            <div class="clearfix">
+              <p class="float-left m-0">200$</p>
+              <p class="float-right m-0">69 Bids</p>
+            </div>
+            <div class="clearfix">
+              <p class="float-left m-0">12/1/2019</p>
+              <p class="float-right text-danger m-0">13d</p>
+            </div>
+            <p class="text-center text-info font-weight-bold">10$</p>
+          </a>
+        </div>
+        <div class="col-4 col-sm-3 col-lg-2 product">
+          <a href="/detail">
+            <img src="/assets/img/thinking.png" class="rounded img-fluid m-1" alt="smile">
+            <h5 class="text-center">Thinking Face</h5>
+            <p class="text-center m-0">Erod Nelps</p>
+            <div class="clearfix">
+              <p class="float-left m-0">200$</p>
+              <p class="float-right m-0">69 Bids</p>
+            </div>
+            <div class="clearfix">
+              <p class="float-left m-0">12/1/2019</p>
+              <p class="float-right text-danger m-0">13h</p>
+            </div>
+            <p class="text-center text-info font-weight-bold">159$</p>
+          </a>
+        </div>
+        <div class="col-4 col-sm-3 col-lg-2 product">
+          <a href="/detail">
+            <img src="/assets/img/happy.png" class="rounded img-fluid m-1" alt="smile">
+            <h5 class="text-center">Happy Face</h5>
+            <p class="text-center m-0">Erod Nelps</p>
+            <div class="clearfix">
+              <p class="float-left m-0">200$</p>
+              <p class="float-right m-0">69 Bids</p>
+            </div>
+            <div class="clearfix">
+              <p class="float-left m-0">12/1/2019</p>
+              <p class="float-right text-danger m-0">24m</p>
+            </div>
+            <p class="text-center text-info font-weight-bold">72$</p>
+          </a>
+        </div>
+        <div class="col-4 col-sm-3 col-lg-2 product">
+          <a href="/detail">
+            <img src="/assets/img/thinking.png" class="rounded img-fluid m-1" alt="smile">
+            <h5 class="text-center">Thinking Face</h5>
+            <p class="text-center m-0">Erod Nelps</p>
+            <div class="clearfix">
+              <p class="float-left m-0">200$</p>
+              <p class="float-right m-0">69 Bids</p>
+            </div>
+            <div class="clearfix">
+              <p class="float-left m-0">12/1/2019</p>
+              <p class="float-right text-danger m-0">31d</p>
+            </div>
+            <p class="text-center text-info font-weight-bold">93$</p>
+          </a>
+        </div>
+        <div class="col-4 col-sm-3 col-lg-2 product">
+          <a href="/detail">
+            <img src="/assets/img/smile.png" class="rounded img-fluid m-1" alt="smile">
+            <h5 class="text-center">Smile Face</h5>
+            <p class="text-center m-0">Erod Nelps</p>
+            <div class="clearfix">
+              <p class="float-left m-0">200$</p>
+              <p class="float-right m-0">69 Bids</p>
+            </div>
+            <div class="clearfix">
+              <p class="float-left m-0">12/1/2019</p>
+              <p class="float-right text-danger m-0">72h</p>
+            </div>
+            <p class="text-center text-info font-weight-bold">108$</p>
+          </a>
+        </div>
+        <div class="col-4 col-sm-3 col-lg-2 product">
+          <a href="/detail">
+            <img src="/assets/img/smile.png" class="rounded img-fluid m-1" alt="smile">
+            <h5 class="text-center">Smile Face</h5>
+            <p class="text-center m-0">Erod Nelps</p>
+            <div class="clearfix">
+              <p class="float-left m-0">200$</p>
+              <p class="float-right m-0">69 Bids</p>
+            </div>
+            <div class="clearfix">
+              <p class="float-left m-0">12/1/2019</p>
+              <p class="float-right text-danger m-0">11m</p>
+            </div>
+            <p class="text-center text-info font-weight-bold">101$</p>
+          </a>
+        </div>
+        <div class="col-4 col-sm-3 col-lg-2 product">
+          <a href="/detail">
+            <img src="/assets/img/crying.png" class="rounded img-fluid m-1" alt="smile">
+            <h5 class="text-center">Crying Face</h5>
+            <p class="text-center m-0">Erod Nelps</p>
+            <div class="clearfix">
+              <p class="float-left m-0">200$</p>
+              <p class="float-right m-0">69 Bids</p>
+            </div>
+            <div class="clearfix">
+              <p class="float-left m-0">12/1/2019</p>
+              <p class="float-right text-danger m-0">13d</p>
+            </div>
+            <p class="text-center text-info font-weight-bold">10$</p>
+          </a>
+        </div>
+        <div class="col-4 col-sm-3 col-lg-2 product">
+          <a href="/detail">
+            <img src="/assets/img/thinking.png" class="rounded img-fluid m-1" alt="smile">
+            <h5 class="text-center">Thinking Face</h5>
+            <p class="text-center m-0">Erod Nelps</p>
+            <div class="clearfix">
+              <p class="float-left m-0">200$</p>
+              <p class="float-right m-0">69 Bids</p>
+            </div>
+            <div class="clearfix">
+              <p class="float-left m-0">12/1/2019</p>
+              <p class="float-right text-danger m-0">13h</p>
+            </div>
+            <p class="text-center text-info font-weight-bold">159$</p>
+          </a>
+        </div>
+        <div class="col-4 col-sm-3 col-lg-2 product">
+          <a href="/detail">
+            <img src="/assets/img/crying.png" class="rounded img-fluid m-1" alt="smile">
+            <h5 class="text-center">Crying Face</h5>
+            <p class="text-center m-0">Erod Nelps</p>
+            <div class="clearfix">
+              <p class="float-left m-0">200$</p>
+              <p class="float-right m-0">69 Bids</p>
+            </div>
+            <div class="clearfix">
+              <p class="float-left m-0">12/1/2019</p>
+              <p class="float-right text-danger m-0">24m</p>
+            </div>
+            <p class="text-center text-info font-weight-bold">72$</p>
+          </a>
+        </div>
+        <div class="col-4 col-sm-3 col-lg-2 product">
+          <a href="/detail">
+            <img src="/assets/img/Crying.png" class="rounded img-fluid m-1" alt="smile">
+            <h5 class="text-center">Crying Face</h5>
+            <p class="text-center m-0">Erod Nelps</p>
+            <div class="clearfix">
+              <p class="float-left m-0">200$</p>
+              <p class="float-right m-0">69 Bids</p>
+            </div>
+            <div class="clearfix">
+              <p class="float-left m-0">12/1/2019</p>
+              <p class="float-right text-danger m-0">31d</p>
+            </div>
+            <p class="text-center text-info font-weight-bold">93$</p>
+          </a>
+        </div>
+        <div class="col-4 col-sm-3 col-lg-2 product">
+          <a href="/detail">
+            <img src="/assets/img/happy.png" class="rounded img-fluid m-1" alt="smile">
+            <h5 class="text-center">Happy Face</h5>
+            <p class="text-center m-0">Erod Nelps</p>
+            <div class="clearfix">
+              <p class="float-left m-0">200$</p>
+              <p class="float-right m-0">69 Bids</p>
+            </div>
+            <div class="clearfix">
+              <p class="float-left m-0">12/1/2019</p>
+              <p class="float-right text-danger m-0">72h</p>
+            </div>
+            <p class="text-center text-info font-weight-bold">108$</p>
+          </a>
+        </div>
+        <div class="col-4 col-sm-3 col-lg-2 product">
+          <a href="/detail">
+            <img src="/assets/img/happy.png" class="rounded img-fluid m-1" alt="smile">
+            <h5 class="text-center">Happy Face</h5>
+            <p class="text-center m-0">Erod Nelps</p>
+            <div class="clearfix">
+              <p class="float-left m-0">200$</p>
+              <p class="float-right m-0">69 Bids</p>
+            </div>
+            <div class="clearfix">
+              <p class="float-left m-0">12/1/2019</p>
+              <p class="float-right text-danger m-0">11m</p>
+            </div>
+            <p class="text-center text-info font-weight-bold">101$</p>
+          </a>
+        </div>
+      </div>
+      <div class="row m-0 page">
+        <div class="col-4 col-sm-3 col-lg-2 product">
+          <a href="/detail">
+            <img src="/assets/img/happy.png" class="rounded img-fluid m-1" alt="smile">
+            <h5 class="text-center">Happy Face</h5>
+            <p class="text-center m-0">Erod Nelps</p>
+            <div class="clearfix">
+              <p class="float-left m-0">200$</p>
+              <p class="float-right m-0">69 Bids</p>
+            </div>
+            <div class="clearfix">
+              <p class="float-left m-0">12/1/2019</p>
+              <p class="float-right text-danger m-0">13d</p>
+            </div>
+            <p class="text-center text-info font-weight-bold">10$</p>
+          </a>
+        </div>
+        <div class="col-4 col-sm-3 col-lg-2 product">
+          <a href="/detail">
+            <img src="/assets/img/crying.png" class="rounded img-fluid m-1" alt="smile">
+            <h5 class="text-center">Crying Face</h5>
+            <p class="text-center m-0">Erod Nelps</p>
+            <div class="clearfix">
+              <p class="float-left m-0">200$</p>
+              <p class="float-right m-0">69 Bids</p>
+            </div>
+            <div class="clearfix">
+              <p class="float-left m-0">12/1/2019</p>
+              <p class="float-right text-danger m-0">13h</p>
+            </div>
+            <p class="text-center text-info font-weight-bold">159$</p>
+          </a>
+        </div>
+        <div class="col-4 col-sm-3 col-lg-2 product">
+          <a href="/detail">
+            <img src="/assets/img/happy.png" class="rounded img-fluid m-1" alt="smile">
+            <h5 class="text-center">Happy Face</h5>
+            <p class="text-center m-0">Erod Nelps</p>
+            <div class="clearfix">
+              <p class="float-left m-0">200$</p>
+              <p class="float-right m-0">69 Bids</p>
+            </div>
+            <div class="clearfix">
+              <p class="float-left m-0">12/1/2019</p>
+              <p class="float-right text-danger m-0">24m</p>
+            </div>
+            <p class="text-center text-info font-weight-bold">72$</p>
+          </a>
+        </div>
+        <div class="col-4 col-sm-3 col-lg-2 product">
+          <a href="/detail">
+            <img src="/assets/img/thinking.png" class="rounded img-fluid m-1" alt="smile">
+            <h5 class="text-center">Thinking Face</h5>
+            <p class="text-center m-0">Erod Nelps</p>
+            <div class="clearfix">
+              <p class="float-left m-0">200$</p>
+              <p class="float-right m-0">69 Bids</p>
+            </div>
+            <div class="clearfix">
+              <p class="float-left m-0">12/1/2019</p>
+              <p class="float-right text-danger m-0">31d</p>
+            </div>
+            <p class="text-center text-info font-weight-bold">93$</p>
+          </a>
+        </div>
+        <div class="col-4 col-sm-3 col-lg-2 product">
+          <a href="/detail">
+            <img src="/assets/img/crying.png" class="rounded img-fluid m-1" alt="smile">
+            <h5 class="text-center">Crying Face</h5>
+            <p class="text-center m-0">Erod Nelps</p>
+            <div class="clearfix">
+              <p class="float-left m-0">200$</p>
+              <p class="float-right m-0">69 Bids</p>
+            </div>
+            <div class="clearfix">
+              <p class="float-left m-0">12/1/2019</p>
+              <p class="float-right text-danger m-0">72h</p>
+            </div>
+            <p class="text-center text-info font-weight-bold">108$</p>
+          </a>
+        </div>
+        <div class="col-4 col-sm-3 col-lg-2 product">
+          <a href="/detail">
+            <img src="/assets/img/smile.png" class="rounded img-fluid m-1" alt="smile">
+            <h5 class="text-center">Smile Face</h5>
+            <p class="text-center m-0">Erod Nelps</p>
+            <div class="clearfix">
+              <p class="float-left m-0">200$</p>
+              <p class="float-right m-0">69 Bids</p>
+            </div>
+            <div class="clearfix">
+              <p class="float-left m-0">12/1/2019</p>
+              <p class="float-right text-danger m-0">11m</p>
+            </div>
+            <p class="text-center text-info font-weight-bold">101$</p>
+          </a>
+        </div>
+        <div class="col-4 col-sm-3 col-lg-2 product">
+          <a href="/detail">
+            <img src="/assets/img/smile.png" class="rounded img-fluid m-1" alt="smile">
+            <h5 class="text-center">Smile Face</h5>
+            <p class="text-center m-0">Erod Nelps</p>
+            <div class="clearfix">
+              <p class="float-left m-0">200$</p>
+              <p class="float-right m-0">69 Bids</p>
+            </div>
+            <div class="clearfix">
+              <p class="float-left m-0">12/1/2019</p>
+              <p class="float-right text-danger m-0">13d</p>
+            </div>
+            <p class="text-center text-info font-weight-bold">10$</p>
+          </a>
+        </div>
+        <div class="col-4 col-sm-3 col-lg-2 product">
+          <a href="/detail">
+            <img src="/assets/img/thinking.png" class="rounded img-fluid m-1" alt="smile">
+            <h5 class="text-center">Thinking Face</h5>
+            <p class="text-center m-0">Erod Nelps</p>
+            <div class="clearfix">
+              <p class="float-left m-0">200$</p>
+              <p class="float-right m-0">69 Bids</p>
+            </div>
+            <div class="clearfix">
+              <p class="float-left m-0">12/1/2019</p>
+              <p class="float-right text-danger m-0">13h</p>
+            </div>
+            <p class="text-center text-info font-weight-bold">159$</p>
+          </a>
+        </div>
+        <div class="col-4 col-sm-3 col-lg-2 product">
+          <a href="/detail">
+            <img src="/assets/img/happy.png" class="rounded img-fluid m-1" alt="smile">
+            <h5 class="text-center">Happy Face</h5>
+            <p class="text-center m-0">Erod Nelps</p>
+            <div class="clearfix">
+              <p class="float-left m-0">200$</p>
+              <p class="float-right m-0">69 Bids</p>
+            </div>
+            <div class="clearfix">
+              <p class="float-left m-0">12/1/2019</p>
+              <p class="float-right text-danger m-0">24m</p>
+            </div>
+            <p class="text-center text-info font-weight-bold">72$</p>
+          </a>
+        </div>
+        <div class="col-4 col-sm-3 col-lg-2 product">
+          <a href="/detail">
+            <img src="/assets/img/thinking.png" class="rounded img-fluid m-1" alt="smile">
+            <h5 class="text-center">Thinking Face</h5>
+            <p class="text-center m-0">Erod Nelps</p>
+            <div class="clearfix">
+              <p class="float-left m-0">200$</p>
+              <p class="float-right m-0">69 Bids</p>
+            </div>
+            <div class="clearfix">
+              <p class="float-left m-0">12/1/2019</p>
+              <p class="float-right text-danger m-0">31d</p>
+            </div>
+            <p class="text-center text-info font-weight-bold">93$</p>
+          </a>
+        </div>
+        <div class="col-4 col-sm-3 col-lg-2 product">
+          <a href="/detail">
+            <img src="/assets/img/smile.png" class="rounded img-fluid m-1" alt="smile">
+            <h5 class="text-center">Smile Face</h5>
+            <p class="text-center m-0">Erod Nelps</p>
+            <div class="clearfix">
+              <p class="float-left m-0">200$</p>
+              <p class="float-right m-0">69 Bids</p>
+            </div>
+            <div class="clearfix">
+              <p class="float-left m-0">12/1/2019</p>
+              <p class="float-right text-danger m-0">72h</p>
+            </div>
+            <p class="text-center text-info font-weight-bold">108$</p>
+          </a>
+        </div>
+        <div class="col-4 col-sm-3 col-lg-2 product">
+          <a href="/detail">
+            <img src="/assets/img/smile.png" class="rounded img-fluid m-1" alt="smile">
+            <h5 class="text-center">Smile Face</h5>
+            <p class="text-center m-0">Erod Nelps</p>
+            <div class="clearfix">
+              <p class="float-left m-0">200$</p>
+              <p class="float-right m-0">69 Bids</p>
+            </div>
+            <div class="clearfix">
+              <p class="float-left m-0">12/1/2019</p>
+              <p class="float-right text-danger m-0">11m</p>
+            </div>
+            <p class="text-center text-info font-weight-bold">101$</p>
+          </a>
+        </div>
+        <div class="col-4 col-sm-3 col-lg-2 product">
+          <a href="/detail">
+            <img src="/assets/img/crying.png" class="rounded img-fluid m-1" alt="smile">
+            <h5 class="text-center">Crying Face</h5>
+            <p class="text-center m-0">Erod Nelps</p>
+            <div class="clearfix">
+              <p class="float-left m-0">200$</p>
+              <p class="float-right m-0">69 Bids</p>
+            </div>
+            <div class="clearfix">
+              <p class="float-left m-0">12/1/2019</p>
+              <p class="float-right text-danger m-0">13d</p>
+            </div>
+            <p class="text-center text-info font-weight-bold">10$</p>
+          </a>
+        </div>
+        <div class="col-4 col-sm-3 col-lg-2 product">
+          <a href="/detail">
+            <img src="/assets/img/thinking.png" class="rounded img-fluid m-1" alt="smile">
+            <h5 class="text-center">Thinking Face</h5>
+            <p class="text-center m-0">Erod Nelps</p>
+            <div class="clearfix">
+              <p class="float-left m-0">200$</p>
+              <p class="float-right m-0">69 Bids</p>
+            </div>
+            <div class="clearfix">
+              <p class="float-left m-0">12/1/2019</p>
+              <p class="float-right text-danger m-0">13h</p>
+            </div>
+            <p class="text-center text-info font-weight-bold">159$</p>
+          </a>
+        </div>
+        <div class="col-4 col-sm-3 col-lg-2 product">
+          <a href="/detail">
+            <img src="/assets/img/crying.png" class="rounded img-fluid m-1" alt="smile">
+            <h5 class="text-center">Crying Face</h5>
+            <p class="text-center m-0">Erod Nelps</p>
+            <div class="clearfix">
+              <p class="float-left m-0">200$</p>
+              <p class="float-right m-0">69 Bids</p>
+            </div>
+            <div class="clearfix">
+              <p class="float-left m-0">12/1/2019</p>
+              <p class="float-right text-danger m-0">24m</p>
+            </div>
+            <p class="text-center text-info font-weight-bold">72$</p>
+          </a>
+        </div>
+        <div class="col-4 col-sm-3 col-lg-2 product">
+          <a href="/detail">
+            <img src="/assets/img/Crying.png" class="rounded img-fluid m-1" alt="smile">
+            <h5 class="text-center">Crying Face</h5>
+            <p class="text-center m-0">Erod Nelps</p>
+            <div class="clearfix">
+              <p class="float-left m-0">200$</p>
+              <p class="float-right m-0">69 Bids</p>
+            </div>
+            <div class="clearfix">
+              <p class="float-left m-0">12/1/2019</p>
+              <p class="float-right text-danger m-0">31d</p>
+            </div>
+            <p class="text-center text-info font-weight-bold">93$</p>
+          </a>
+        </div>
+        <div class="col-4 col-sm-3 col-lg-2 product">
+          <a href="/detail">
+            <img src="/assets/img/happy.png" class="rounded img-fluid m-1" alt="smile">
+            <h5 class="text-center">Happy Face</h5>
+            <p class="text-center m-0">Erod Nelps</p>
+            <div class="clearfix">
+              <p class="float-left m-0">200$</p>
+              <p class="float-right m-0">69 Bids</p>
+            </div>
+            <div class="clearfix">
+              <p class="float-left m-0">12/1/2019</p>
+              <p class="float-right text-danger m-0">72h</p>
+            </div>
+            <p class="text-center text-info font-weight-bold">108$</p>
+          </a>
+        </div>
+        <div class="col-4 col-sm-3 col-lg-2 product">
+          <a href="/detail">
+            <img src="/assets/img/happy.png" class="rounded img-fluid m-1" alt="smile">
+            <h5 class="text-center">Happy Face</h5>
+            <p class="text-center m-0">Erod Nelps</p>
+            <div class="clearfix">
+              <p class="float-left m-0">200$</p>
+              <p class="float-right m-0">69 Bids</p>
+            </div>
+            <div class="clearfix">
+              <p class="float-left m-0">12/1/2019</p>
+              <p class="float-right text-danger m-0">11m</p>
+            </div>
+            <p class="text-center text-info font-weight-bold">101$</p>
+          </a>
+        </div>
+      </div>
+      <div class="row m-0 page">
+        <div class="col-4 col-sm-3 col-lg-2 product">
+          <a href="/detail">
+            <img src="/assets/img/happy.png" class="rounded img-fluid m-1" alt="smile">
+            <h5 class="text-center">Happy Face</h5>
+            <p class="text-center m-0">Erod Nelps</p>
+            <div class="clearfix">
+              <p class="float-left m-0">200$</p>
+              <p class="float-right m-0">69 Bids</p>
+            </div>
+            <div class="clearfix">
+              <p class="float-left m-0">12/1/2019</p>
+              <p class="float-right text-danger m-0">13d</p>
+            </div>
+            <p class="text-center text-info font-weight-bold">10$</p>
+          </a>
+        </div>
+        <div class="col-4 col-sm-3 col-lg-2 product">
+          <a href="/detail">
+            <img src="/assets/img/crying.png" class="rounded img-fluid m-1" alt="smile">
+            <h5 class="text-center">Crying Face</h5>
+            <p class="text-center m-0">Erod Nelps</p>
+            <div class="clearfix">
+              <p class="float-left m-0">200$</p>
+              <p class="float-right m-0">69 Bids</p>
+            </div>
+            <div class="clearfix">
+              <p class="float-left m-0">12/1/2019</p>
+              <p class="float-right text-danger m-0">13h</p>
+            </div>
+            <p class="text-center text-info font-weight-bold">159$</p>
+          </a>
+        </div>
+        <div class="col-4 col-sm-3 col-lg-2 product">
+          <a href="/detail">
+            <img src="/assets/img/happy.png" class="rounded img-fluid m-1" alt="smile">
+            <h5 class="text-center">Happy Face</h5>
+            <p class="text-center m-0">Erod Nelps</p>
+            <div class="clearfix">
+              <p class="float-left m-0">200$</p>
+              <p class="float-right m-0">69 Bids</p>
+            </div>
+            <div class="clearfix">
+              <p class="float-left m-0">12/1/2019</p>
+              <p class="float-right text-danger m-0">24m</p>
+            </div>
+            <p class="text-center text-info font-weight-bold">72$</p>
+          </a>
+        </div>
+        <div class="col-4 col-sm-3 col-lg-2 product">
+          <a href="/detail">
+            <img src="/assets/img/thinking.png" class="rounded img-fluid m-1" alt="smile">
+            <h5 class="text-center">Thinking Face</h5>
+            <p class="text-center m-0">Erod Nelps</p>
+            <div class="clearfix">
+              <p class="float-left m-0">200$</p>
+              <p class="float-right m-0">69 Bids</p>
+            </div>
+            <div class="clearfix">
+              <p class="float-left m-0">12/1/2019</p>
+              <p class="float-right text-danger m-0">31d</p>
+            </div>
+            <p class="text-center text-info font-weight-bold">93$</p>
+          </a>
+        </div>
+        <div class="col-4 col-sm-3 col-lg-2 product">
+          <a href="/detail">
+            <img src="/assets/img/crying.png" class="rounded img-fluid m-1" alt="smile">
+            <h5 class="text-center">Crying Face</h5>
+            <p class="text-center m-0">Erod Nelps</p>
+            <div class="clearfix">
+              <p class="float-left m-0">200$</p>
+              <p class="float-right m-0">69 Bids</p>
+            </div>
+            <div class="clearfix">
+              <p class="float-left m-0">12/1/2019</p>
+              <p class="float-right text-danger m-0">72h</p>
+            </div>
+            <p class="text-center text-info font-weight-bold">108$</p>
+          </a>
+        </div>
+        <div class="col-4 col-sm-3 col-lg-2 product">
+          <a href="/detail">
+            <img src="/assets/img/smile.png" class="rounded img-fluid m-1" alt="smile">
+            <h5 class="text-center">Smile Face</h5>
+            <p class="text-center m-0">Erod Nelps</p>
+            <div class="clearfix">
+              <p class="float-left m-0">200$</p>
+              <p class="float-right m-0">69 Bids</p>
+            </div>
+            <div class="clearfix">
+              <p class="float-left m-0">12/1/2019</p>
+              <p class="float-right text-danger m-0">11m</p>
+            </div>
+            <p class="text-center text-info font-weight-bold">101$</p>
+          </a>
+        </div>
+        <div class="col-4 col-sm-3 col-lg-2 product">
+          <a href="/detail">
+            <img src="/assets/img/smile.png" class="rounded img-fluid m-1" alt="smile">
+            <h5 class="text-center">Smile Face</h5>
+            <p class="text-center m-0">Erod Nelps</p>
+            <div class="clearfix">
+              <p class="float-left m-0">200$</p>
+              <p class="float-right m-0">69 Bids</p>
+            </div>
+            <div class="clearfix">
+              <p class="float-left m-0">12/1/2019</p>
+              <p class="float-right text-danger m-0">13d</p>
+            </div>
+            <p class="text-center text-info font-weight-bold">10$</p>
+          </a>
+        </div>
+        <div class="col-4 col-sm-3 col-lg-2 product">
+          <a href="/detail">
+            <img src="/assets/img/thinking.png" class="rounded img-fluid m-1" alt="smile">
+            <h5 class="text-center">Thinking Face</h5>
+            <p class="text-center m-0">Erod Nelps</p>
+            <div class="clearfix">
+              <p class="float-left m-0">200$</p>
+              <p class="float-right m-0">69 Bids</p>
+            </div>
+            <div class="clearfix">
+              <p class="float-left m-0">12/1/2019</p>
+              <p class="float-right text-danger m-0">13h</p>
+            </div>
+            <p class="text-center text-info font-weight-bold">159$</p>
+          </a>
+        </div>
+        <div class="col-4 col-sm-3 col-lg-2 product">
+          <a href="/detail">
+            <img src="/assets/img/happy.png" class="rounded img-fluid m-1" alt="smile">
+            <h5 class="text-center">Happy Face</h5>
+            <p class="text-center m-0">Erod Nelps</p>
+            <div class="clearfix">
+              <p class="float-left m-0">200$</p>
+              <p class="float-right m-0">69 Bids</p>
+            </div>
+            <div class="clearfix">
+              <p class="float-left m-0">12/1/2019</p>
+              <p class="float-right text-danger m-0">24m</p>
+            </div>
+            <p class="text-center text-info font-weight-bold">72$</p>
+          </a>
+        </div>
+        <div class="col-4 col-sm-3 col-lg-2 product">
+          <a href="/detail">
+            <img src="/assets/img/thinking.png" class="rounded img-fluid m-1" alt="smile">
+            <h5 class="text-center">Thinking Face</h5>
+            <p class="text-center m-0">Erod Nelps</p>
+            <div class="clearfix">
+              <p class="float-left m-0">200$</p>
+              <p class="float-right m-0">69 Bids</p>
+            </div>
+            <div class="clearfix">
+              <p class="float-left m-0">12/1/2019</p>
+              <p class="float-right text-danger m-0">31d</p>
+            </div>
+            <p class="text-center text-info font-weight-bold">93$</p>
+          </a>
+        </div>
+        <div class="col-4 col-sm-3 col-lg-2 product">
+          <a href="/detail">
+            <img src="/assets/img/smile.png" class="rounded img-fluid m-1" alt="smile">
+            <h5 class="text-center">Smile Face</h5>
+            <p class="text-center m-0">Erod Nelps</p>
+            <div class="clearfix">
+              <p class="float-left m-0">200$</p>
+              <p class="float-right m-0">69 Bids</p>
+            </div>
+            <div class="clearfix">
+              <p class="float-left m-0">12/1/2019</p>
+              <p class="float-right text-danger m-0">72h</p>
+            </div>
+            <p class="text-center text-info font-weight-bold">108$</p>
+          </a>
+        </div>
+        <div class="col-4 col-sm-3 col-lg-2 product">
+          <a href="/detail">
+            <img src="/assets/img/smile.png" class="rounded img-fluid m-1" alt="smile">
+            <h5 class="text-center">Smile Face</h5>
+            <p class="text-center m-0">Erod Nelps</p>
+            <div class="clearfix">
+              <p class="float-left m-0">200$</p>
+              <p class="float-right m-0">69 Bids</p>
+            </div>
+            <div class="clearfix">
+              <p class="float-left m-0">12/1/2019</p>
+              <p class="float-right text-danger m-0">11m</p>
+            </div>
+            <p class="text-center text-info font-weight-bold">101$</p>
+          </a>
+        </div>
+        <div class="col-4 col-sm-3 col-lg-2 product">
+          <a href="/detail">
+            <img src="/assets/img/crying.png" class="rounded img-fluid m-1" alt="smile">
+            <h5 class="text-center">Crying Face</h5>
+            <p class="text-center m-0">Erod Nelps</p>
+            <div class="clearfix">
+              <p class="float-left m-0">200$</p>
+              <p class="float-right m-0">69 Bids</p>
+            </div>
+            <div class="clearfix">
+              <p class="float-left m-0">12/1/2019</p>
+              <p class="float-right text-danger m-0">13d</p>
+            </div>
+            <p class="text-center text-info font-weight-bold">10$</p>
+          </a>
+        </div>
+        <div class="col-4 col-sm-3 col-lg-2 product">
+          <a href="/detail">
+            <img src="/assets/img/thinking.png" class="rounded img-fluid m-1" alt="smile">
+            <h5 class="text-center">Thinking Face</h5>
+            <p class="text-center m-0">Erod Nelps</p>
+            <div class="clearfix">
+              <p class="float-left m-0">200$</p>
+              <p class="float-right m-0">69 Bids</p>
+            </div>
+            <div class="clearfix">
+              <p class="float-left m-0">12/1/2019</p>
+              <p class="float-right text-danger m-0">13h</p>
+            </div>
+            <p class="text-center text-info font-weight-bold">159$</p>
+          </a>
+        </div>
+        <div class="col-4 col-sm-3 col-lg-2 product">
+          <a href="/detail">
+            <img src="/assets/img/crying.png" class="rounded img-fluid m-1" alt="smile">
+            <h5 class="text-center">Crying Face</h5>
+            <p class="text-center m-0">Erod Nelps</p>
+            <div class="clearfix">
+              <p class="float-left m-0">200$</p>
+              <p class="float-right m-0">69 Bids</p>
+            </div>
+            <div class="clearfix">
+              <p class="float-left m-0">12/1/2019</p>
+              <p class="float-right text-danger m-0">24m</p>
+            </div>
+            <p class="text-center text-info font-weight-bold">72$</p>
+          </a>
+        </div>
+        <div class="col-4 col-sm-3 col-lg-2 product">
+          <a href="/detail">
+            <img src="/assets/img/Crying.png" class="rounded img-fluid m-1" alt="smile">
+            <h5 class="text-center">Crying Face</h5>
+            <p class="text-center m-0">Erod Nelps</p>
+            <div class="clearfix">
+              <p class="float-left m-0">200$</p>
+              <p class="float-right m-0">69 Bids</p>
+            </div>
+            <div class="clearfix">
+              <p class="float-left m-0">12/1/2019</p>
+              <p class="float-right text-danger m-0">31d</p>
+            </div>
+            <p class="text-center text-info font-weight-bold">93$</p>
+          </a>
+        </div>
+        <div class="col-4 col-sm-3 col-lg-2 product">
+          <a href="/detail">
+            <img src="/assets/img/happy.png" class="rounded img-fluid m-1" alt="smile">
+            <h5 class="text-center">Happy Face</h5>
+            <p class="text-center m-0">Erod Nelps</p>
+            <div class="clearfix">
+              <p class="float-left m-0">200$</p>
+              <p class="float-right m-0">69 Bids</p>
+            </div>
+            <div class="clearfix">
+              <p class="float-left m-0">12/1/2019</p>
+              <p class="float-right text-danger m-0">72h</p>
+            </div>
+            <p class="text-center text-info font-weight-bold">108$</p>
+          </a>
+        </div>
+        <div class="col-4 col-sm-3 col-lg-2 product">
+          <a href="/detail">
+            <img src="/assets/img/happy.png" class="rounded img-fluid m-1" alt="smile">
+            <h5 class="text-center">Happy Face</h5>
+            <p class="text-center m-0">Erod Nelps</p>
+            <div class="clearfix">
+              <p class="float-left m-0">200$</p>
+              <p class="float-right m-0">69 Bids</p>
+            </div>
+            <div class="clearfix">
+              <p class="float-left m-0">12/1/2019</p>
+              <p class="float-right text-danger m-0">11m</p>
+            </div>
+            <p class="text-center text-info font-weight-bold">101$</p>
+          </a>
+        </div>
+      </div>
+
+      <hr class="m-0 border border-secondary">
+
+      <div class="container">
+        <ul class="pagination justify-content-center m-0">
+          <li class="page-item">
+            <a class="page-link" href="#"><span>&laquo;</span></a>
+          </li>
+          <li class="page-item"><a class="page-link" href="#">1</a></li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item">
+            <a class="page-link" href="#"><span>&raquo;</span></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</main>
+
+<script src="/assets/js/Sort.js"></script>
+<script src="/assets/js/Pagination.js"></script>

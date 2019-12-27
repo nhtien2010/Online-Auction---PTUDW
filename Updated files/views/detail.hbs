@@ -1,0 +1,181 @@
+<main>
+  <ul class="list-group list-group-horizontal ml-2">
+    <li><a class="text-primary" href="/"><small>Home</small></a></li>
+    <li> <a class="text-primary" href="/search"><small>&gt; Sky</small></a></li>
+    <li> <a class="text-primary" href="/search"><small>&gt; Exosphere</small></a></li>
+  </ul>
+
+  <hr class="m-0">
+
+  <div class="mb-2 bg-white container-xl clearfix justify-content-center row mx-auto p-0">
+    <div class="col-10 col-md-4 col-sm-8 m-0 p-0">
+      <div>
+        <img class="w-100 img-thumbnail" id="mainimage" src="/assets/img/smile.png">
+      </div>
+      <div class="row border m-0">
+        <div class="col-3 border p-0">
+          <img class="w-100" src="/assets/img/smile.png" alt="1" onmouseover="ShowImage(this)"
+            onmouseout="CloseImage()" onclick="ViewImage(this)">
+        </div>
+        <div class="col-3 border p-0">
+          <img class="w-100" src="/assets/img/thinking.png" alt="2" onmouseover="ShowImage(this)"
+            onmouseout="CloseImage()" onclick="ViewImage(this)">
+        </div>
+        <div class="col-3 border p-0">
+          <img class="w-100" src="/assets/img/happy.png" alt="3" onmouseover="ShowImage(this)" onmouseout="CloseImage()"
+            onclick="ViewImage(this)">
+        </div>
+        <div class="col-3 border p-0">
+          <img class="w-100" src="/assets/img/crying.png" alt="4" onmouseover="ShowImage(this)" onmouseout="CloseImage()"
+            onclick="ViewImage(this)">
+        </div>
+      </div>
+    </div>
+    <div class="col-7 col-md-5 col-sm-7 m-0">
+      <h2 class="m-0 mb-2" id="name">Smile Face</h2>
+      <p class="m-1">End in: <b class="text-danger">10m</b></p>
+      <p class="m-1">Current: <b class="text-info" id="current">100$</b></p>
+      <p class="m-1" id="cap">Deal: 200$</p>
+      <p class="m-1" id="holder">Bidder: Derek Zohar (9.6 Rated)</p>
+      <p class="m-1" id="bids">Bids: 69 Times</p>
+      <p class="m-1">Start: 12/01/2019</p>
+      <div class="row m-0">
+        <input class="col-9 col-md-6" type="text" placeholder="$" id="offer">
+        <button class="col-3" style="background-color: lightcyan; border-radius: 15px; width: 50px;"
+          onclick="Bid()">Bid</button>
+      </div>
+    </div>
+    <div class="col-5 col-md-3 col-sm-5 m-0 border">
+      <h4 style="margin: 0;">Seller Information</h4>
+      <a class="text-primary" href="/seller-profile">Erod Nelps (9.3 Rated)</a>
+      <p><small>96.69% Positive feedback</small></p>
+      <hr style="border: 0.1px solid slategray;border-style:dashed;">
+      <a>Save This Seller</a>
+      <a class="d-block text-primary" href="">Contact Seller</a>
+      <a class="d-block text-primary" href="">Visit Store</a>
+      <a class="d-block text-primary" href="">See other Items</a>
+    </div>
+  </div>
+
+  <div class="container-xl m-auto bg-white border" style="border-radius: 25px;">
+    <h3>Description</h3>
+    <p>The Mona Lisa might have the most iconic smile in history, but one could argue the yellow smiley face comes
+      pretty close.
+
+      What began as an unusual assignment for graphic designer Harvey Ball eventually turned into a world-famous symbol
+      of happiness. In fact, the smiley face can trace its modest origins back to an insurance company in Worcester,
+      Massachusetts in 1963. (Did you know Post-It notes were invented by accident, too?)
+
+      After a series of tough transitions, the company’s employees struggled to maintain a cheery workplace. So, the
+      company hired Ball in the hopes that he would design an image to boost morale. (By the way, science has confirmed
+      some pretty convincing reasons to smile more.) In just 10 minutes, Ball drew a simple, smiling face on a yellow
+      background. The price for his genius masterpiece? Only $45.
+
+      At first, the company simply printed the face on buttons and posters to give to its employees. But the image
+      quickly gained popularity, and yellow smiley faces started popping up on everything from greeting cards to
+      T-shirts to stickers. Neither Ball nor the insurance company trademarked the soon-to-be iconic design.
+
+      “The simple yellow smiley face created in 1963 (probably) has led to tens of thousands of variations and has
+      appeared on everything from pillows and posters to perfume and pop art,” according to the Smithsonian. “Its
+      meaning has changed with social and cultural values: from the optimistic message of a 1960s insurance company, to
+      commercialized logo, to an ironic fashion statement, to a symbol of rave culture imprinted on ecstasy pills, to a
+      wordless expression of emotions in text messages.”
+
+      Over time, many legal battles ensued over who could truly claim ownership over the legendary design. (At one
+      point, even Walmart got involved!) But it’s still widely accepted that Ball was the first to invent the iconic
+      yellow smiley face.
+
+      Regardless of its origins, one thing is clear. While initially intended to cheer up a small company in
+      Massachusetts, the smiley face’s positive message now reaches across the world.</p>
+  </div>
+
+  <div class="container-xl m-auto bg-white">
+    <h4 class="m-0 font-italic">Related</h4>
+    <hr class="m-0">
+    <div class="row">
+      <div class="col-4 col-sm-3 col-lg-2">
+        <a href="/detail">
+          <img src="/assets/img/happy.png" class="rounded img-fluid m-1" alt="smile">
+          <h5 class="text-center">Happy Face</h5>
+          <p class="text-center m-0">Erod Nelps</p>
+          <div class="clearfix">
+            <p class="float-left m-0">200$</p>
+            <p class="float-right m-0">69 Bids</p>
+          </div>
+          <div class="clearfix">
+            <p class="float-left m-0">12/1/2019</p>
+            <p class="float-right text-danger m-0">13d</p>
+          </div>
+          <p class="text-center text-info font-weight-bold">101$</p>
+        </a>
+      </div>
+      <div class="col-4 col-sm-3 col-lg-2">
+        <a href="/detail">
+          <img src="/assets/img/thinking.png" class="rounded img-fluid m-1" alt="smile">
+          <h5 class="text-center">Thinking Face</h5>
+          <p class="text-center m-0">Erod Nelps</p>
+          <div class="clearfix">
+            <p class="float-left m-0">200$</p>
+            <p class="float-right m-0">96 Bids</p>
+          </div>
+          <div class="clearfix">
+            <p class="float-left m-0">12/1/2019</p>
+            <p class="float-right text-danger m-0">15m</p>
+          </div>
+          <p class="text-center text-info font-weight-bold">103$</p>
+        </a>
+      </div>
+      <div class="col-4 col-sm-3 col-lg-2">
+        <a href="/detail">
+          <img src="/assets/img/happy.png" class="rounded img-fluid m-1" alt="smile">
+          <h5 class="text-center">Happy Face</h5>
+          <p class="text-center m-0">Erod Nelps</p>
+          <div class="clearfix">
+            <p class="float-left m-0">200$</p>
+            <p class="float-right m-0">22 Bids</p>
+          </div>
+          <div class="clearfix">
+            <p class="float-left m-0">12/1/2019</p>
+            <p class="float-right text-danger m-0">12h</p>
+          </div>
+          <p class="text-center text-info font-weight-bold">99$</p>
+        </a>
+      </div>
+      <div class="col-4 col-sm-3 col-lg-2">
+        <a href="/detail">
+          <img src="/assets/img/crying.png" class="rounded img-fluid m-1" alt="smile">
+          <h5 class="text-center">Crying Face</h5>
+          <p class="text-center m-0">Erod Nelps</p>
+          <div class="clearfix">
+            <p class="float-left m-0">200$</p>
+            <p class="float-right m-0">33 Bids</p>
+          </div>
+          <div class="clearfix">
+            <p class="float-left m-0">12/1/2019</p>
+            <p class="float-right text-danger m-0">18h</p>
+          </div>
+          <p class="text-center text-info font-weight-bold">102$</p>
+        </a>
+      </div>
+      <div class="col-4 col-sm-3 col-lg-2">
+        <a href="/detail">
+          <img src="/assets/img/smile.png" class="rounded img-fluid m-1" alt="smile">
+          <h5 class="text-center">Smile Face</h5>
+          <p class="text-center m-0">Erod Nelps</p>
+          <div class="clearfix">
+            <p class="float-left m-0">200$</p>
+            <p class="float-right m-0">74 Bids</p>
+          </div>
+          <div class="clearfix">
+            <p class="float-left m-0">12/1/2019</p>
+            <p class="float-right text-danger m-0">16d</p>
+          </div>
+          <p class="text-center text-info font-weight-bold">101$</p>
+        </a>
+      </div>
+    </div>
+  </div>
+</main>
+  <script src="/assets/js/DetailsLoader.js"></script>
+  <script src="/assets/js/ImageHandler.js"></script>
+  <script src="/assets/js/Bid.js"></script>
