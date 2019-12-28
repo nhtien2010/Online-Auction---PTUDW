@@ -1,5 +1,4 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top">
-
     <div class="d-flex flex-grow-1">
         <a class="navbar-brand" href="/"><i class="fa fa-legal"></i> Online Auction</a>
     </div>
@@ -18,42 +17,22 @@
                         role="button" id="dropdownCategory" data-toggle="dropdown" aria-haspopup="true"
                         aria-expanded="false">Category</a>
                     <ul class="dropdown-menu mt-2" role="menu" aria-labelledby="dropdownCategory">
+                        {{#each category}}
+                        {{#unless parent}}
                         <li class="dropdown-item dropdown-submenu">
-                            <a href="/search">Continent</a>
+                            <a href="/search/category/{{id}}">{{name}}</a>
+                            {{#if (root ../category id)}}
                             <ul class="dropdown-menu">
-                                <li class="dropdown-item"><a href="/search">Plain</a></li>
-                                <li class="dropdown-item"><a href="/search">Mountain</a></li>
-                                <li class="dropdown-item"><a href="/search">Valley</a></li>
-                                <li class="dropdown-item"><a href="/search">Forest</a></li>
+                                {{#each ../category}}
+                                {{#if (equal ../id parent)}}
+                                <li class="dropdown-item"><a href="/search/category/{{id}}">{{name}}</a></li>
+                                {{/if}}
+                                {{/each}}
                             </ul>
+                            {{/if}}
                         </li>
-                        <li class="dropdown-item dropdown-submenu">
-                            <a href="/search">Ocean</a>
-                            <ul class="dropdown-menu">
-                                <li class="dropdown-item"><a href="/search">Surface Ocean</a></li>
-                                <li class="dropdown-item"><a href="/search">Deep Ocean</a></li>
-                                <li class="dropdown-item"><a href="/search">Seafloor Sediments</a></li>
-                            </ul>
-                        </li>
-                        <li class="dropdown-item dropdown-submenu">
-                            <a href="/search">Sky</a>
-                            <ul class="dropdown-menu">
-                                <li class="dropdown-item"><a href="/search">Troposphere</a></li>
-                                <li class="dropdown-item"><a href="/search">Stratosphere</a></li>
-                                <li class="dropdown-item"><a href="/search">Mesosphere</a></li>
-                                <li class="dropdown-item"><a href="/search">Thermosphere</a></li>
-                                <li class="dropdown-item"><a href="/search">Exosphere</a></li>
-                            </ul>
-                        </li>
-                        <li class="dropdown-item dropdown-submenu">
-                            <a href="/search">Space</a>
-                            <ul class="dropdown-menu">
-                                <li class="dropdown-item"><a href="/search">Star</a></li>
-                                <li class="dropdown-item"><a href="/search">Galaxy</a></li>
-                                <li class="dropdown-item"><a href="/search">Cosmos</a></li>
-                                <li class="dropdown-item"><a href="/search">Universe</a></li>
-                            </ul>
-                        </li>
+                        {{/unless}}
+                        {{/each}}
                     </ul>
                 </div>
             </li>
@@ -83,5 +62,4 @@
             </li>
         </ul>
     </div>
-
 </nav>
