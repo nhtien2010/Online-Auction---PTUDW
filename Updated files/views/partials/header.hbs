@@ -21,7 +21,6 @@
                         {{#unless parent}}
                         <li class="dropdown-item dropdown-submenu">
                             <a href="/search/category/{{id}}">{{name}}</a>
-                            {{#if (root ../category id)}}
                             <ul class="dropdown-menu">
                                 {{#each ../category}}
                                 {{#if (equal ../id parent)}}
@@ -29,7 +28,6 @@
                                 {{/if}}
                                 {{/each}}
                             </ul>
-                            {{/if}}
                         </li>
                         {{/unless}}
                         {{/each}}
@@ -39,9 +37,9 @@
         </ul>
     </div>
 
-    <form class="mr-2 my-auto w-100 d-inline-block order-1" action="/search">
+    <form class="mr-2 my-auto w-100 d-inline-block order-1" onsubmit="return Search()" id="searchform">
         <div class="input-group">
-            <input type="text" class="form-control border border-right-0" placeholder="Search..." name="search">
+            <input type="text" class="form-control border border-right-0" placeholder="Search..." id="search">
             <span class="input-group-append">
                 <button class="btn btn-outline-light border border-left-0" type="submit">
                     <i class="fa fa-search"></i>
@@ -63,3 +61,12 @@
         </ul>
     </div>
 </nav>
+<script>
+    function Search() {
+        var input = document.getElementById('search').value;
+        if (input) {
+            var url = '/search/product/' + input;
+            document.getElementById("searchform").setAttribute("action", url);
+        }
+    }
+</script>

@@ -33,7 +33,7 @@ function Sort() {
             else
                 second = parseInt(text);
 
-            return first - second;
+            return second - first;
         }
     });
 

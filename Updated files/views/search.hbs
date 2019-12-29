@@ -1,7 +1,14 @@
 <main>
   <ul class="list-group list-group-horizontal ml-2">
     <li><a class="text-primary" href="/"><small>Home</small></a></li>
-    <li><small>&gt; Search Results</small></li>
+    {{#if prepath}}
+    <li> <a class="text-primary" href="/search/category/{{prepath.id}}"><small>&gt; {{prepath.name}}</small></a></li>
+    {{/if}}
+    {{#if path}}
+    <li> <a class="text-primary" href="/search/category/{{path.id}}"><small>&gt; {{path.name}}</small></a></li>
+    {{else}}
+    <li> <a><small>&gt; Results</small></a></li>
+    {{/if}}
   </ul>
 
   <hr style="margin: 3px;border: 0.5px solid gray;margin-bottom: 5px;">
@@ -183,9 +190,9 @@
       <div class="row m-0 page">
         {{#each product}}
         <div class="col-4 col-sm-3 col-lg-2 product">
-          <a href="/detail">
+          <a href="/detail/{{id}}">
             <img src="{{image}}" class="rounded img-fluid m-1" alt="image">
-            <h5 class="text-center">{{name}} {{{new start end}}}</i></h5>
+            <h5 class="text-center">{{name}} {{{new start}}} {{#unless (equal status "bidding")}} <b>({{status}})</b> {{/unless}}</h5>
             {{#if info}}
             <p class="text-center m-0">{{info}}</p>
             {{else}}
@@ -198,7 +205,7 @@
             </div>
             <div class="clearfix">
               <p class="float-left m-0">{{{time start}}}</p>
-              <p class="float-right text-danger m-0">{{{remain start end}}}</p>
+              <p class="float-right text-danger m-0">{{{remain end}}}</p>
             </div>
             <p class="text-center text-info font-weight-bold">{{current}}$</p>
           </a>

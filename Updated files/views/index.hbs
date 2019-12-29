@@ -6,7 +6,6 @@
                 {{#unless parent}}
                 <li class="dropdown-item dropdown-submenu">
                     <a href="/search/category/{{id}}">{{name}}</a>
-                    {{#if (root ../category id)}}
                     <ul class="dropdown-menu">
                         {{#each ../category}}
                         {{#if (equal ../id parent)}}
@@ -14,7 +13,6 @@
                         {{/if}}
                         {{/each}}
                     </ul>
-                    {{/if}}
                 </li>
                 {{/unless}}
                 {{/each}}
@@ -34,9 +32,9 @@
         <div class="row justify-content-center">
             {{#each this.end}}
             <div class="col-4 col-sm-3 col-lg-2 product">
-                <a href="/detail">
+                <a href="/detail/{{id}}">
                     <img src="{{image}}" class="rounded img-fluid m-1" alt="image">
-                    <h5 class="text-center">{{name}} {{{new start end}}}</i></h5>
+                    <h5 class="text-center">{{name}} {{{new start}}}{{#unless (equal status "bidding")}} <b>({{status}})</b> {{/unless}}</i></h5>
                     <p class="text-center m-0">{{info}}</p>
                     <div class="clearfix">
                         <p class="float-left m-0">{{cap}}$</p>
@@ -44,7 +42,7 @@
                     </div>
                     <div class="clearfix">
                         <p class="float-left m-0">{{{time start}}}</p>
-                        <p class="float-right text-danger m-0">{{{remain start end}}}</p>
+                        <p class="float-right text-danger m-0">{{{remain end}}}</p>
                     </div>
                     <p class="text-center text-info font-weight-bold">{{current}}$</p>
                 </a>
@@ -61,9 +59,9 @@
         <div class="row justify-content-center">
             {{#each this.bid}}
             <div class="col-4 col-sm-3 col-lg-2 product">
-                <a href="/detail">
+                <a href="/detail/{{id}}">
                     <img src="{{image}}" class="rounded img-fluid m-1" alt="image">
-                    <h5 class="text-center">{{name}} {{{new start end}}}</h5>
+                    <h5 class="text-center">{{name}} {{{new start}}} {{#unless (equal status "bidding")}} <b>({{status}})</b> {{/unless}}</h5>
                     {{#if info }}
                         <p class="text-center m-0">{{info}}</p>
                     {{else}}
@@ -75,7 +73,7 @@
                     </div>
                     <div class="clearfix">
                         <p class="float-left m-0">{{{time start}}}</p>
-                        <p class="float-right text-danger m-0">{{{remain start end}}}</p>
+                        <p class="float-right text-danger m-0">{{{remain end}}}</p>
                     </div>
                     <p class="text-center text-info font-weight-bold">{{current}}$</p>
                 </a>
@@ -92,9 +90,9 @@
         <div class="row justify-content-center">
             {{#each this.price}}
             <div class="col-4 col-sm-3 col-lg-2 product">
-                <a href="/detail">
+                <a href="/detail//{{id}}">
                     <img src="{{image}}" class="rounded img-fluid m-1" alt="image">
-                    <h5 class="text-center">{{name}} {{{new start end}}}</h5>
+                    <h5 class="text-center">{{name}} {{{new start}}} {{#unless (equal status "bidding")}} <b>({{status}})</b> {{/unless}}</h5>
                     <p class="text-center m-0">{{info}}</p>
                     <div class="clearfix">
                         <p class="float-left m-0">{{cap}}$</p>
@@ -102,7 +100,7 @@
                     </div>
                     <div class="clearfix">
                         <p class="float-left m-0">{{{time start}}}</p>
-                        <p class="float-right text-danger m-0">{{{remain start end}}}</p>
+                        <p class="float-right text-danger m-0">{{{remain end}}}</p>
                     </div>
                     <p class="text-center text-info font-weight-bold">{{current}}$</p>
                 </a>

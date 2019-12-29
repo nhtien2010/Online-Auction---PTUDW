@@ -2,27 +2,27 @@ const moment = require('moment');
 
 var register = function (Handlebars) {
     var helpers = {
-        remain: function (start, end) {
-            if (moment(end).diff(start, 'days') > 0)
-                return moment(end).diff(start, 'days') + 'd';
-            else if (moment(end).diff(start, 'hours') > 0)
-                return moment(end).diff(start, 'hours') + 'h';
-            else if (moment(end).diff(start, 'minutes') > 0)
-                return moment(end).diff(start, 'minutes') + 'm';
-            else if (moment(end).diff(start, 'seconds') > 0)
-                return moment(end).diff(start, 'seconds') + 's';
+        remain: function (end) {
+            if (moment(end).diff(moment(), 'days') > 0)
+                return moment(end).diff(moment(), 'days') + 'd';
+            else if (moment(end).diff(moment(), 'hours') > 0)
+                return moment(end).diff(moment(), 'hours') + 'h';
+            else if (moment(end).diff(moment(), 'minutes') > 0)
+                return moment(end).diff(moment(), 'minutes') + 'm';
+            else if (moment(end).diff(moment(), 'seconds') > 0)
+                return moment(end).diff(moment(), 'seconds') + 's';
+            return "Expired";
         },
         time: function(time) {
-            time = moment(time.toString(), "eee mmm DD YYYY hh:mm:ss").format("YYYY/MM/DD");
+            time = moment(time).format("YYYY/MM/DD");
             return time;
         },
-        new: function (start, end) {
-            if(moment(end).diff(start, 'days') > 1)
-                return;
-            return "<i class='fa fa-rocket text-danger'></i>";
+        new: function (start) {
+            if(moment().diff(start, 'days') < 1)
+                return "<i class='fa fa-rocket text-danger'></i>";
         },
         equal: function (first, second) {
-            return first == second;
+            return first === second;
         },
         root: function (set, root) {
             for(var i = 0; i < set.length; i++) {
@@ -30,6 +30,11 @@ var register = function (Handlebars) {
                     return true;
             }
             return false;
+        },
+        disable: function(status) {
+            if(status == "bidding")
+                return;
+            return "disabled"
         }
     };
 
