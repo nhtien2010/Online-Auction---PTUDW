@@ -3,10 +3,8 @@ if(text)
     text = text.split('%40')[0];
 if(text)
     if(text === "admin")
-        document.location.href = "admin.html";
+        document.location.href = "/admin";
     else if(text === "bidder")
-        document.location.href = "bidder_1 - profile.html";
+        document.location.href = "/bidder-profile";
     else if(text === "seller")
-        document.location.href = "seller_1 - profile.html"
-
-window.history.replaceState({}, "Auction", "index.html");
+        document.location.href = "/seller-profile"
