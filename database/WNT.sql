@@ -146,6 +146,8 @@ CREATE TABLE `user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(45) NOT NULL,
   `rating` float DEFAULT NULL,
+  `email` varchar(45) default NULL,
+  `role` int default 0,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -156,7 +158,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'Erod Nelps',8.3),(2,'Derek Zohar',8.2),(3,'Lena',8.3);
+INSERT INTO `user` VALUES (1,'Erod Nelps',8.3, 'seller@gmail.com', 2),(2,'Derek Zohar',8.2,'bidder@gmail.com',1),(3,'Lena',8.3,'admin@gmail.com',3);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 
