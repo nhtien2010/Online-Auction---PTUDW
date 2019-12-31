@@ -1,0 +1,105 @@
+<main>
+  <ul class="list-group list-group-horizontal ml-2">
+    <li><a class="text-primary" href="/"><small>Home</small></a></li>
+    {{#if prepath}}
+    <li> <a class="text-primary" href="/search/category/{{prepath.id}}"><small> &gt; {{prepath.name}}</small></a></li>
+    {{/if}}
+    {{#if path}}
+    <li> <a class="text-primary" href="/search/category/{{path.id}}"><small> &gt; {{path.name}}</small></a></li>
+    {{/if}}
+  </ul>
+
+  <hr class="m-0">
+
+  <div class="mb-2 bg-white container-xl clearfix justify-content-center row mx-auto p-0">
+    <div class="col-10 col-md-4 col-sm-8 m-0 p-0">
+      <div>
+        <img class="w-100 img-thumbnail" id="mainimage" src="{{product.image}}">
+      </div>
+      <div class="row border m-0">
+        <div class="col-3 border p-0">
+          <img class="w-100" src="{{product.image}}" alt="1" onmouseover="ShowImage(this)" onmouseout="CloseImage()"
+            onclick="ViewImage(this)">
+        </div>
+        <div class="col-3 border p-0">
+          <img class="w-100" src="{{product.subimage1}}" alt="2" onmouseover="ShowImage(this)" onmouseout="CloseImage()"
+            onclick="ViewImage(this)">
+        </div>
+        <div class="col-3 border p-0">
+          <img class="w-100" src="{{product.subimage2}}" alt="3" onmouseover="ShowImage(this)" onmouseout="CloseImage()"
+            onclick="ViewImage(this)">
+        </div>
+        <div class="col-3 border p-0">
+          <img class="w-100" src="{{product.subimage3}}" alt="4" onmouseover="ShowImage(this)" onmouseout="CloseImage()"
+            onclick="ViewImage(this)">
+        </div>
+      </div>
+    </div>
+    <div class="col-7 col-md-5 col-sm-7 m-0">
+      {{#with product}}
+      <h2 class="m-0 mb-2" id="name">{{name}} {{{new start}}} {{#unless (equal status "bidding")}} <b>({{status}})</b> {{/unless}}</h2>
+      <p class="m-1">End in: <b class="text-danger">{{remain end}}</b></p>
+      <p class="m-1">Current: <b class="text-info" id="current">{{current}}$</b></p>
+      <p class="m-1" id="cap">Deal: {{cap}}$</p>
+      <p class="m-1" id="holder">Bidder: {{../holder.name}} ({{../holder.rating}} <i
+          class='fa fa-star text-warning'></i>)</p>
+      <p class="m-1" id="bids">Bids: {{bids}} Times</p>
+      <p class="m-1">Start: {{time start}}</p>
+      <div class="row m-0">
+        <input class="col-9 col-md-6" type="text" placeholder="$" id="offer" {{{disable status}}}>
+        <button class="col-3" style="background-color: lightcyan; border-radius: 15px; width: 50px;"
+          onclick="Bid()" {{disable status}}>Bid</button>
+      </div>
+      {{/with}}
+    </div>
+    <div class="col-5 col-md-3 col-sm-5 m-0 border">
+      <h4 style="margin: 0;">Seller Information</h4>
+      <a class="text-primary" href="/seller-profile">{{seller.name}} ({{seller.rating}} <i
+          class='fa fa-star text-warning'></i>)</a>
+      <p><small>96.69% Positive feedback</small></p>
+      <hr style="border: 0.1px solid slategray;border-style:dashed;">
+      <a class="d-block text-primary">Save This Seller</a>
+      <a class="d-block text-primary" href="">Contact Seller</a>
+      <a class="d-block text-primary" href="">Visit Store</a>
+      <a class="d-block text-primary" href="">See other Items</a>
+    </div>
+  </div>
+
+  <div class="container-xl mx-auto bg-white border" style="border-radius: 25px;">
+    <h3>Description</h3>
+    {{{product.description}}}
+  </div>
+
+  <div class="container-xl mx-auto bg-white mt-2">
+    <h4 class="m-0 font-italic">Related</h4>
+    <hr class="m-0">
+    <div class="row">
+      {{#each related}}
+      <div class="col-4 col-sm-3 col-lg-2 product">
+        <a href="/detail/{{id}}">
+          <img src="{{image}}" class="rounded img-fluid m-1" alt="image">
+          <h5 class="text-center">{{name}} {{{new start}}} {{#unless (equal status "bidding")}} <b>({{status}})</b> {{/unless}} </h5>
+          {{#if info}}
+          <p class="text-center m-0">{{info}}</p>
+          {{else}}
+          <p class="text-center m-0">&nbsp; &nbsp;</p>
+          {{/if}}
+
+          <div class="clearfix">
+            <p class="float-left m-0">{{cap}}$</p>
+            <p class="float-right m-0">{{bids}} Bids</p>
+          </div>
+          <div class="clearfix">
+            <p class="float-left m-0">{{{time start}}}</p>
+            <p class="float-right text-danger m-0">{{{remain end}}}</p>
+          </div>
+          <p class="text-center text-info font-weight-bold">{{current}}$</p>
+        </a>
+      </div>
+      {{/each}}
+    </div>
+  </div>
+</main>
+<script src="/assets/js/DetailsLoader.js"></script>
+<script src="/assets/js/ImageHandler.js"></script>
+<script src="/assets/js/Bid.js"></script>
