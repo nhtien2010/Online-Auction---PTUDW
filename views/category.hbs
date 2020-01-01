@@ -1,35 +1,65 @@
-<link rel="stylesheet" href="/assets/css/profile.css">
-<main>
-    <div class="search-category col-12 col-6-1">
-        <div class="search-category-name">
-            <div class="search-category-item col-4-1">
-                <div class="table-responsive d-lg-flex">
-                    <table class="table category">
-                        <thead>
-                            <tr></tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><a href="/category-info">Art</a></td>
-                                <td><a href="/category-info">Books</a></td>
-                                <td><a href="/category-info">Photos</a></td>
-                                <td><a href="/category-info">Coins</a></td>
-                            </tr>
-                            <tr>
-                                <td><a href="/category-info">Stamp</a></td>
-                                <td><a href="/category-info">Accessorise</a></td>
-                                <td><a href="/category-info">Cars</a></td>
-                                <td><a href="/category-info">Other</a></td>
-                            </tr>
 
-                        </tbody>
-                    </table>
+
+    <link rel="stylesheet" href="/assets/css/category.css">
+    
+
+    <main>
+      <div>
+        <div class="container-category">
+            <div class="row">
+              <div class="col-12">
+
+                <div>
+                  <a class="btn btn-outline-success" href="/category-add" role="button">
+                    <i class="fas fa-plus-circle" aria-hidden="true"></i>
+                    Add Category
+                  </a>
                 </div>
+
+                <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">Name</th>
+                      <th scope="col">Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">1</th>
+                      <td>Art</td>
+                      <td>
+                        <button type="button" class="btn btn-primary" name="btn-view-cat"><i class="far fa-eye"></i></button>
+                        <button type="button" class="btn btn-success" name="btn-edit-cat"><i class="fas fa-edit"></i></button>
+                      <button type="button" class="btn btn-danger" name="btn-remove-cat"><i class="far fa-trash-alt"></i></button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">2</th>
+                      <td>Ocean</td>
+                      <td>
+                        <button type="button" class="btn btn-primary" name="btn-view-cat"><i class="far fa-eye"></i></button>
+                        <button type="button" class="btn btn-success" name="btn-edit-cat"><i class="fas fa-edit"></i></button>
+                      <button type="button" class="btn btn-danger" name="btn-remove-cat"><i class="far fa-trash-alt"></i></button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">3</th>
+                      <td>Books</td>
+                      <td>
+                        <button type="button" class="btn btn-primary" name="btn-view-cat"><i class="far fa-eye"></i></button>
+                        <button type="button" class="btn btn-success" name="btn-edit-cat"><i class="fas fa-edit"></i></button>
+                      <button type="button" class="btn btn-danger" name="btn-remove-cat"><i class="far fa-trash-alt"></i></button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
-        </div>
-        <div class="text-center d-block category-ar-button"><button class="btn btn-primary add"
-                type="button">Add</button>
-            <div class="button-devider"></div><button class="btn btn-primary remove" type="button">Remove</button>
-        </div>
+          </div>
     </div>
-</main>
+    </main>
+    
+   
+
+    <script src="/assets/js/ad-category.js"></script>

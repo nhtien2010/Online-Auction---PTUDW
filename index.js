@@ -14,7 +14,19 @@ let hbs = expressHbs.create({
 app.engine('hbs', hbs.engine);
 app.set('view engine', 'hbs');
 
+//test
+app.get('/', (req, res) => {
+    res.render('index');
+});
+app.get('/:page', (req, res) => {
+    let page = req.params.page;
+    res.render(page,);
+});
+//
+
 require('./middlewares/routemiddleware')(app);
+
+
 
 app.set('port', process.env.PORT || 5000);
 app.listen(app.get('port'), () => {

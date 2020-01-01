@@ -17,5 +17,13 @@
     "handlebars-intl": "^1.1.2",
     "moment": "^2.24.0",
     "mysql": "^2.17.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nhtLeNa/Online-Auction---PTUDW.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nhtLeNa/Online-Auction---PTUDW/issues"
+  },
+  "homepage": "https://github.com/nhtLeNa/Online-Auction---PTUDW#readme"
 }
