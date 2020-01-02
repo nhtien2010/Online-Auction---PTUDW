@@ -36,7 +36,7 @@ router.get('/category/:id', async function (req, res) {
 
 })
 
-router.get('/product/:id', async function (req, res) {
+router.post('/product/:id', async function (req, res) {
     await productmodel.refresh();
     const product = await productmodel.search(req.params.id);
     const category = await categorymodel.all();
