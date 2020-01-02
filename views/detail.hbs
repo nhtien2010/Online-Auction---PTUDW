@@ -85,7 +85,7 @@
       <p class="m-1">End in: <b class="text-danger">{{remain end}}</b></p>
       <p class="m-1">Current: <b class="text-info" id="current">{{current}}$</b></p>
       <p class="m-1" id="cap">Deal: {{cap}}$</p>
-      <p class="m-1" id="holder">Bidder: {{../holder.name}} ({{../holder.rating}} <i
+      <p class="m-1" id="holder">Bidder: {{{masked ../holder.name}}} ({{../holder.rating}} <i
           class='fa fa-star text-warning'></i>)</p>
       <p class="m-1" id="bids">Bids: {{bids}} Times</p>
       <p class="m-1">Start: {{time start}}</p>
@@ -125,7 +125,7 @@
           <h5 class="text-center">{{name}} {{{new start}}} {{#unless (equal status "bidding")}} <b>({{status}})</b>
             {{/unless}} </h5>
           {{#if info}}
-          <p class="text-center m-0">{{info}}</p>
+          <p class="text-center m-0">{{{masked info}}}</p>
           {{else}}
           <p class="text-center m-0">&nbsp; &nbsp;</p>
           {{/if}}
