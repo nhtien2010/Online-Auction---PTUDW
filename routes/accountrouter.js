@@ -30,6 +30,12 @@ router.post('/login', async function (req, res) {
     res.redirect(url);
 });
 
+router.get('/logout', async function (req, res) {
+    req.session.authenticated = false;
+    req.session.user = null;
+    res.redirect(req.headers.referer);
+});
+
 router.get('/register', async function (req, res) {
     res.render('./register');
 });
