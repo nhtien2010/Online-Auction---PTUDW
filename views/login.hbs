@@ -1,6 +1,14 @@
 <link rel="stylesheet" href="/assets/css/login-screen.css">
 
 <main>
+  {{#if announce}}
+  <div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    {{announce}}
+  </div>
+  {{/if}}
   <div id="logreg-forms">
     <form class="form-signin" action="/">
       <h1 class="h3 mb-3 font-weight-normal" style="text-align: center"> Sign in</h1>

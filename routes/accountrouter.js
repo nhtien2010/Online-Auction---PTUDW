@@ -38,7 +38,8 @@ router.post('/register', async function (req, res) {
         await usermodel.add(entity);
     
          res.render('./login', {
-            category: category
+            category: category,
+            announce: "Signup complete! We've sent you a mail to confirm, please follow the link inside to active your account."
         });
     }else {
         res.render("./register", {
