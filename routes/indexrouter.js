@@ -2,6 +2,8 @@ const express = require('express');
 const productmodel = require('../models/productmodel');
 const usermodel = require('../models/usermodel');
 const bcrypt = require('bcryptjs');
+const configuration = require('../config/default.json');
+const mailgun = require('mailgun-js')({ apiKey: configuration.mailgun.api_key, domain: configuration.mailgun.domain });
 const router = express.Router();
 
 router.get('/', async function (req, res) {
@@ -66,7 +68,7 @@ router.get('/register', async function (req, res) {
 router.post('/register', async function (req, res) {
     var checking = await usermodel.check(req.body.register_email);
     if (checking.length == 0) {
-        const hash = bcrypt.hashSync(req.body.register_password, config.authentication.saltRounds);
+        const hash = bcrypt.hashSync(req.body.register_password, configuration.authentication.saltRounds);
         const entity = {
             name: req.body.register_name,
             email: req.body.register_email,
@@ -74,6 +76,15 @@ router.post('/register', async function (req, res) {
         }
 
         await usermodel.add(entity);
+
+        mailgun.validate(`${entity.email}`, function (err, body) {
+            if (body && body.is_valid) {
+                const confirmation = {
+                    type: "bidder"
+                }
+                user.update(confirmation, entity);
+            }
+        });
 
         res.render('./login', {
             announce: "Signup complete! We've sent you a mail to confirm, please follow the link inside to active your account."
