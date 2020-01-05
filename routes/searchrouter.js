@@ -7,7 +7,6 @@ const router = express.Router();
 router.get('/category/:id', async function (req, res) {
     await productmodel.refresh();
     const product = await productmodel.category(req.params.id);
-    const category = await categorymodel.all();
     const offset = config.pagination.limit;
     var quantity = parseInt(product.length / offset);
     const pages = [];
@@ -26,7 +25,6 @@ router.get('/category/:id', async function (req, res) {
         pages.pop();
 
     res.render('./search', {
-        category: category,
         product: product,
         pages: pages,
         offset: offset,
@@ -39,7 +37,6 @@ router.get('/category/:id', async function (req, res) {
 router.post('/product/:id', async function (req, res) {
     await productmodel.refresh();
     const product = await productmodel.search(req.params.id);
-    const category = await categorymodel.all();
     const offset = config.pagination.limit;
     var quantity = parseInt(product.length / offset);
     const pages = [];
@@ -54,7 +51,6 @@ router.post('/product/:id', async function (req, res) {
         pages.pop();
 
     res.render('./search', {
-        category: category,
         product: product,
         pages: pages,
         offset: offset

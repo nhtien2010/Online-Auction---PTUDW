@@ -1,16 +1,11 @@
 const express = require('express');
-const categorymodel = require('../models/categorymodel');
 const bcrypt = require('bcryptjs');
 const usermodel = require('../models/usermodel');
 const config = require('../config/default.json');
 const router = express.Router();
 
 router.get('/login', async function (req, res) {
-    var category = await categorymodel.all();
-
-    res.render('./login', {
-        category: category
-    });
+    res.render('./login');
 });
 
 router.post('/login', async function (req, res) {
@@ -36,15 +31,10 @@ router.post('/login', async function (req, res) {
 });
 
 router.get('/register', async function (req, res) {
-    var category = await categorymodel.all();
-
-    res.render('./register', {
-        category: category
-    });
+    res.render('./register');
 });
 
 router.post('/register', async function (req, res) {
-    var category = await categorymodel.all();
     var checking = await usermodel.check(req.body.register_email);
     if (checking.length == 0) {
         const hash = bcrypt.hashSync(req.body.register_password, config.authentication.saltRounds);
@@ -57,12 +47,10 @@ router.post('/register', async function (req, res) {
         await usermodel.add(entity);
 
         res.render('./login', {
-            category: category,
             announce: "Signup complete! We've sent you a mail to confirm, please follow the link inside to active your account."
         });
     } else {
         res.render("./register", {
-            category: category,
             name: req.body.register_name,
             email: req.body.register_email,
             password: req.body.register_password,
