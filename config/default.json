@@ -4,5 +4,9 @@
   },
   "authentication": {
     "saltRounds": 10
+  },
+  "mailgun": {
+    "api_key": "b4c7aa950aaa09492e025bd2d95e7819-6f4beb0a-08a092dc",
+    "doamin": "sandboxc768ecade3044f7dbdb40de7e5cb65dc.mailgun.org"
   }
 }
