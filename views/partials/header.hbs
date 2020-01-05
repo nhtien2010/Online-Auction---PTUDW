@@ -67,6 +67,8 @@
         if (input) {
             var url = '/search/product/' + input;
             document.getElementById("searchform").setAttribute("action", url);
+            return true;
         }
+        return false;
     }
 </script>

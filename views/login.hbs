@@ -23,7 +23,8 @@
     </form>
 
     <form action="/account/login" class="form-reset">
-      <input type="reset-email" name="resetEmail" class="form-control" placeholder="Email address" required="" autofocus="">
+      <input type="reset-email" name="resetEmail" class="form-control" placeholder="Email address" required=""
+        autofocus="">
       <button class="btn btn-primary btn-block" type="submit">Reset Password</button>
       <a href="/account/login" id="cancel_reset"><i class="fas fa-angle-left"></i> Back</a>
     </form>
@@ -52,5 +53,23 @@
     <br>
   </div>
 </main>
+
+<script>
+  var password = document.getElementsByName("register_password")[0];
+  var repeat = document.getElementsByName("register_repeatpassword")[0];
+
+  function ValidatePassword() {
+    if (repeat.value == "") {
+      repeat.setCustomValidity("Please fill out this field.");
+    }
+    if (password.value != repeat.value) {
+      repeat.setCustomValidity("Passwords don't match");
+    } else {
+      repeat.setCustomValidity('');
+    }
+  }
+  password.onchange = ValidatePassword;
+  repeat.onkeyup = ValidatePassword;
+</script>
 
 <script src="/assets/js/login-screen.js"></script>
