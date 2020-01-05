@@ -7,18 +7,37 @@ const router = express.Router();
 
 router.get('/login', async function (req, res) {
     var category = await categorymodel.all();
-    
+
     res.render('./login', {
         category: category
     });
 });
 
 router.post('/login', async function (req, res) {
+    var user = await usermodel.check(req.body.email);
+    user = user[0];
+    if (user == undefined)
+        return res.render('./login', {
+            announce: 'Invalid username or password.'
+        });
+
+    const rs = bcrypt.compareSync(req.body.password, user.password);
+    if (rs === false)
+        return res.render('./login', {
+            announce: 'Invalid username or password.'
+        });
+
+    delete user.password;
+    req.session.authenticated = true;
+    req.session.user = user;
+
+    const url = req.query.retUrl || '/';
+    res.redirect(url);
 });
 
 router.get('/register', async function (req, res) {
     var category = await categorymodel.all();
-    
+
     res.render('./register', {
         category: category
     });
@@ -27,21 +46,21 @@ router.get('/register', async function (req, res) {
 router.post('/register', async function (req, res) {
     var category = await categorymodel.all();
     var checking = await usermodel.check(req.body.register_email);
-    if(checking.length == 0) {
+    if (checking.length == 0) {
         const hash = bcrypt.hashSync(req.body.register_password, config.authentication.saltRounds);
         const entity = {
-          name: req.body.register_name,
-          email: req.body.register_email,
-          password: hash
+            name: req.body.register_name,
+            email: req.body.register_email,
+            password: hash
         }
-    
+
         await usermodel.add(entity);
-    
-         res.render('./login', {
+
+        res.render('./login', {
             category: category,
             announce: "Signup complete! We've sent you a mail to confirm, please follow the link inside to active your account."
         });
-    }else {
+    } else {
         res.render("./register", {
             category: category,
             name: req.body.register_name,
@@ -51,6 +70,6 @@ router.post('/register', async function (req, res) {
             error: "This email address is already being used!"
         });
     }
-  })
+})
 
 module.exports = router;
