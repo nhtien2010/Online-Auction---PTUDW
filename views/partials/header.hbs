@@ -59,22 +59,22 @@
                         {{#if (equal session.user.type "admin")}}
                             <a class="dropdown-item" role="presentation" href="/account/admin">My Profile</a>
                             <a class="dropdown-item" role="presentation" href="/">Homepage</a>
-                            <a class="dropdown-item" role="presentation" href="/account/logout">Sign out</a>
+                            <a class="dropdown-item" role="presentation" href="/logout">Sign out</a>
                         {{else}}
                             {{#if (equal session.user.type "bidder")}}
-                                <a class="dropdown-item" role="presentation" href="/account/bidder/{{session.user.id}}">My
+                                <a class="dropdown-item" role="presentation" href="/account/bidder">My
                                     Profile</a>
-                                <a class="dropdown-item" role="presentation" href="/account/logout">Sign out</a>
+                                <a class="dropdown-item" role="presentation" href="/logout">Sign out</a>
                             {{else}}
                                 {{#if (equal session.user.type "seller")}}
-                                    <a class="dropdown-item" role="presentation" href="/account/seller/{{session.user.id}}">My
+                                    <a class="dropdown-item" role="presentation" href="/account/seller">My
                                         Profile</a>
-                                    <a class="dropdown-item" role="presentation" href="/account/logout">Sign out</a>
+                                    <a class="dropdown-item" role="presentation" href="/logout">Sign out</a>
                                 {{/if}}      
                             {{/if}}
                         {{/if}}
                     {{else}}
-                    <a class="dropdown-item" role="presentation" href="/account/login">Sign in</a>
+                    <a class="dropdown-item" role="presentation" href="/login">Sign in</a>
                     {{/if}}
                 </div>
             </li>
