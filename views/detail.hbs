@@ -1,5 +1,6 @@
 <style>
-  .carousel-indicators li, .carousel-indicators li.active {
+  .carousel-indicators li,
+  .carousel-indicators li.active {
     position: relative;
   }
 
@@ -42,13 +43,13 @@
             <img src="{{product.image}}" alt="Main">
           </li>
           <li data-target="#demo" data-slide-to="1" class="w-25">
-          <img src="{{product.subimage1}}" alt="First">
+            <img src="{{product.subimage1}}" alt="First">
           </li>
           <li data-target="#demo" data-slide-to="2" class="w-25">
-          <img src="{{product.subimage2}}" alt="Second">
+            <img src="{{product.subimage2}}" alt="Second">
           </li>
           <li data-target="#demo" data-slide-to="3" class="w-25">
-          <img src="{{product.subimage3}}" alt="Third">
+            <img src="{{product.subimage3}}" alt="Third">
           </li>
         </ul>
         <div class="carousel-inner p-0">
@@ -90,11 +91,14 @@
           class='fa fa-star text-warning'></i>)</p>
       <p class="m-1" id="bids">Bids: {{bids}} Times</p>
       <p class="m-1">Start: {{time start}}</p>
-      <div class="row m-0">
+      {{#if ../session.authenticated}}
+      <form class="row m-0" method="POST">
         <input class="col-9 col-md-6" type="text" placeholder="$" id="offer" {{{disable status}}}>
         <button class="col-3" style="background-color: lightcyan; border-radius: 15px; width: 50px;" onclick="Bid()"
-          {{disable status}}>Bid</button>
-      </div>
+          {{{disable status}}}>Bid
+        </button>
+      </form>
+      {{/if}}
       {{/with}}
     </div>
     <div class="col-5 col-md-3 col-sm-5 m-0 border-left">

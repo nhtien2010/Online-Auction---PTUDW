@@ -37,7 +37,7 @@ var register = function (Handlebars) {
             return "disabled"
         },
         masked: function(name) {
-            var result = name.toString();
+            var result = String(name);
             var length = parseInt(result.length * 0.8);
             var target = result.substring(0, length);
             var replacer = "";

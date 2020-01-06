@@ -7,7 +7,7 @@ module.exports = function (app) {
     secret: 'keyboard cat',
     resave: false,
     saveUninitialized: true,
-    cookie: { secure: true },
+    cookie: { secure: false, maxAge: 3600000},
     store: new MySQLStore({
       connectionLimit: 100,
       host: 'localhost',
