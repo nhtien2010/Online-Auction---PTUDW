@@ -1,7 +1,7 @@
 const db = require('../utils/db');
 
 module.exports = {
-    end: _ => (db.select("select * from product where status = 'bidding' order by timediff(end, start) asc limit 5")),
+    end: _ => (db.select("select * from product where status = 'bidding' order by end asc limit 5")),
     price: _ => db.select("select * from product where status = 'bidding' order by current desc limit 5"),
     bid: _ => db.select("select * from product where status = 'bidding' order by bids desc limit 5"),
     category: category => db.select(`select distinct product.* from product, category where product.category = category.id and (category.id = ${category} or category.parent = ${category})`),

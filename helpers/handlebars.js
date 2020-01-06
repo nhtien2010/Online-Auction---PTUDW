@@ -35,6 +35,18 @@ var register = function (Handlebars) {
             if(status == "bidding")
                 return;
             return "disabled"
+        },
+        masked: function(name) {
+            var result = String(name);
+            var length = parseInt(result.length * 0.8);
+            var target = result.substring(0, length);
+            var replacer = "";
+            for(var i = 0; i < length; i++)
+                replacer += '*';
+
+            result = result.replace(target, replacer);
+
+            return result;
         }
     };
 

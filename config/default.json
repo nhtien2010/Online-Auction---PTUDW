@@ -1,5 +1,14 @@
 {
-    "pagination": {
-      "limit": 24
-    }
+  "pagination": {
+    "limit": 24
+  },
+  "authentication": {
+    "saltRounds": 10
+  },
+  "mailgun": {
+    "api_keyI": "c8deed913",
+    "api_keyII": "446b49-6f4beb0a",
+    "api_keyIII": "60325d0f2b6d87f1c",
+    "domain": "sandbox6bd31a4d571e4ae5b54adec91aacb820.mailgun.org"
   }
+}
