@@ -47,4 +47,8 @@ router.get('/active/:id', async function (req, res) {
     res.render("./accept");
 });
 
+router.get('/reminder', async function (req, res) {
+    res.render("./reminder");
+});
+
 module.exports = router;

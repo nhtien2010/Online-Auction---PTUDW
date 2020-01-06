@@ -11,7 +11,7 @@ router.get('/', async function (req, res) {
     var end = await productmodel.end();
     var price = await productmodel.price();
     var bid = await productmodel.bid();
-    
+
     res.render('./', {
         end: end,
         price: price,
@@ -47,10 +47,14 @@ router.post('/login', async function (req, res) {
     const url = req.session.previous;
     delete req.session.previous;
 
-    if (user.type == "admin")
-        res.redirect("/account/admin");
+    if (user.type == null)
+        return res.redirect("/account/reminder");
 
-    res.redirect(url);
+    else if (user.type == "admin")
+        return res.redirect("/account/admin");
+
+    else
+        return res.redirect(url);
 });
 
 router.get('/logout', async function (req, res) {
