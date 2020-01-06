@@ -24,4 +24,16 @@ router.get('/seller', async function (req, res) {
     res.render("./seller-profile");
 });
 
+router.get('/active/:id', async function (req, res) {
+    var user = await usermodel.id(req.params.id);
+    user = user[0];
+    if (!user || user.type != null)
+        return res.status(404);
+    
+    req.session.authenticated = true;
+    req.session.user = user;
+
+    res.render("./accept");
+});
+
 module.exports = router;

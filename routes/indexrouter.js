@@ -3,7 +3,7 @@ const productmodel = require('../models/productmodel');
 const usermodel = require('../models/usermodel');
 const bcrypt = require('bcryptjs');
 const configuration = require('../config/default.json');
-const mailgun = require('mailgun-js')({ apiKey: configuration.mailgun.api_key, domain: configuration.mailgun.domain });
+const mailgun = require('mailgun-js')({ apiKey: configuration.mailgun.api_keyI + configuration.mailgun.api_keyIII + configuration.mailgun.api_keyII + "-3cac0f9b", domain: configuration.mailgun.domain });
 const router = express.Router();
 
 router.get('/', async function (req, res) {
@@ -76,15 +76,16 @@ router.post('/register', async function (req, res) {
         }
 
         await usermodel.add(entity);
+        var user = await usermodel.check(entity.email);
+        user = user[0];
+        const data = {
+            from: 'Web Nerdy Team <Zerd@WNT.com>',
+            to: 'fourthzerd@gmail.com',
+            subject: 'Online Auction',
+            text: `Hi,\nThanks for joining WNT Online Auction! Please confirm your email address by clicking on the link below. We'll communicate with you from time to time via email so it's important that we have an up-to-date email address on file.\nhttp://localhost:5000/account/active/${user.id}\nIf you did not sign up for a WNT account please disregard this email.\nHappy emailing!\nAdministrators`
+        };
 
-        mailgun.validate(`${entity.email}`, function (err, body) {
-            if (body && body.is_valid) {
-                const confirmation = {
-                    type: "bidder"
-                }
-                user.update(confirmation, entity);
-            }
-        });
+        mailgun.messages().send(data);
 
         res.render('./login', {
             announce: "Signup complete! We've sent you a mail to confirm, please follow the link inside to active your account."
@@ -99,5 +100,9 @@ router.post('/register', async function (req, res) {
         });
     }
 })
+
+router.get('/:page', async function (req, res) {
+    res.render('./404');
+});
 
 module.exports = router;
