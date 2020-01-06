@@ -1,22 +1,9 @@
 <style>
-    * {
-        padding: 0;
-        margin: 0;
-        box-sizing: border-box;
-    }
-
-    *::before,
-    *::after {
-        content: '';
-        position: absolute;
-    }
-
     body {
         background: #1B0034;
         background-image: linear-gradient(135deg, #1B0034 10%, #33265C 100%);
         background-attachment: fixed;
         background-size: cover;
-
     }
 
     .error {
@@ -184,8 +171,6 @@
 
     }
 
-
-
     /* page-ms */
     .page-ms {
         transform: translateY(-50px);
@@ -199,7 +184,7 @@
         margin-bottom: 20px;
     }
 
-    button.go-back {
+    .go-back {
         font-size: 30px;
         font-family: 'Combo', cursive;
         border: none;
@@ -214,7 +199,7 @@
         margin-top: 20px;
     }
 
-    button:hover {
+    .go-back:hover {
         box-shadow: 0 0 20px 0 #C0D7DD;
     }
 </style>
@@ -239,7 +224,7 @@
 
             <div class="page-ms">
                 <p class="page-msg"> Oops, the page you're looking for Disappeared </p>
-                <button class="go-back">Go Back</button>
+                <a href="/"><button class="go-back">Go Back</button></a>
             </div>
         </div>
     </div>

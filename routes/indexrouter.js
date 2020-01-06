@@ -11,7 +11,7 @@ router.get('/', async function (req, res) {
     var end = await productmodel.end();
     var price = await productmodel.price();
     var bid = await productmodel.bid();
-
+    
     res.render('./', {
         end: end,
         price: price,
@@ -56,8 +56,9 @@ router.post('/login', async function (req, res) {
 router.get('/logout', async function (req, res) {
     req.session.authenticated = false;
     req.session.user = null;
-    if (req.headers.referer.indexOf("account") != -1)
-        return res.redirect("/");
+    if (req.header.referer)
+        if (req.headers.referer.indexOf("account") != -1)
+            return res.redirect("/");
     res.redirect(req.headers.referer);
 });
 
@@ -101,7 +102,7 @@ router.post('/register', async function (req, res) {
     }
 })
 
-router.get('/:page', async function (req, res) {
+router.get('/404', async function (req, res) {
     res.render('./404');
 });
 
