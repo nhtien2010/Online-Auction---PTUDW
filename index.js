@@ -1,10 +1,11 @@
 let express = require('express');
 let app = express();
 
-app.use(express.static(__dirname + '/public'));
 app.use(express.urlencoded({
-    extended:true
-}));
+    extended: true
+  }));
+
+app.use(express.static(__dirname + '/public'));
 
 let expressHbs = require('express-handlebars');
 let hbs = expressHbs.create({
@@ -17,6 +18,8 @@ let hbs = expressHbs.create({
 app.engine('hbs', hbs.engine);
 app.set('view engine', 'hbs');
 
+require('./middlewares/sessionmiddleware')(app);
+require('./middlewares/localsmiddleware')(app);
 require('./middlewares/routemiddleware')(app);
 
 app.set('port', process.env.PORT || 5000);
