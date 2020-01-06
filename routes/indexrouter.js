@@ -18,4 +18,10 @@ router.get('/', async function (req, res) {
     });
 });
 
+// wrong header
+router.get('/login', async function (req, res) {    
+    res.render('./login', {
+    });
+});
+
 module.exports = router;

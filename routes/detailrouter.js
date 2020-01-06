@@ -7,6 +7,7 @@ const router = express.Router();
 router.get('/:id', async function (req, res) {
     await productmodel.refresh();
     var category = await categorymodel.all();
+    console.log(category);
     var product = await productmodel.detail(req.params.id);
     product = product[0];
     var related = await productmodel.related(product.category);
