@@ -1,97 +1,49 @@
-
     <link rel="stylesheet" href="/assets/css/category.css">
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
-    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
-    <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
-    <link rel="stylesheet" href="assets/css/Contact-Form-v2-Modal--Full-with-Google-Map.css">
-    <link rel="stylesheet" href="assets/css/Login-Form-Dark-1.css">
-    <link rel="stylesheet" href="assets/css/Login-Form-Dark.css">
-    <link rel="stylesheet" href="assets/css/login-screen.css">
-    <link rel="stylesheet" href="assets/css/Navbar-with-menu-and-login-1.css">
-    <link rel="stylesheet" href="assets/css/Navbar-with-menu-and-login.css">
-    <link rel="stylesheet" href="assets/css/Navigation-Clean-1.css">
-    <link rel="stylesheet" href="assets/css/Navigation-Clean.css">
-    <link rel="stylesheet" href="assets/css/Navigation-with-Button-1.css">
-    <link rel="stylesheet" href="assets/css/Navigation-with-Button.css">
-    <link rel="stylesheet" href="assets/css/Navigation-with-Search-1.css">
-    <link rel="stylesheet" href="assets/css/Navigation-with-Search.css">
-    <link rel="stylesheet" href="assets/css/Profile-1.css">
-    <link rel="stylesheet" href="assets/css/Profile-Edit-Form-1.css">
-    <link rel="stylesheet" href="assets/css/Profile-Edit-Form.css">
-    <link rel="stylesheet" href="assets/css/Profile.css">
-    <link rel="stylesheet" href="assets/css/Projects-Horizontal-1.css">
-    <link rel="stylesheet" href="assets/css/Projects-Horizontal-2.css">
-    <link rel="stylesheet" href="assets/css/Projects-Horizontal-3.css">
-    <link rel="stylesheet" href="assets/css/Projects-Horizontal.css">
-    <link rel="stylesheet" href="assets/css/Registration-Form-with-Photo-1.css">
-    <link rel="stylesheet" href="assets/css/Registration-Form-with-Photo.css">
-    <link rel="stylesheet" href="assets/css/Simple-Slider-1.css">
-    <link rel="stylesheet" href="assets/css/Simple-Slider.css">
-    <link rel="stylesheet" href="assets/css/Footer-Dark.css">
-    <link rel="stylesheet" href="assets/css/Dropdown-submenu.css">
-    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
-    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
-    <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
-       
-
     <main>
-      <div>
+      <form method="POST">
         <div class="container-category">
             <div class="row">
               <div class="col-12">
 
                 <div>
-                  <a class="btn btn-outline-success" href="/category-add" role="button">
+                  <a class="btn btn-outline-success" href="category/category-add" role="button">
                     <i class="fas fa-plus-circle" aria-hidden="true"></i>
                     Add Category
                   </a>
                 </div>
 
-                <table class="table table-bordered">
+                <table class="table table-bordered table-striped " style="text-align: center;">
                   <thead>
                     <tr>
-                      <th scope="col">#</th>
+                      <th scope="col" style="width: 15%;">#</th>
                       <th scope="col">Name</th>
-                      <th scope="col">Action</th>
+                      <th scope="col" style="width: 25%;">Action</th>
                     </tr>
                   </thead>
                   <tbody>
+                    {{#each category}}
                     <tr>
-                      <th scope="row">1</th>
-                      <td>Art</td>
+                      <th scope="row">{{id}}</th>
+                      <td style="text-align: left;">{{name}}</td>
                       <td>
-                        <button type="button" class="btn btn-primary" name="btn-view-cat"><i class="far fa-eye"></i></button>
-                        <button type="button" class="btn btn-success" name="btn-edit-cat"><i class="fas fa-edit"></i></button>
-                      <button type="button" class="btn btn-danger" name="btn-remove-cat"><i class="far fa-trash-alt"></i></button>
+                        <a role="button" href="category/category-view/{{id}}" class="btn btn-primary" name="btn-view-cat"><i class="far fa-eye"></i></a>
+                        <a role="button" href="category/category-edit/{{id}}" class="btn btn-success" name="btn-edit-cat"><i class="fas fa-edit"></i></a>
+                        <button type="submit" class="btn btn-danger" name="btn-remove-cat"  formaction="category/del/{{id}}"><i class="far fa-trash-alt"></i></button>
+                      
                       </td>
                     </tr>
-                    <tr>
-                      <th scope="row">2</th>
-                      <td>Ocean</td>
-                      <td>
-                        <button type="button" class="btn btn-primary" name="btn-view-cat"><i class="far fa-eye"></i></button>
-                        <button type="button" class="btn btn-success" name="btn-edit-cat"><i class="fas fa-edit"></i></button>
-                      <button type="button" class="btn btn-danger" name="btn-remove-cat"><i class="far fa-trash-alt"></i></button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <th scope="row">3</th>
-                      <td>Books</td>
-                      <td>
-                        <button type="button" class="btn btn-primary" name="btn-view-cat"><i class="far fa-eye"></i></button>
-                        <button type="button" class="btn btn-success" name="btn-edit-cat"><i class="fas fa-edit"></i></button>
-                      <button type="button" class="btn btn-danger" name="btn-remove-cat"><i class="far fa-trash-alt"></i></button>
-                      </td>
-                    </tr>
+                    {{/each}}
+                   
                   </tbody>
                 </table>
               </div>
             </div>
           </div>
-    </div>
-    </main>
-    
-   
+      </form>
+    </main> 
 
-    <script src="/assets/js/ad-category.js"></script>
+    <script>
+      function Check(id){
+        alert('ssssssss');
+      }
+    </script>
