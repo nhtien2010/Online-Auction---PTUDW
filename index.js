@@ -6,6 +6,7 @@ app.use(express.urlencoded({
     extended:true
 }));
 
+
 let expressHbs = require('express-handlebars');
 let hbs = expressHbs.create({
     extname: 'hbs',
@@ -17,7 +18,24 @@ let hbs = expressHbs.create({
 app.engine('hbs', hbs.engine);
 app.set('view engine', 'hbs');
 
+<<<<<<< HEAD
+//test
+app.get('/', (req, res) => {
+    res.render('index');
+});
+app.get('/:page', (req, res) => {
+    let page = req.params.page;
+    res.render(page,);
+});
+//
+
+=======
+require('./middlewares/sessionmiddleware')(app);
+require('./middlewares/localsmiddleware')(app);
+>>>>>>> a1cf749ae8366674d5654c5f1e581d38db4429d8
 require('./middlewares/routemiddleware')(app);
+
+
 
 app.set('port', process.env.PORT || 5000);
 app.listen(app.get('port'), () => {
