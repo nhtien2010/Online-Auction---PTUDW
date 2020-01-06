@@ -96,7 +96,6 @@ router.get('/category-edit/:CatId',async function (req, res) {
         throw new Error('Invalid parameter');
     if(category.parent === null)
         category.parent = 'NULL';   
-
     //quantity of product which has selected category
     const quantity = await productmodel.countByCat(req.params.CatId);
 
@@ -109,10 +108,10 @@ router.get('/category-edit/:CatId',async function (req, res) {
         }
     }
     //
-    await productmodel.refresh();
-    var categories = await categorymodel.all();
+    // await productmodel.refresh();
+    const categories = await categorymodel.all();
     res.render('./category-edit', {
-        categories: categories,
+        categories,
         category,
         quantity,
         parent
@@ -121,4 +120,33 @@ router.get('/category-edit/:CatId',async function (req, res) {
 });
 
 //post
+router.post('/category-edit/:catid', async function(req, res){
+    const entity = {
+        id: req.body.txtCatId,
+        name: req.body.txtCatName,
+        parent: req.body.txtCatPar
+    }
+    if(entity.parent === '' || entity.parent===entity.id){
+        entity.parent = null;
+    }
+    console.log(entity.id);
+    console.log(entity.parent);
+    const rs = await categorymodel.update(entity);
+
+    res.redirect('/admin/category');
+})
+
+
+// delete category by id
+router.post('/del/:CatId',async function (req, res) {
+    const quantity = await productmodel.countByCat(req.params.CatId);   
+    var message = "Can not delete category contains product";
+    if(quantity === 0){
+        const rs = await categorymodel.delete(req.params.CatId);
+        message = "Category deleted";
+    }
+   
+    res.redirect('/admin/category');
+});
+
 module.exports = router;

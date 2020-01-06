@@ -1,5 +1,6 @@
     <link rel="stylesheet" href="/assets/css/category.css">
     <main>
+      <form method="POST">
         <div class="container-category">
             <div class="row">
               <div class="col-12">
@@ -27,7 +28,8 @@
                       <td>
                         <a role="button" href="category/category-view/{{id}}" class="btn btn-primary" name="btn-view-cat"><i class="far fa-eye"></i></a>
                         <a role="button" href="category/category-edit/{{id}}" class="btn btn-success" name="btn-edit-cat"><i class="fas fa-edit"></i></a>
-                        <button type="button" class="btn btn-danger" name="btn-remove-cat"><i class="far fa-trash-alt"></i></button>
+                        <button type="submit" class="btn btn-danger" name="btn-remove-cat"  formaction="category/del/{{id}}"><i class="far fa-trash-alt"></i></button>
+                      
                       </td>
                     </tr>
                     {{/each}}
@@ -37,5 +39,11 @@
               </div>
             </div>
           </div>
+      </form>
+    </main> 
 
-    </main>
+    <script>
+      function Check(id){
+        alert('ssssssss');
+      }
+    </script>

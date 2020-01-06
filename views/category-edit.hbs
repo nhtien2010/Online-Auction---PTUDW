@@ -7,13 +7,13 @@
         <div class="form-row">
                 <div class="form-group col-md-6">
                     <label>Name</label>
-                    <input  class="form-control" id="txtCatName" name="txtCatName" value={{this.category.name}} autofocus>
+                    <input  class="form-control" id="txtCatName" name="txtCatName" type="text" value="{{category.name}}" autofocus>
                 </div>
                 <div class="form-group col-md-6">
                     <label >Parent Category</label>
                     <select class="form-control" type="text" id="txtCatPar" name="txtCatPar">
-                        <option value={{parent.id}}>{{parent.name}}</option>
-                        {{#each this.categories}}
+                        <option value={{this.parent.id}}>{{this.parent.name}}</option>
+                        {{#each categories}}
                             <option value={{id}}>{{name}}</option>
                         {{/each}}
                     </select>
@@ -23,7 +23,7 @@
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label>ID</label>
-                <input  class="form-control" id="txtCatId" name="txtCatId" value={{this.category.id}}>
+                <input  class="form-control" id="txtCatId" name="txtCatId" value={{this.category.id}} readonly>
             </div>
 
             <div class="form-group col-md-6">
