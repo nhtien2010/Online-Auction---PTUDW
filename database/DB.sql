@@ -45,6 +45,57 @@ INSERT INTO `category` VALUES (1,'Continent',NULL),(2,'Ocean',NULL),(3,'Sky',NUL
 UNLOCK TABLES;
 
 --
+-- Table structure for table `ongoinglist`
+--
+
+DROP TABLE IF EXISTS `ongoinglist`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `ongoinglist` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `product_id` int(11) DEFAULT NULL,
+  UNIQUE KEY `id` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `ongoinglist`
+--
+
+LOCK TABLES `ongoinglist` WRITE;
+/*!40000 ALTER TABLE `ongoinglist` DISABLE KEYS */;
+/*!40000 ALTER TABLE `ongoinglist` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `participatinglist`
+--
+
+DROP TABLE IF EXISTS `participatinglist`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `participatinglist` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `product_id` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `participatinglist`
+--
+
+LOCK TABLES `participatinglist` WRITE;
+/*!40000 ALTER TABLE `participatinglist` DISABLE KEYS */;
+/*!40000 ALTER TABLE `participatinglist` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `product`
+--
+
+--
 -- Table structure for table `product`
 --
 
@@ -136,6 +187,30 @@ DELIMITER ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
 
 --
+-- Table structure for table `productimage`
+--
+
+DROP TABLE IF EXISTS `productimage`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `productimage` (
+  `id` int(11) NOT NULL,
+  `product_id` int(11) DEFAULT NULL,
+  `image` longtext NOT NULL,
+  UNIQUE KEY `id_UNIQUE` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `productimage`
+--
+
+LOCK TABLES `productimage` WRITE;
+/*!40000 ALTER TABLE `productimage` DISABLE KEYS */;
+/*!40000 ALTER TABLE `productimage` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `sessions`
 --
 
@@ -172,8 +247,9 @@ CREATE TABLE `user` (
   `name` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `type` varchar(45) DEFAULT NULL,
   `rating` float DEFAULT NULL,
+  `priviledge` char(6) NOT NULL DEFAULT 'bidder' COMMENT 'phân hệ người dùng (user classification)\\nmặc định: bidder',
+  `dob` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `email_UNIQUE` (`email`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -185,8 +261,55 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'Erod Nelps','erodnelps@gmail.com','$2a$10$PFlKvjXDXnF9xkgFCn8XEu02WSlIswunEqCPm6r9sjwweniDPTc/y','bidder',NULL),(2,'Derek Zohar','derekzohar@gmail.com','$2a$10$HLXCmxXJAziwS5I0RUIgSeyF4FgIedu4hoKtQZR1AN6z/M9qCv/L.','seller',NULL),(3,'Lena','lena@gmail.com','$2a$10$jZUexXSHXxLEKJQOT1yUD.1DR8v9LIE1JaXJaCXzA.j/0yAQqvIyO','admin',NULL);
+INSERT INTO `user` VALUES (1,'Erod Nelps','erodnelps@gmail.com','$2a$10$PFlKvjXDXnF9xkgFCn8XEu02WSlIswunEqCPm6r9sjwweniDPTc/y','bidder',NULL),(2,'Derek Zohar','derekzohar@gmail.com','$2a$10$HLXCmxXJAziwS5I0RUIgSeyF4FgIedu4hoKtQZR1AN6z/M9qCv/L.','seller', NULL),(3,'Lena','lena@gmail.com','$2a$10$jZUexXSHXxLEKJQOT1yUD.1DR8v9LIE1JaXJaCXzA.j/0yAQqvIyO','admin',NULL);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `watchlist`
+--
+
+DROP TABLE IF EXISTS `watchlist`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `watchlist` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `product_id` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `watchlist`
+--
+
+LOCK TABLES `watchlist` WRITE;
+/*!40000 ALTER TABLE `watchlist` DISABLE KEYS */;
+/*!40000 ALTER TABLE `watchlist` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `wonlist`
+--
+
+DROP TABLE IF EXISTS `wonlist`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `wonlist` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `product_id` int(11) DEFAULT NULL,
+  UNIQUE KEY `id` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `wonlist`
+--
+
+LOCK TABLES `wonlist` WRITE;
+/*!40000 ALTER TABLE `wonlist` DISABLE KEYS */;
+/*!40000 ALTER TABLE `wonlist` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --

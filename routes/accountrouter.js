@@ -10,18 +10,11 @@ router.get('/admin', async function (req, res) {
     res.render("./admin");
 });
 
-router.get('/bidder', async function (req, res) {
-    if (req.session.user.type != "bidder")
+router.get('/profile', async function (req, res) {
+    if (req.session.user.priviledge != "bidder" || req.session.user.priviledge != "seller")
         return res.redirect("/404");
 
-    res.render("./bidder-profile");
-});
-
-router.get('/seller', async function (req, res) {
-    if (req.session.user.type != "seller")
-        return res.redirect("/404");
-
-    res.render("./seller-profile");
+    res.render("./profile");
 });
 
 router.get('/active/:id', async function (req, res) {
@@ -31,7 +24,7 @@ router.get('/active/:id', async function (req, res) {
         return res.redirect("/404");
     
     const entity = {
-        type: "bidder"
+        priviledge: "bidder"
     }
     const condition = {
         id: user.id
