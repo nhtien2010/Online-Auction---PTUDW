@@ -17,12 +17,12 @@
                         role="button" id="dropdownCategory" data-toggle="dropdown" aria-haspopup="true"
                         aria-expanded="false">Category</a>
                     <ul class="dropdown-menu mt-2" role="menu" aria-labelledby="dropdownCategory">
-                        {{#each category}}
+                        {{#each categories}}
                         {{#unless parent}}
                         <li class="dropdown-item dropdown-submenu">
                             <a href="/search/category/{{id}}">{{name}}</a>
                             <ul class="dropdown-menu">
-                                {{#each ../category}}
+                                {{#each ../categories}}
                                 {{#if (equal ../id parent)}}
                                 <li class="dropdown-item"><a href="/search/category/{{id}}">{{name}}</a></li>
                                 {{/if}}
@@ -37,7 +37,7 @@
         </ul>
     </div>
 
-    <form class="mr-2 my-auto w-100 d-inline-block order-1" onsubmit="return Search()" id="searchform">
+    <form class="mr-2 my-auto w-100 d-inline-block order-1" onsubmit="return Search()" id="searchform" method="POST">
         <div class="input-group">
             <input type="text" class="form-control border border-right-0" placeholder="Search..." id="search">
             <span class="input-group-append">
@@ -55,18 +55,43 @@
                 <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false"
                     type="button"><i class="fas fa-user"></i></button>
                 <div class="dropdown-menu dropdown-menu-right" role="menu">
-                    <a class="dropdown-item" role="presentation" href="/login">Login</a>
+                    {{#if session.authenticated}}
+                    {{#if (equal session.user.type "admin")}}
+                    <a class="dropdown-item" role="presentation" href="/account/admin">My Profile</a>
+                    <a class="dropdown-item" role="presentation" href="/">Homepage</a>
+                    <a class="dropdown-item" role="presentation" href="/logout">Sign out</a>
+                    {{else}}
+                    {{#if (equal session.user.type "bidder")}}
+                    <a class="dropdown-item" role="presentation" href="/account/bidder">My
+                        Profile</a>
+                    <a class="dropdown-item" role="presentation" href="/logout">Sign out</a>
+                    {{else}}
+                    {{#if (equal session.user.type "seller")}}
+                    <a class="dropdown-item" role="presentation" href="/account/seller">My
+                        Profile</a>
+                    <a class="dropdown-item" role="presentation" href="/logout">Sign out</a>
+                    {{else}}
+                    <a class="dropdown-item" role="presentation" href="/logout">Sign out</a>
+                    {{/if}}
+                    {{/if}}
+                    {{/if}}
+                    {{else}}
+                    <a class="dropdown-item" role="presentation" href="/login">Sign in</a>
+                    {{/if}}
                 </div>
             </li>
         </ul>
     </div>
 </nav>
+
 <script>
     function Search() {
         var input = document.getElementById('search').value;
         if (input) {
             var url = '/search/product/' + input;
             document.getElementById("searchform").setAttribute("action", url);
+            return true;
         }
+        return false;
     }
 </script>

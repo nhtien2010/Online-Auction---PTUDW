@@ -194,7 +194,7 @@
             <img src="{{image}}" class="rounded img-fluid m-1" alt="image">
             <h5 class="text-center">{{name}} {{{new start}}} {{#unless (equal status "bidding")}} <b>({{status}})</b> {{/unless}}</h5>
             {{#if info}}
-            <p class="text-center m-0">{{info}}</p>
+            <p class="text-center m-0">{{{masked info}}}</p>
             {{else}}
             <p class="text-center m-0">&nbsp; &nbsp;</p>
             {{/if}}
