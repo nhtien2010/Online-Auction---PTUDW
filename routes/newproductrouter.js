@@ -5,7 +5,7 @@ const config = require('../config/default.json');
 
 const router = express.Router();
 
-router.get('/new-product', async function (req, res) {
+router.get('/user/new-product', async function (req, res) {
   res.render('./new-product');
 });
 
@@ -22,7 +22,7 @@ router.post('/new-product', async function (req, res) {
     status:'bidding'
   }
   const ret = await userModel.add(entity);
-  res.render('/register');
+  res.render('/profile/:id');
 })
 
 router.get('/is-available', async function (req, res) {

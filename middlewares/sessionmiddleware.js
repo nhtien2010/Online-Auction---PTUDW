@@ -13,7 +13,7 @@ module.exports = function (app) {
       host: 'localhost',
       port: 3306,
       user: 'root',
-      password: 'Fallenzerd4',
+      password: 'admin',
       database: 'auction',
       charset: 'utf8mb4_bin',
       schema: {
