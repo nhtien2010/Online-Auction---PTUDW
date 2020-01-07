@@ -1,5 +1,5 @@
-<link rel="stylesheet" href="/assets/css/profile.css">
-<link rel="stylesheet" href="/assets/css/projects-horizontal.css">
+<link rel="stylesheet" href="/public/assets/css/profile.css">
+<link rel="stylesheet" href="/public/assets/css/profile-edit-form.css">
 
 <main>
     <div href="/assets/css/Profile.css" class="container bootstrap snippets" style="margin-top:2%">
@@ -46,8 +46,8 @@
                                 <div class="profile-user-details-value">
                                     {{name}}
                                 </div>
-                                <button type="button" class="btn btn-primary edit-profile" data-toggle="modal"
-                                data-target="#fullnameModal"><i class="fa fa-pencil-square fa-lg"></i></button>
+                                <button id="nameBtn" type="button" class="btn btn-primary edit-profile" data-toggle="modal"
+                                data-target="#nameModal"><i class="fa fa-pencil-square fa-lg"></i></button>
                                 <div class="modal fade" id="nameModal" role="dialog">
                                     <div class="modal-dialog">
                                         <!-- Modal content-->
@@ -57,6 +57,13 @@
                                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                                             </div>
                                             <div class="modal-body">
+                                                <div class="row">
+                                                    <div class="col-md-12 alert-col relative">
+                                                        <div class="alert alert-info absolue center" role="alert"><button type="button" class="close"
+                                                            data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button><span>Profile save with
+                                                            success</span></div>
+                                                    </div>
+                                                </div>
                                                 New name:<br>
                                                 <input class="inputnewname" type="text" name="username"><br>
                                             </div>
@@ -74,9 +81,9 @@
                                 <div class="profile-user-details-value">
                                     {{email}}
                                 </div>
-                                <button type="button" class="btn btn-primary edit-profile" data-toggle="modal"
+                                <button id="emailBtn" type="button" class="btn btn-primary edit-profile" data-toggle="modal"
                                 data-target="#emailModal"><i class="fa fa-pencil-square fa-lg"></i></button>
-                                <div class="modal fade" id="nameModal" role="dialog">
+                                <div class="modal fade" id="emailModal" role="dialog">
                                     <div class="modal-dialog">
                                         <!-- Modal content-->
                                         <div class="modal-content">
@@ -85,6 +92,13 @@
                                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                                             </div>
                                             <div class="modal-body">
+                                                <div class="row">
+                                                    <div class="col-md-12 alert-col relative">
+                                                        <div class="alert alert-info absolue center" role="alert"><button type="button" class="close"
+                                                            data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button><span>Profile save with
+                                                            success</span></div>
+                                                    </div>
+                                                </div>
                                                 New email:<br>
                                                 <input class="inputnewname" type="text" name="username"><br>
                                             </div>
@@ -102,9 +116,9 @@
                                 <div class="profile-user-details-value">
                                     {{dob}}
                                 </div>
-                                <button type="button" class="btn btn-primary edit-profile" data-toggle="modal"
-                                data-target="#fullnameModal"><i class="fa fa-pencil-square fa-lg"></i></button>
-                                <div class="modal fade" id="nameModal" role="dialog">
+                                <button id="dobBtn" type="button" class="btn btn-primary edit-profile" data-toggle="modal"
+                                data-target="#dobModal"><i class="fa fa-pencil-square fa-lg"></i></button>
+                                <div class="modal fade" id="dobModal" role="dialog">
                                     <div class="modal-dialog">
                                         <!-- Modal content-->
                                         <div class="modal-content">
@@ -113,11 +127,23 @@
                                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                                             </div>
                                             <div class="modal-body">
+                                                <div class="row">
+                                                    <div class="col-md-12 alert-col relative">
+                                                        <div class="alert alert-info absolue center" role="alert"><button type="button" class="close"
+                                                            data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button><span>Profile save with
+                                                            success</span></div>
+                                                    </div>
+                                                </div>
                                                 Start date:<br>
                                                 <input type="date" id="dobInput" name="trip-start">
                                             </div>
                                             <div class="modal-footer">
-                                                <button type="button" class="btn btn-default" data-dismiss="modal">Save</button>
+                                                <div class="form-row">
+                                                    <div class="col-md-12 content-right">
+                                                        <button class="btn btn-primary form-btn" type="submit">Save</button>
+                                                        <button class="btn btn-danger form-btn" type="reset" data-dismiss="modal">Cancel</button>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -237,5 +263,5 @@
         </div>
     </div>
 </main>
-<script src="./assets/js/Profile-Edit-Form.js"></script>
-<script src="./assets/js/bidderViewList.js"></script>
+<script src="/public/assets/js/Profile-Edit-Form.js"></script>
+<script src="/public/assets/js/bidderViewList.js"></script>

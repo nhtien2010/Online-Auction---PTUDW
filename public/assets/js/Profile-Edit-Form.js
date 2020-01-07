@@ -68,18 +68,28 @@
     });
 })
 
-var modal = document.getElementById("myModal");
+var namemodal = document.getElementById('nameModal');
+var emailmodal = document.getElementById('emailModal');
+var dobmodal = document.getElementById('dobModal');
 
 // Get the button that opens the modal
-var btn = document.getElementById("myBtn");
+var namebtn = document.getElementById('nameBtn');
+var emailbtn = document.getElementById('emailBtn');
+var dobbtn = document.getElementById('dobBtn');
 
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
 
 // When the user clicks on the button, open the modal
-btn.onclick = function() {
+namebtn.onclick = function() {
   modal.style.display = "block";
-}
+};
+emailbtn.onclick = function() {
+    modal.style.display = "block";
+};
+dobbtn.onclick = function() {
+modal.style.display = "block";
+};
 
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() {
@@ -92,3 +102,17 @@ window.onclick = function(event) {
     modal.style.display = "none";
   }
 }
+
+var today = new Date();
+var dd = today.getDate();
+var mm = today.getMonth()+1; //January is 0!
+var yyyy = today.getFullYear();
+if(dd<10){
+        dd='0'+dd
+    } 
+    if(mm<10){
+        mm='0'+mm
+    } 
+today = yyyy+'-'+mm+'-'+dd;
+document.getElementById('dobInput').setAttribute("max", today);
+document.getElementById('dobInput').setAttribute("value", today);
