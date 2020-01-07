@@ -8,5 +8,9 @@ module.exports = {
     search: text => db.select(`select distinct * from product where match(name, description) against ('${text}' in natural language mode)`),
     detail: id => db.select(`select * from product where product.id = ${id}`),
     related: category => db.select(`select * from product where product.category = ${category} order by product.start desc limit 5`),
+    countByCat: async category => {
+        const row = await db.select( `select * from product where product.category = ${category}`);
+        return row.length;
+    },
     refresh: _ => db.refresh()
 };
