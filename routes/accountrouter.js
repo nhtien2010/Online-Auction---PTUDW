@@ -4,15 +4,15 @@ const config = require('../config/default.json');
 const router = express.Router();
 
 router.get('/admin', async function (req, res) {
-    if (req.session.user.type != "admin")
+    if (req.session.user.priviledge != "admin")
         return res.redirect("/404");
 
     res.render("./admin");
 });
 
 router.get('/profile', async function (req, res) {
-    if (req.session.user.priviledge != "bidder" || req.session.user.priviledge != "seller")
-        return res.redirect("/404");
+    // if (req.session.user.priviledge != "bidder" || req.session.user.priviledge != "seller")
+    //     return res.redirect("/404");
 
     res.render("./profile");
 });
