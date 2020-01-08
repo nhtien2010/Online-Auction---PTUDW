@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 /*official script*/
 
 CREATE DATABASE  IF NOT EXISTS `auction` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
@@ -230,3 +231,6 @@ DELIMITER ;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2020-01-06  3:23:36
+=======
+SELECT * FROM auction.user;
+>>>>>>> Stashed changes

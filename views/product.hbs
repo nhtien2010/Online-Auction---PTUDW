@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 <link rel="stylesheet" href="/assets/css/ad-product.css">
 
 <main>
@@ -37,4 +38,45 @@
         </div>
     </div>
     </form>
+=======
+<link rel="stylesheet" href="/assets/css/ad-product.css">
+
+<main>
+    <form method="POST">
+    <div class="product-table" style="padding: 10px;">
+        <div class="table table-bordered table-striped " style="text-align: center;">
+            <table class="table product-table" >
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Product</th>
+                        <th>Name</th>
+                        <th>Seller</th>
+                        <th>Start</th>
+                        <th>End</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody style="padding: 10px;">
+                    {{#each product}}
+                    <tr>
+                        <td>{{id}}</td>
+                        <td><a href="{{image}}"><img  class="ad-product-img" src="{{image}}"></a>
+                        </td>
+                        <td>{{name}}</td>
+                        <td>{{seller}}</td>
+                        <td>{{start}}</td>
+                        <td>{{end}}</td>
+                        <td>
+                             <button type="submit" class="btn btn-outline-danger" name="btn-remove"  formaction="product/del/{{id}}"><i class="far fa-trash-alt"></i></button>
+                            {{!-- <i role="button" href="product/del/{{id}}" class="btn btn-outline-danger" name="btn-del-prod"><i class=" fas fa-remove"></i></i> --}}
+                        </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    </form>
+>>>>>>> Stashed changes
 </main>
