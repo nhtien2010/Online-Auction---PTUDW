@@ -79,7 +79,12 @@
       <p class="m-1">Start: {{time start}}</p>
       {{#if ../session.authenticated}}
       <form class="row m-0" method="POST">
-        <input class="col-9 col-md-6" type="text" placeholder="$" id="offer" {{{disable status}}}>
+        <div class="custom-control custom-switch col-12">
+          <input type="checkbox" class="custom-control-input" name="mode" id="mode">
+          <label class="custom-control-label" for="mode">Automated bid</label>
+        </div>
+        <input class="col-9 col-md-6" type="text" placeholder="{{{sum current increment}}}$" name="offer"
+          {{{disable status}}}>
         <button class="col-3" style="background-color: lightcyan; border-radius: 15px; width: 50px;" onclick="Bid()"
           {{{disable status}}}>Bid
         </button>

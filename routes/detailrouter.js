@@ -41,4 +41,18 @@ router.get('/:id', async function (req, res) {
     });
 })
 
+router.post('/:id', async function (req, res) {
+    const entity = {
+        user: req.session.user.id,
+        offer: req.body.offer,
+        product: req.params.id
+    }
+    if (req.body.mode == 'on')
+        await usermodel.automated(entity);
+    else
+        await usermodel.bid(entity);
+
+    res.redirect('/detail/' + req.params.id);
+})
+
 module.exports = router;

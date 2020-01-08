@@ -51,6 +51,9 @@ var register = function (Handlebars) {
         imageactive: function (index) {
             if (index == 0)
                 return "active";
+        },
+        sum: function(first, second) {
+            return first + second;
         }
     };
 
