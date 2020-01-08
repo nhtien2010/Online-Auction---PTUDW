@@ -48,22 +48,33 @@ router.post('/login', async function (req, res) {
     delete req.session.previous;
 
     if (user.type == null)
-        return res.redirect("/account/reminder");
+        return req.session.save(function() {             
+            return res.redirect('/account/reminder');
+        });
 
     else if (user.type == "admin")
-        return res.redirect("/account/admin");
+        return req.session.save(function() {             
+            return res.redirect('/account/admin');
+        });
 
     else
-        return res.redirect(url);
+        return req.session.save(function() {             
+            return res.redirect(url);
+        });
 });
 
 router.get('/logout', async function (req, res) {
     req.session.authenticated = false;
     req.session.user = null;
-    if (req.header.referer)
+    if (req.headers.referer)
         if (req.headers.referer.indexOf("account") != -1)
-            return res.redirect("/");
-    res.redirect(req.headers.referer);
+            return req.session.save(function () {
+                return res.redirect('/');
+            });
+            
+    req.session.save(function () {
+        return res.redirect(req.headers.referer);
+    });
 });
 
 router.get('/register', async function (req, res) {
