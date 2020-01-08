@@ -176,7 +176,6 @@ CREATE TABLE `user` (
   `type` varchar(45) DEFAULT NULL,
   `rating` float DEFAULT NULL,
   `request`  varchar(10) DEFAULT NULL,
-  `dob` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `email_UNIQUE` (`email`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -188,7 +187,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'Erod Nelps','erodnelps@gmail.com','$2a$10$PFlKvjXDXnF9xkgFCn8XEu02WSlIswunEqCPm6r9sjwweniDPTc/y','bidder',NULL,NULL,NULL),(2,'Derek Zohar','derekzohar@gmail.com','$2a$10$HLXCmxXJAziwS5I0RUIgSeyF4FgIedu4hoKtQZR1AN6z/M9qCv/L.','seller',NULL, NULL,NULL),(3,'Lena','lena@gmail.com','$2a$10$jZUexXSHXxLEKJQOT1yUD.1DR8v9LIE1JaXJaCXzA.j/0yAQqvIyO','admin',NULL, NULL,NULL);
+INSERT INTO `user` VALUES (1,'Erod Nelps','erodnelps@gmail.com','$2a$10$PFlKvjXDXnF9xkgFCn8XEu02WSlIswunEqCPm6r9sjwweniDPTc/y','bidder',NULL,NULL),(2,'Derek Zohar','derekzohar@gmail.com','$2a$10$HLXCmxXJAziwS5I0RUIgSeyF4FgIedu4hoKtQZR1AN6z/M9qCv/L.','seller',NULL, NULL),(3,'Lena','lena@gmail.com','$2a$10$jZUexXSHXxLEKJQOT1yUD.1DR8v9LIE1JaXJaCXzA.j/0yAQqvIyO','admin',NULL, NULL);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 
