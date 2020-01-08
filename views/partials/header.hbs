@@ -56,17 +56,17 @@
                     type="button"><i class="fas fa-user"></i></button>
                 <div class="dropdown-menu dropdown-menu-right" role="menu">
                     {{#if session.authenticated}}
-                    {{#if (equal session.user.type "admin")}}
+                    {{#if (equal session.user.privilege "admin")}}
                     <a class="dropdown-item" role="presentation" href="/account/admin">My Profile</a>
                     <a class="dropdown-item" role="presentation" href="/">Homepage</a>
                     <a class="dropdown-item" role="presentation" href="/logout">Sign out</a>
                     {{else}}
-                    {{#if (equal session.user.type "bidder")}}
+                    {{#if (equal session.user.privilege "bidder")}}
                     <a class="dropdown-item" role="presentation" href="/account/bidder">My
                         Profile</a>
                     <a class="dropdown-item" role="presentation" href="/logout">Sign out</a>
                     {{else}}
-                    {{#if (equal session.user.type "seller")}}
+                    {{#if (equal session.user.privilege "seller")}}
                     <a class="dropdown-item" role="presentation" href="/account/seller">My
                         Profile</a>
                     <a class="dropdown-item" role="presentation" href="/logout">Sign out</a>

@@ -4,5 +4,7 @@ module.exports = {
     id: id => db.select(`select * from user where id=${id}`),
     add: entity => db.insert(entity, 'user'),
     check: email => db.select(`select * from user where email='${email}'`),
-    update: (entity, condition) => db.update(entity, condition, 'user')
+    update: (entity, condition) => db.update(entity, condition, 'user'),
+    otp: (entity) =>  db.insert(entity, 'otp'),
+    verify: (email) => db.select(`select * from otp where email='${email}' order by otp.start desc limit 1`)
 };
