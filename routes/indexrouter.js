@@ -19,12 +19,6 @@ router.get('/', async function (req, res) {
     });
 });
 
-
-// wrong header
-router.get('/login', async function (req, res) {    
-    res.render('./login', {
-    });
-
 router.get('/login', async function (req, res) {
     if (req.headers.referer != "/login" && req.headers.referer != "/registers")
         req.session.previous = req.headers.referer;
@@ -114,7 +108,6 @@ router.post('/register', async function (req, res) {
 
 router.get('/404', async function (req, res) {
     res.render('./404');
-
 });
 
 module.exports = router;
