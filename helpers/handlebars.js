@@ -34,6 +34,8 @@ var register = function (Handlebars) {
         disable: function (status) {
             if (status == "bidding")
                 return;
+            if (parseFloat(status) > 8)
+                return;
             return "disabled"
         },
         masked: function (name) {
@@ -52,7 +54,7 @@ var register = function (Handlebars) {
             if (index == 0)
                 return "active";
         },
-        sum: function(first, second) {
+        sum: function (first, second) {
             return first + second;
         }
     };

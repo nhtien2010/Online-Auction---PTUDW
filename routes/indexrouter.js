@@ -4,7 +4,8 @@ const usermodel = require('../models/usermodel');
 const bcrypt = require('bcryptjs');
 const moment = require('moment');
 const configuration = require('../config/default.json');
-const mailgun = require('mailgun-js')({ apiKey: configuration.mailgun.api_keyI + configuration.mailgun.api_keyIII + configuration.mailgun.api_keyII + "-3cac0f9b", domain: configuration.mailgun.domain });
+const crypt = require('../utils/crypt');
+const mailgun = require('mailgun-js')({ apiKey: crypt.decrypt(configuration.mailgun.api_key), domain: crypt.decrypt(configuration.mailgun.domain) });
 const router = express.Router();
 
 router.get('/', async function (req, res) {
@@ -12,7 +13,6 @@ router.get('/', async function (req, res) {
     var end = await productmodel.end();
     var price = await productmodel.price();
     var bid = await productmodel.bid();
-
     res.render('./', {
         end: end,
         price: price,
@@ -21,10 +21,17 @@ router.get('/', async function (req, res) {
 });
 
 router.get('/login', async function (req, res) {
-    if (req.headers.referer.indexOf("/login") != -1 && req.headers.referer.indexOf("/registers") != -1 && req.headers.referer.indexOf('/otp') != -1)
+    if (req.headers.referer.indexOf("/login") == -1 && req.headers.referer.indexOf("/registers") == -1 && req.headers.referer.indexOf('/otp') == -1)
         req.session.previous = req.headers.referer;
 
-    res.render('./login');
+    var announce = req.session.announce;
+    delete req.session.announce;
+
+    req.session.save(function () {
+        return res.render('./login', {
+            announce: announce
+        });
+    });
 });
 
 router.post('/login', async function (req, res) {
@@ -80,6 +87,71 @@ router.get('/logout', async function (req, res) {
     });
 });
 
+router.post('/validateemail', async function (req, res) {
+    var user = await usermodel.check(req.body.resetEmail);
+    user = user[0];
+    if (user == undefined)
+        return res.render('./login', {
+            announce: "Email isn't registered."
+        });
+
+    req.session.previous = '/reset';
+    delete user.password;
+    req.session.authenticated = false;
+    req.session.user = user;
+    const otp = Math.floor(100000 + Math.random() * 900000);
+    const entity = {
+        otp: otp,
+        email: user.email
+    }
+
+    await usermodel.otp(entity)
+
+    const data = {
+        from: 'Web Nerdy Team <Zerd@WNT.com>',
+        to: req.session.user.email,
+        subject: 'Online Auction',
+        text: `Here is your one-time-passcode\n${otp}\nTo complete your process, enter the code in the web page when you requested it.\nNOTE: This one-time-passcode expires 15 minutes after it was requested.`
+    };
+
+    mailgun.messages().send(data);
+
+    req.session.save(function () {
+        return res.redirect('/otp');
+    });
+})
+
+router.get('/reset', async function (req, res) {
+    req.session.previous = '/';
+    res.render('./reset');
+})
+
+router.post('/reset', async function (req, res) {
+    const hash = bcrypt.hashSync(req.body.password, configuration.authentication.saltRounds);
+    const entity = {
+        password: hash
+    }
+    const condition = {
+        id: req.session.user.id
+    }
+
+    await usermodel.update(entity, condition);
+    const data = {
+        from: 'Web Nerdy Team <Zerd@WNT.com>',
+        to: req.session.user.email,
+        subject: 'Online Auction',
+        text: `Hi,\nYour password has been changed successfully!\nThank you for joining WNT Online Auction\nSent:${moment()}`
+    };
+
+    mailgun.messages().send(data);
+    req.session.announce = "Your password has been changed successfully!"
+
+
+    req.session.save(function () {
+        return res.redirect('/login');
+    });
+})
+
 router.get('/register', async function (req, res) {
     res.render('./register');
 });
@@ -125,7 +197,7 @@ router.get('/404', async function (req, res) {
 });
 
 router.get('/otp', async function (req, res) {
-    if (req.headers.referer.indexOf("/login") != -1 && req.headers.referer.indexOf("/registers") != -1 && req.headers.referer.indexOf('/otp') != -1)
+    if (req.headers.referer.indexOf("/login") == -1 && req.headers.referer.indexOf("/registers") == -1 && req.headers.referer.indexOf('/otp') == -1)
         req.session.previous = req.headers.referer;
 
     res.render('./otp');
@@ -144,7 +216,8 @@ router.post('/otp', async function (req, res) {
     target = target[0];
     if (moment().isBefore(target.end)) {
         if (otp === target.otp) {
-            req.session.authenticated = true;
+            if (req.session.previous.localeCompare("/reset") != 0)
+                req.session.authenticated = true;
 
             const url = req.session.previous;
             delete req.session.previous;

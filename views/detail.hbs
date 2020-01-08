@@ -73,20 +73,20 @@
       <p class="m-1">End in: <b class="text-danger">{{remain end}}</b></p>
       <p class="m-1">Current: <b class="text-info" id="current">{{current}}$</b></p>
       <p class="m-1" id="cap">Deal: {{cap}}$</p>
-      <p class="m-1" id="holder">Bidder: {{{masked ../holder.name}}} ({{../holder.rating}} <i
-          class='fa fa-star text-warning'></i>)</p>
+      <p class="m-1" id="holder">Bidder: {{{masked ../holder.name}}} (<a class="text-primary">{{../holder.rating}} <i
+            class='fa fa-star text-warning'></i></a>)</p>
       <p class="m-1" id="bids">Bids: {{bids}} Times</p>
       <p class="m-1">Start: {{time start}}</p>
       {{#if ../session.authenticated}}
-      <form class="row m-0" method="POST">
+      <form class="row m-0" method="POST" onsubmit="return Bid()">
         <div class="custom-control custom-switch col-12">
           <input type="checkbox" class="custom-control-input" name="mode" id="mode">
           <label class="custom-control-label" for="mode">Automated bid</label>
         </div>
-        <input class="col-9 col-md-6" type="text" placeholder="{{{sum current increment}}}$" name="offer"
-          {{{disable status}}}>
-        <button class="col-3" style="background-color: lightcyan; border-radius: 15px; width: 50px;" onclick="Bid()"
-          {{{disable status}}}>Bid
+        <input class="col-9 col-md-6" type="text" placeholder="{{{sum current increment}}}$" name="offer" id="offer"
+          {{{disable status}}} {{{disable ../session.user.rating}}}>
+        <button class="col-3" style="background-color: lightcyan; border-radius: 15px; width: 50px;"
+          value="{{{sum current increment}}}" id="minimum" {{{disable status}}} {{{disable ../session.user.rating}}}>Bid
         </button>
       </form>
       {{/if}}
@@ -94,14 +94,13 @@
     </div>
     <div class="col-5 col-md-3 col-sm-5 m-0 border-left">
       <h4 style="margin: 0;">Seller Information</h4>
-      <a class="text-primary" href="/seller-profile">{{seller.name}} ({{seller.rating}} <i
-          class='fa fa-star text-warning'></i>)</a>
-      <p><small>96.69% Positive feedback</small></p>
+      <p class="m-0">{{seller.name}} <a class="text-primary" href="/seller-profile">({{seller.rating}} <i
+            class='fa fa-star text-warning'></i>)</a></p>
       <hr style="border: 0.1px solid slategray;border-style:dashed;">
-      <a class="d-block text-primary">Save This Seller</a>
-      <a class="d-block text-primary" href="">Contact Seller</a>
-      <a class="d-block text-primary" href="">Visit Store</a>
-      <a class="d-block text-primary" href="">See other Items</a>
+      <a class="d-block text-primary small">Save This Seller</a>
+      <a class="d-block text-primary small" href="">Contact Seller</a>
+      <a class="d-block text-primary small" href="">Visit Store</a>
+      <a class="d-block text-primary small" href="">See other Items</a>
     </div>
   </div>
 
@@ -141,3 +140,19 @@
     </div>
   </div>
 </main>
+
+<script>
+  function Bid() {
+    var input = parseFloat(document.getElementById('offer').value);
+    var minimum = parseFloat(document.getElementById('minimum').value);
+    if (input)
+      if (confirm("Are you sure to continue?")) {
+        if (input >= minimum) {
+          return true;
+        }
+        alert("Offer is too low!");
+        return false;
+      }
+    return false;
+  }
+</script>

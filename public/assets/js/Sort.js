@@ -14,7 +14,9 @@ function Sort() {
         }
         else {
             text = a.children[0].getElementsByTagName("p")[sortingorder].innerHTML.toLowerCase();
-            if (text.indexOf('d') != -1)
+            if (text.localeCompare('expired') == 0)
+                first = -1;
+            else if (text.indexOf('d') != -1) 
                 first = parseInt(text) * 86400;
             else if (text.indexOf('h') != -1)
                 first = parseInt(text) * 3600;
@@ -24,7 +26,9 @@ function Sort() {
                 first = parseInt(text);
 
             text = b.children[0].getElementsByTagName("p")[sortingorder].innerHTML.toLowerCase();
-            if (text.indexOf('d') != -1)
+            if (text.localeCompare('expired') == 0)
+                second = -1;
+            else if (text.indexOf('d') != -1)
                 second = parseInt(text) * 86400;
             else if (text.indexOf('h') != -1)
                 second = parseInt(text) * 3600;
