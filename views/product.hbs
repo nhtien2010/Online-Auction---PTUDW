@@ -1,71 +1,40 @@
-<link rel="stylesheet" href="/assets/css/ad-product-img.css">
+<link rel="stylesheet" href="/assets/css/ad-product.css">
 
 <main>
-    <div>
-        <div class="table-responsive">
-            <table class="table product-table">
+    <form method="POST">
+    <div class="product-table" style="padding: 10px;">
+        <div class="table table-bordered table-striped " style="text-align: center;">
+            <table class="table product-table" >
                 <thead>
                     <tr>
+                        <th>#</th>
                         <th>Product</th>
                         <th>Name</th>
-                        <th>Owner</th>
-                        <th>Date</th>
+                        <th>Seller</th>
+                        <th>Start</th>
+                        <th>End</th>
                         <th></th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody style="padding: 10px;">
+                    {{#each product}}
                     <tr>
-                        <td><a href="/product-info"><img src="/assets/img/statue.jpg" class="ad-product-img"></a>
+                        <td>{{id}}</td>
+                        <td><a href="{{image}}"><img  class="ad-product-img" src="{{image}}"></a>
                         </td>
-                        <td>Statue of Demon</td>
-                        <td>Alakazam</td>
-                        <td>10/3/2019</td>
-                        <td style="width: ss;"><i class="fa fa-edit product-edit"></i>
-                            <div class="button-devider"></div><i class="fa fa-remove product-edit"></i>
+                        <td>{{name}}</td>
+                        <td>{{seller}}</td>
+                        <td>{{start}}</td>
+                        <td>{{end}}</td>
+                        <td>
+                             <button type="submit" class="btn btn-outline-danger" name="btn-remove"  formaction="product/del/{{id}}"><i class="far fa-trash-alt"></i></button>
+                            {{!-- <i role="button" href="product/del/{{id}}" class="btn btn-outline-danger" name="btn-del-prod"><i class=" fas fa-remove"></i></i> --}}
                         </td>
                     </tr>
-                    <tr>
-                        <td><a href="/product-info"><img src="/assets/img/statue.jpg" class="ad-product-img"></a>
-                        </td>
-                        <td>Statue of Demon</td>
-                        <td>Alakazam</td>
-                        <td>10/3/2019</td>
-                        <td style="width: ss;"><i class="fa fa-edit product-edit"></i>
-                            <div class="button-devider"></div><i class="fa fa-remove product-edit"></i>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><a href="/product-info"><img src="/assets/img/statue.jpg" class="ad-product-img"></a>
-                        </td>
-                        <td>Statue of Demon</td>
-                        <td>Alakazam</td>
-                        <td>10/3/2019</td>
-                        <td style="width: ss;"><i class="fa fa-edit product-edit"></i>
-                            <div class="button-devider"></div><i class="fa fa-remove product-edit"></i>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><a href="/product-info"><img src="/assets/img/statue.jpg" class="ad-product-img"></a>
-                        </td>
-                        <td>Statue of Demon</td>
-                        <td>Alakazam</td>
-                        <td>10/3/2019</td>
-                        <td style="width: ss;"><i class="fa fa-edit product-edit"></i>
-                            <div class="button-devider"></div><i class="fa fa-remove product-edit"></i>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><a href="/product-info"><img src="/assets/img/statue.jpg" class="ad-product-img"></a>
-                        </td>
-                        <td>Statue of Demon</td>
-                        <td>Alakazam</td>
-                        <td>10/3/2019</td>
-                        <td style="width: ss;"><i class="fa fa-edit product-edit"></i>
-                            <div class="button-devider"></div><i class="fa fa-remove product-edit"></i>
-                        </td>
-                    </tr>
+                    {{/each}}
                 </tbody>
             </table>
         </div>
     </div>
+    </form>
 </main>
