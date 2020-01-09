@@ -1,3 +1,6 @@
+<<<<<<< Updated upstream
+/*official script*/
+
 CREATE DATABASE  IF NOT EXISTS `auction` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
 USE `auction`;
 -- MySQL dump 10.13  Distrib 8.0.18, for Win64 (x86_64)
@@ -16,7 +19,6 @@ USE `auction`;
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-
 --
 -- Table structure for table `category`
 --
@@ -43,57 +45,6 @@ LOCK TABLES `category` WRITE;
 INSERT INTO `category` VALUES (1,'Continent',NULL),(2,'Ocean',NULL),(3,'Sky',NULL),(4,'Space',NULL),(5,'Plain',1),(6,'Mountain',1),(7,'Valley',1),(8,'Forest',1),(9,'Surface Ocean',2),(10,'Deep Ocean',2),(11,'Seafloor Sediments',2),(12,'Troposphere',3),(13,'Stratosphere',3),(14,'Mesosphere',3),(15,'Thermosphere',3),(16,'Exosphere',3),(17,'Star',4),(18,'Galaxy',4),(19,'Cosmos',4),(20,'Universe',4);
 /*!40000 ALTER TABLE `category` ENABLE KEYS */;
 UNLOCK TABLES;
-
---
--- Table structure for table `ongoinglist`
---
-
-DROP TABLE IF EXISTS `ongoinglist`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `ongoinglist` (
-  `id` int(11) NOT NULL,
-  `user_id` int(11) DEFAULT NULL,
-  `product_id` int(11) DEFAULT NULL,
-  UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `ongoinglist`
---
-
-LOCK TABLES `ongoinglist` WRITE;
-/*!40000 ALTER TABLE `ongoinglist` DISABLE KEYS */;
-/*!40000 ALTER TABLE `ongoinglist` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `participatinglist`
---
-
-DROP TABLE IF EXISTS `participatinglist`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `participatinglist` (
-  `id` int(11) NOT NULL,
-  `user_id` int(11) DEFAULT NULL,
-  `product_id` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `participatinglist`
---
-
-LOCK TABLES `participatinglist` WRITE;
-/*!40000 ALTER TABLE `participatinglist` DISABLE KEYS */;
-/*!40000 ALTER TABLE `participatinglist` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `product`
---
 
 --
 -- Table structure for table `product`
@@ -187,30 +138,6 @@ DELIMITER ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
 
 --
--- Table structure for table `productimage`
---
-
-DROP TABLE IF EXISTS `productimage`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `productimage` (
-  `id` int(11) NOT NULL,
-  `product_id` int(11) DEFAULT NULL,
-  `image` longtext NOT NULL,
-  UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `productimage`
---
-
-LOCK TABLES `productimage` WRITE;
-/*!40000 ALTER TABLE `productimage` DISABLE KEYS */;
-/*!40000 ALTER TABLE `productimage` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `sessions`
 --
 
@@ -247,8 +174,9 @@ CREATE TABLE `user` (
   `name` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
   `password` varchar(255) NOT NULL,
+  `type` varchar(45) DEFAULT NULL,
   `rating` float DEFAULT NULL,
-  `priviledge` char(6) NOT NULL DEFAULT 'bidder' COMMENT 'phân hệ người dùng (user classification)\\nmặc định: bidder',
+  `request`  varchar(10) DEFAULT NULL,
   `dob` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `email_UNIQUE` (`email`)
@@ -261,55 +189,8 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'Erod Nelps','erodnelps@gmail.com','$2a$10$PFlKvjXDXnF9xkgFCn8XEu02WSlIswunEqCPm6r9sjwweniDPTc/y','bidder',NULL),(2,'Derek Zohar','derekzohar@gmail.com','$2a$10$HLXCmxXJAziwS5I0RUIgSeyF4FgIedu4hoKtQZR1AN6z/M9qCv/L.','seller', NULL),(3,'Lena','lena@gmail.com','$2a$10$jZUexXSHXxLEKJQOT1yUD.1DR8v9LIE1JaXJaCXzA.j/0yAQqvIyO','admin',NULL);
+INSERT INTO `user` VALUES (1,'Erod Nelps','erodnelps@gmail.com','$2a$10$PFlKvjXDXnF9xkgFCn8XEu02WSlIswunEqCPm6r9sjwweniDPTc/y','bidder',NULL,NULL,NULL),(2,'Derek Zohar','derekzohar@gmail.com','$2a$10$HLXCmxXJAziwS5I0RUIgSeyF4FgIedu4hoKtQZR1AN6z/M9qCv/L.','seller',NULL, NULL,NULL),(3,'Lena','lena@gmail.com','$2a$10$jZUexXSHXxLEKJQOT1yUD.1DR8v9LIE1JaXJaCXzA.j/0yAQqvIyO','admin',NULL, NULL,NULL);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `watchlist`
---
-
-DROP TABLE IF EXISTS `watchlist`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `watchlist` (
-  `id` int(11) NOT NULL,
-  `user_id` int(11) DEFAULT NULL,
-  `product_id` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `watchlist`
---
-
-LOCK TABLES `watchlist` WRITE;
-/*!40000 ALTER TABLE `watchlist` DISABLE KEYS */;
-/*!40000 ALTER TABLE `watchlist` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `wonlist`
---
-
-DROP TABLE IF EXISTS `wonlist`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `wonlist` (
-  `id` int(11) NOT NULL,
-  `user_id` int(11) DEFAULT NULL,
-  `product_id` int(11) DEFAULT NULL,
-  UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `wonlist`
---
-
-LOCK TABLES `wonlist` WRITE;
-/*!40000 ALTER TABLE `wonlist` DISABLE KEYS */;
-/*!40000 ALTER TABLE `wonlist` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -350,3 +231,6 @@ DELIMITER ;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2020-01-06  3:23:36
+=======
+SELECT * FROM auction.user;
+>>>>>>> Stashed changes

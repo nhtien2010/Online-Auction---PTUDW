@@ -1,4 +1,5 @@
 const db = require('../utils/db');
+const config = require('../config/default.json');
 
 module.exports = {
     end: _ => (db.select("select * from product where status = 'bidding' order by end asc limit 5")),
@@ -8,9 +9,20 @@ module.exports = {
     search: text => db.select(`select distinct * from product where match(name, description) against ('${text}' in natural language mode)`),
     detail: id => db.select(`select * from product where product.id = ${id}`),
     related: category => db.select(`select * from product where product.category = ${category} order by product.start desc limit 5`),
+    refresh: _ => db.refresh(),
     countByCat: async category => {
         const row = await db.select( `select * from product where product.category = ${category}`);
         return row.length;
     },
-    refresh: _ => db.refresh()
+    all: _ => (db.select('select * from product')),
+    delete: prodid => db.delete({id: prodid}, 'product'),
+    countByUser: async userid => {
+        const row = await db.select(`select * from product where product.seller = ${userid}`);
+        return row.length;
+    },
+    page: offset => db.select(`select * from product limit ${config.pagination.limit} offset ${offset}`),
+    total: async _ => {
+        const row = await db.select( `select * from product`);
+        return row.length;
+    },
 };

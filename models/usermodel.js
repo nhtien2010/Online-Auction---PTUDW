@@ -1,3 +1,4 @@
+
 const db = require('../utils/db');
 
 module.exports = {
@@ -5,11 +6,15 @@ module.exports = {
     add: entity => db.insert(entity, 'user'),
     check: email => db.select(`select * from user where email='${email}'`),
     update: (entity, condition) => db.update(entity, condition, 'user'),
-    singleByUserName: async username => {
-        const rows = await db.load(`select * from user where username = '${username}'`);
-        if (rows.length > 0)
-          return rows[0];
-    
-        return null;
-      }
+    all: _ => (db.select('select * from user')),
+    getType: type  => (db.select( `select * from user where type = '${type}'`)),
+    changeType: entity => {
+        const condition = {id: entity.id};
+        delete entity.id;
+        return db.update(entity, condition, 'user');
+    },
+    delete: userid => db.delete({id: userid}, 'user'),
+    refresh: _ => db.refresh(),
+    getReqBidder: _ =>(db.select(`select * from user where request='request'`)),
+
 };

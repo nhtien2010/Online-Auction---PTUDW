@@ -1,7 +1,8 @@
+
 const db = require('../utils/db');
 
 module.exports = {
-    all: _ => db.select('select * from category'),
+    all: _ => (db.select('select * from category')),
     id: id => db.select(`select * from category where category.id = ${id}`),
     getById: async id => {
         const row = await db.select( `select * from category where category.id = ${id}`);

@@ -1,20 +1,28 @@
+
 const express = require('express');
 const usermodel = require('../models/usermodel');
 const config = require('../config/default.json');
 const router = express.Router();
 
 router.get('/admin', async function (req, res) {
-    if (req.session.user.priviledge != "admin")
+    if (req.session.user.type != "admin")
         return res.redirect("/404");
 
-    res.render("./admin");
+    res.render('./admin');
 });
 
-router.get('/profile', async function (req, res) {
-    // if (req.session.user.priviledge != "bidder" || req.session.user.priviledge != "seller")
-    //     return res.redirect("/404");
+router.get('/bidder', async function (req, res) {
+    if (req.session.user.type != "bidder")
+        return res.redirect("/404");
 
-    res.render("./profile");
+    res.render("./bidder-profile");
+});
+
+router.get('/seller', async function (req, res) {
+    if (req.session.user.type != "seller")
+        return res.redirect("/404");
+
+    res.render("./seller-profile");
 });
 
 router.get('/active/:id', async function (req, res) {
@@ -24,7 +32,7 @@ router.get('/active/:id', async function (req, res) {
         return res.redirect("/404");
     
     const entity = {
-        priviledge: "bidder"
+        type: "bidder"
     }
     const condition = {
         id: user.id

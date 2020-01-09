@@ -13,40 +13,44 @@ var register = function (Handlebars) {
                 return moment(end).diff(moment(), 'seconds') + 's';
             return "Expired";
         },
-        time: function(time) {
+        time: function (time) {
             time = moment(time).format("YYYY/MM/DD");
             return time;
         },
         new: function (start) {
-            if(moment().diff(start, 'days') < 1)
+            if (moment().diff(start, 'days') < 1)
                 return "<i class='fa fa-rocket text-danger'></i>";
         },
         equal: function (first, second) {
             return first === second;
         },
         root: function (set, root) {
-            for(var i = 0; i < set.length; i++) {
-                if(set[i].parent == root)
+            for (var i = 0; i < set.length; i++) {
+                if (set[i].parent == root)
                     return true;
             }
             return false;
         },
-        disable: function(status) {
-            if(status == "bidding")
+        disable: function (status) {
+            if (status == "bidding")
                 return;
             return "disabled"
         },
-        masked: function(name) {
+        masked: function (name) {
             var result = String(name);
             var length = parseInt(result.length * 0.8);
             var target = result.substring(0, length);
             var replacer = "";
-            for(var i = 0; i < length; i++)
+            for (var i = 0; i < length; i++)
                 replacer += '*';
 
             result = result.replace(target, replacer);
 
             return result;
+        },
+        imageactive: function (index) {
+            if (index == 0)
+                return "active";
         }
     };
 

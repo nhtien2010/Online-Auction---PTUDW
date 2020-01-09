@@ -1,3 +1,4 @@
+
 const express = require('express');
 const productmodel = require('../models/productmodel');
 const categorymodel = require('../models/categorymodel');
@@ -129,8 +130,8 @@ router.post('/category-edit/:catid', async function(req, res){
     if(entity.parent === '' || entity.parent===entity.id){
         entity.parent = null;
     }
-    console.log(entity.id);
-    console.log(entity.parent);
+    // console.log(entity.id);
+    // console.log(entity.parent);
     const rs = await categorymodel.update(entity);
 
     res.redirect('/admin/category');
