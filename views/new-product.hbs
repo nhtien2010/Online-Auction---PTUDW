@@ -15,7 +15,7 @@
                         <option value={{id}}>{{name}}</option>
                     {{/each}}
                 </select>
-                <form action="javascript:void(0);" method="get" id="contactForm"><input class="form-control"
+                <form method="POST" enctype="multipart/form-data" id="contactForm"><input class="form-control"
                         type="hidden" name="Introduction" value="This email was sent from www.awebsite.com" /><input
                         class="form-control" type="hidden" name="subject" value="Awebsite.com Contact Form" /><input
                         class="form-control" type="hidden" name="to" value="email@awebsite.com" />
@@ -44,8 +44,8 @@
                                         <div class="input-group">
                                             <div class="input-group-prepend"><span class="input-group-text"><i
                                                         class="fa fa-phone"></i></span></div><input class="form-control"
-                                                type="text" name="phone" required placeholder="ex: 100,000"
-                                                id="from-phone" />
+                                                type="text" name="start" required placeholder="ex: 100,000"
+                                                id="startTxt" />
                                         </div>
                                     </div>
                                 </div>
@@ -55,8 +55,8 @@
                                         <div class="input-group">
                                             <div class="input-group-prepend"><span class="input-group-text"><i
                                                         class="fa fa-phone"></i></span></div><input class="form-control"
-                                                type="text" name="phone" required placeholder="ex: 500"
-                                                id="from-phone" />
+                                                type="text" name="increment" required placeholder="ex: 500"
+                                                id="incrementTxt" />
                                         </div>
                                     </div>
                                 </div>
@@ -68,131 +68,36 @@
                                         <div class="input-group">
                                             <div class="input-group-prepend"><span class="input-group-text"><i
                                                         class="fa fa-phone"></i></span></div><input class="form-control"
-                                                type="text" name="phone" placeholder="Price to buy instantly"
-                                                id="from-phone" />
+                                                type="text" name="reserved" placeholder="Price to buy instantly"
+                                                id="reserved" />
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group"><label for="from-comments">Description:</label>
                                 <div id="editor">
-                                    <div id='edit' style='margin-top:30px;'>
-                                    </div>
+                                    <textarea id="description" style='margin-top:30px;'>
+                                    </textarea>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="form-row">
                                     <div class="col"><button class="btn btn-primary btn-block" type="reset"><i
-                                                class="fa fa-undo"></i> Reset</button></div>
-                                    <div class="col"><button class="btn btn-primary btn-block" type="submit">Submit <i
+                                                class="fa fa-undo"></i>Reset</button></div>
+                                    <div class="col"><button class="btn btn-primary btn-block" type="submit">Submit<i
                                                 class="fa fa-chevron-circle-right"></i></button></div>
                                 </div>
                             </div>
                             <hr class="d-flex d-md-none" />
                         </div>
                         <div class="col-12 col-md-6">
-
+                            <label for="from-comments">Image(s):</label>
+                            <div id="imageupload" class="file-loading" style='margin-top:30px;'>
+                                <input id="fileInput" name="fileInput", type="file" multiple/>
+                            </div>
                         </div>
                     </div>
                 </form>
-            </div>
-            <div class="modal fade" role="dialog" tabindex="-1" id="modal1">
-                <div class="modal-dialog modal-lg" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h4 class="modal-title">New Product</h4><button type="button" class="close"
-                                data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                        </div>
-                        <div class="modal-body">
-                            <form action="javascript:void(0);" method="get" id="contactForm"><input class="form-control"
-                                    type="hidden" name="Introduction"
-                                    value="This email was sent from www.awebsite.com" /><input class="form-control"
-                                    type="hidden" name="subject" value="Awebsite.com Contact Form" /><input
-                                    class="form-control" type="hidden" name="to" value="email@awebsite.com" />
-                                <div class="form-row">
-                                    <div class="col-md-6">
-                                        <div id="successfail"></div>
-                                    </div>
-                                </div>
-                                <div class="form-row">
-                                    <div class="col-12 col-md-6" id="message">
-                                        <h2 class="h4"><i class="fa fa-envelope"></i>Product details<small><small
-                                                    class="required-input"> (*required)</small></small>
-                                        </h2>
-                                        <div class="form-group"><label for="from-name">Name</label><span
-                                                class="required-input">*</span>
-                                            <div class="input-group">
-                                                <div class="input-group-prepend"><span class="input-group-text"><i
-                                                            class="fa fa-user-o"></i></span></div><input
-                                                    class="form-control" type="text" name="name" required
-                                                    placeholder="Full Name" id="from-name" />
-                                            </div>
-                                        </div>
-                                        <div class="form-row">
-                                            <div class="col-12 col-sm-6 col-md-12 col-lg-6">
-                                                <div class="form-group"><label for="from-phone">Starting
-                                                        price</label><span class="required-input">*</span>
-                                                    <div class="input-group">
-                                                        <div class="input-group-prepend"><span
-                                                                class="input-group-text"><i
-                                                                    class="fa fa-phone"></i></span></div><input
-                                                            class="form-control" type="text" name="phone" required
-                                                            placeholder="Primary Phone" id="from-phone" />
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-12 col-sm-6 col-md-12 col-lg-6">
-                                                <div class="form-group"><label for="from-phone">Increment</label><span
-                                                        class="required-input">*</span>
-                                                    <div class="input-group">
-                                                        <div class="input-group-prepend"><span
-                                                                class="input-group-text"><i
-                                                                    class="fa fa-phone"></i></span></div><input
-                                                            class="form-control" type="text" name="phone" required
-                                                            placeholder="Primary Phone" id="from-phone" />
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-row">
-                                            <div class="col-12 col-sm-6 col-md-12 col-lg-6">
-                                                <div class="form-group"><label for="from-phone">Reservation
-                                                        price</label><span> (optional)</span>
-                                                    <div class="input-group">
-                                                        <div class="input-group-prepend"><span
-                                                                class="input-group-text"><i
-                                                                    class="fa fa-phone"></i></span></div><input
-                                                            class="form-control" type="text" name="phone" required
-                                                            placeholder="Primary Phone" id="from-phone" />
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group"><label for="from-comments">Description</label>
-                                            <div id="editor">
-                                                <div id='edit' style='margin-top:30px;'>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="form-row">
-                                                <div class="col"><button class="btn btn-primary btn-block"
-                                                        type="reset"><i class="fa fa-undo"></i> Reset</button></div>
-                                                <div class="col"><button class="btn btn-primary btn-block"
-                                                        type="submit">Submit <i
-                                                            class="fa fa-chevron-circle-right"></i></button></div>
-                                            </div>
-                                        </div>
-                                        <hr class="d-flex d-md-none" />
-                                    </div>
-                                    <div class="col-12 col-md-6">
-
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
@@ -201,5 +106,5 @@
 <script type="text/javascript"
     src='https://cdn.jsdelivr.net/npm/froala-editor@3.0.6/js/froala_editor.pkgd.min.js'></script>
 <script>
-    var editor = new FroalaEditor('#edit');
+    var editor = new FroalaEditor('#description');
 </script>

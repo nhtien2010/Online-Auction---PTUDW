@@ -2,6 +2,7 @@ const express = require('express');
 const productmodel = require('../models/profilemodel');
 const usermodel = require('../models/usermodel');
 
+
 router.get('/profile', async function (req, res) {
     res.render('./profile', {
         
@@ -105,6 +106,6 @@ router.post('/upgrade', async function (req, res) {
 
     const rs = await usermodel.update(entity);
 
-    res.redirect('/');
+    res.redirect('#');
 });
 module.exports = router;
