@@ -30,14 +30,26 @@ router.get('/:id', async function (req, res) {
         prepath = prepath[0];
     }
 
-    res.render('./detail', {
-        product: product,
-        holder: holder,
-        seller: seller,
-        related: related,
-        path: path,
-        prepath: prepath,
-        image: image
+    var announce;
+
+    if (req.session.announce) {
+        announce = req.session.announce;
+        delete req.session.announce;
+    }
+    else
+        announce = null;
+        
+    req.session.save(function () {
+        return res.render('./detail', {
+            product: product,
+            holder: holder,
+            seller: seller,
+            related: related,
+            path: path,
+            prepath: prepath,
+            image: image,
+            announce: announce
+        });
     });
 })
 
@@ -52,7 +64,11 @@ router.post('/:id', async function (req, res) {
     else
         await usermodel.bid(entity);
 
-    res.redirect('/detail/' + req.params.id);
+    req.session.announce = "Done!";
+
+    req.session.save(function () {
+        return res.redirect('/detail/' + req.params.id);
+    });
 })
 
 module.exports = router;
