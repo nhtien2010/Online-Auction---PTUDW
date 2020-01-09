@@ -16,5 +16,18 @@ module.exports = {
     delete: userid => db.delete({id: userid}, 'user'),
     refresh: _ => db.refresh(),
     getReqBidder: _ =>(db.select(`select * from user where request='request'`)),
+    singleByUserName: async username => {
+      const rows = await db.load(`select * from user where username = '${username}'`);
+      if (rows.length > 0)
+        return rows[0];
+  
+      return null;
+  },
+  singleByEmail: async email => {
+    const rows = await db.load(`select * from user where email = '${email}'`);
+    if (rows.length > 0)
+      return rows[0];
 
+    return null;
+},
 };

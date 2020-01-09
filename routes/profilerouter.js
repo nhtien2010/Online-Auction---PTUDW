@@ -1,6 +1,5 @@
-<<<<<<< Updated upstream
 const express = require('express');
-// const productmodel = require('../models/profilemodel');
+const productmodel = require('../models/profilemodel');
 const usermodel = require('../models/usermodel');
 
 router.get('/profile', async function (req, res) {
@@ -9,50 +8,92 @@ router.get('/profile', async function (req, res) {
     });
 });
 
-router.post('/user/:id/edit-profile', (req, res, next) => {
-    let username = req.body.fullname;
-    let email = req.body.email;
-    let password = req.body.password;
-    let confirmPassword = req.body.confirmPassword;
-
-    let user = {
-        username: req.body.username,
-        email: req.body.email,
-        password: req.body.password
-    }
-
-    userController
-        .getUserByEmail(user.email)
+router.post('/user/profile/:name/edit-name', (req, res, next) => {
+    usermodel.singleByUsername(req.body.newusername)
         .then(user => {
             if (user) {
-                return res.render('register', {
-                    message: `Email ${email} exists!`,
-                    type: 'alert-danger'
+                alert("Username exist!");
+                return res.redirect('/user/profile/' + req.session.user.name);
+            } else {
+                usermodel
+                .update({
+                    name: req.body.newusername
+                }, {
+                    where: { name: req.session.user.name }
+                })
+                .then(function() {
+                    usermodel
+                    .singleByUsername(req.body.newusername)
+                    .then(user => {
+                        req.session.user = user;
+                        res.locals.user = req.session.user;
+                        res.redirect('/');
+                    })
+                    .catch(error => next(error));
+                })
+                .catch(function(error) {
+                    res.json(error);
+                    console.log("update profile failed!");
                 });
             }
-            //Tao tai khoan
-            user = {
-                username,
-                email,
-                password
-            };
-            return userController
-                .createUser(user)
-                .then(user => {
-                    if (keepLoggedIn) {
-                        req.session.cookie.maxAge = 30 * 24 * 60 * 60 * 100;
-                        req.session.user = user;
-                        res.redirect('/');
-                    } else {
-                        res.render('login', {
-                            message: 'You have registered, now please log in!',
-                            type: 'alert-primary'
-                        });
-                    }
-                })
-                .catch(error => next(error));
         })
-        .catch(error => next(error));
+});
+
+router.post('/user/profile/:name/edit-email', (req, res, next) => {
+    usermodel.singleByEmail(req.body.newemail)
+        .then(user => {
+            if (user) {
+                alert("Email exist!");
+                return res.redirect('/user/profile/' + req.session.user.name);
+            } else {
+                usermodel
+                .update({
+                    email: req.body.newemail
+                }, {
+                    where: { name: req.session.user.email }
+                })
+                .then(function() {
+                    usermodel
+                    .singleByEmail(req.body.newemail)
+                    .then(user => {
+                        req.session.user = user;
+                        res.locals.user = req.session.user;
+                        res.redirect('/');
+                    })
+                    .catch(error => next(error));
+                })
+                .catch(function(error) {
+                    res.json(error);
+                    console.log("update profile failed!");
+                });
+            }
+        })
+});
+
+router.post('/user/profile/:name/edit-dob', (req, res, next) => {
+    usermodel.singleByUsername(req.params.name)
+        .then(function() {
+                usermodel
+                .update({
+                    dob: req.body.newdob
+                }, {
+                    where: { name: req.session.user.mame }
+                })
+                .then(function() {
+                    usermodel
+                    .singleByUsername(req.params.name)
+                    .then(user => {
+                        req.session.user = user;
+                        res.locals.user = req.session.user;
+                        res.redirect('/');
+                    })
+                    .catch(error => next(error));
+                })
+                .catch(function(error) {
+                    res.json(error);
+                    console.log("update profile failed!");
+                });
+        })
 });
 
 router.post('/upgrade', async function (req, res) {
@@ -64,75 +105,6 @@ router.post('/upgrade', async function (req, res) {
 
     const rs = await usermodel.update(entity);
 
-    res.redirect('/');
+    res.redirect('#');
 });
-=======
-const express = require('express');
-// const productmodel = require('../models/profilemodel');
-const usermodel = require('../models/usermodel');
-
-router.get('/profile', async function (req, res) {
-    res.render('./profile', {
-        
-    });
-});
-
-router.post('/user/:id/edit-profile', (req, res, next) => {
-    let username = req.body.fullname;
-    let email = req.body.email;
-    let password = req.body.password;
-    let confirmPassword = req.body.confirmPassword;
-
-    let user = {
-        username: req.body.username,
-        email: req.body.email,
-        password: req.body.password
-    }
-
-    userController
-        .getUserByEmail(user.email)
-        .then(user => {
-            if (user) {
-                return res.render('register', {
-                    message: `Email ${email} exists!`,
-                    type: 'alert-danger'
-                });
-            }
-            //Tao tai khoan
-            user = {
-                username,
-                email,
-                password
-            };
-            return userController
-                .createUser(user)
-                .then(user => {
-                    if (keepLoggedIn) {
-                        req.session.cookie.maxAge = 30 * 24 * 60 * 60 * 100;
-                        req.session.user = user;
-                        res.redirect('/');
-                    } else {
-                        res.render('login', {
-                            message: 'You have registered, now please log in!',
-                            type: 'alert-primary'
-                        });
-                    }
-                })
-                .catch(error => next(error));
-        })
-        .catch(error => next(error));
-});
-
-router.post('/upgrade', async function (req, res) {
-    const entity = {
-        id: req.body.id,
-        name: req.body.name,
-        request: 'upgrade'
-    }
-
-    const rs = await usermodel.update(entity);
-
-    res.redirect('/');
-});
->>>>>>> Stashed changes
 module.exports = router;
