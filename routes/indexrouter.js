@@ -9,7 +9,6 @@ const mailgun = require('mailgun-js')({ apiKey: crypt.decrypt(configuration.mail
 const router = express.Router();
 
 router.get('/', async function (req, res) {
-    await productmodel.refresh();
     var end = await productmodel.end();
     var price = await productmodel.price();
     var bid = await productmodel.bid();
