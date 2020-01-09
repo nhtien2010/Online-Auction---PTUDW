@@ -11,11 +11,14 @@ const router = express.Router();
 router.get('/', async function (req, res) {
     var end = await productmodel.end();
     var price = await productmodel.price();
-    var bid = await productmodel.bid();
-    res.render('./', {
-        end: end,
-        price: price,
-        bid: bid,
+    var bids = await productmodel.bids();
+
+    req.session.save(function () {
+        return res.render('./', {
+            end: end,
+            price: price,
+            bids: bids,
+        });
     });
 });
 
@@ -139,7 +142,7 @@ router.post('/reset', async function (req, res) {
         from: 'Web Nerdy Team <Zerd@WNT.com>',
         to: req.session.user.email,
         subject: 'Online Auction',
-        text: `Hi,\nYour password has been changed successfully!\nThank you for joining WNT Online Auction\nSent:${moment()}`
+        text: `Hi,\nYour password has been changed successfully!\nThank you for joining WNT Online Auction\nSent: ${moment()}`
     };
 
     mailgun.messages().send(data);

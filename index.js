@@ -20,6 +20,7 @@ app.set('view engine', 'hbs');
 
 require('./middlewares/sessionmiddleware')(app);
 require('./middlewares/localsmiddleware')(app);
+require('./middlewares/mailmiddleware')(app);
 require('./middlewares/routemiddleware')(app);
 
 app.set('port', process.env.PORT || 5000);

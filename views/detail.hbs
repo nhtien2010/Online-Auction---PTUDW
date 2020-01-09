@@ -132,10 +132,10 @@
         </div>
 
         <input class="col-9 col-md-6" type="text" placeholder="{{{sum current increment}}}$" name="offer" id="offer"
-          {{{disable status}}} {{{disable ../session.user.rating}}}>
+          {{{disable status}}} {{{disable ../session.user.rating}}} {{{disable ../session.user.id ../seller.id}}}>
         <button class="col-3" style="background-color: lightcyan; border-radius: 15px; width: 50px;"
           value="{{{sum current increment}}}" {{{disable status}}} {{{disable ../session.user.rating}}} type="button"
-          data-toggle="modal" id="minimum" data-target="#announce-modal">Bid</button>
+          data-toggle="modal" id="minimum" data-target="#announce-modal" {{{disable status}}} {{{disable ../session.user.rating}}} {{{disable ../session.user.id ../seller.id}}}>Bid</button>
         <div class="modal fade" id="announce-modal" role="dialog">
           <div class="modal-dialog">
             <div class="modal-content">
@@ -185,8 +185,9 @@
 
     <div class="col-5 col-md-3 col-sm-5 m-0 border-left">
       <h4 style="margin: 0;">Seller Information</h4>
+      {{#if session.authenticated}}
       {{#if (equal session.user.id seller.id)}}
-      <p class="m-0">{{masked seller.name}} <p class="text-primary m-0">
+      <p class="m-0 d-inline-block"> {{masked seller.name}} <p class="text-primary m-0 d-inline-block">
           ({{seller.rating}} <i class='fa fa-star text-warning'></i>)</p>
       </p>
       {{else}}
@@ -231,6 +232,11 @@
           </div>
         </div>
       </div>
+      {{/if}}
+      {{else}}
+      <p class="m-0 d-inline-block">{{{masked seller.name}}} <p class="text-primary m-0 d-inline-block">
+          ({{seller.rating}} <i class='fa fa-star text-warning'></i>)</p>
+      </p>
       {{/if}}
       <hr style="border: 0.1px solid slategray;border-style:dashed;">
       <a class="d-block text-primary small">Save This Seller</a>
@@ -321,6 +327,15 @@
 <script>
   if (document.getElementById('error').innerHTML.length != 0)
     $('#error-modal').modal('show');
+
+  $(document).ready(function () {
+    $(window).keydown(function (event) {
+      if (event.keyCode == 13) {
+        event.preventDefault();
+        return false;
+      }
+    });
+  });
 
   var minimum = parseFloat(document.getElementById('minimum').value);
   $('#announce-modal').on('hide.bs.modal show.bs.modal', function (event) {
