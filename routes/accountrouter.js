@@ -1,3 +1,4 @@
+
 const express = require('express');
 const usermodel = require('../models/usermodel');
 const config = require('../config/default.json');
@@ -7,7 +8,7 @@ router.get('/admin', async function (req, res) {
     if (req.session.user.privilege != "admin")
         return res.redirect("/404");
 
-    res.render("./admin");
+    res.render('./admin');
 });
 
 router.get('/bidder', async function (req, res) {

@@ -1,71 +1,74 @@
-<link rel="stylesheet" href="/assets/css/ad-product-img.css">
+
+<link rel="stylesheet" href="/assets/css/ad-product.css">
 
 <main>
-    <div>
-        <div class="table-responsive">
-            <table class="table product-table">
+    <form method="POST">
+    <div class="product-table" style="padding: 10px;">
+
+        <div align="center" style="padding-bottom: 10px;">
+                <a class="btn btn-outline-dark" style=" background-color: rgb(255, 255, 255); width: 50%; border-color: blanchedalmond;">
+                    {{!-- <i class="fas fa-plus-circle" aria-hidden="true"></i> --}}
+                    <h2 style="color: rgb(146, 158, 148);">Poduct</h2>
+                </a>
+        </div>
+
+        <div class="table table-bordered table-striped " style="text-align: center;">
+            <table class="table product-table" >
                 <thead>
                     <tr>
+                        <th>#</th>
                         <th>Product</th>
                         <th>Name</th>
-                        <th>Owner</th>
-                        <th>Date</th>
+                        <th>Seller</th>
+                        <th>Start</th>
+                        <th>End</th>
                         <th></th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody style="padding: 10px;">
+                    {{#each products}}
                     <tr>
-                        <td><a href="/product-info"><img src="/assets/img/statue.jpg" class="ad-product-img"></a>
+                        <td>{{id}}</td>
+                        <td><a href="{{image}}"><img  class="ad-product-img" src="{{image}}"></a>
                         </td>
-                        <td>Statue of Demon</td>
-                        <td>Alakazam</td>
-                        <td>10/3/2019</td>
-                        <td style="width: ss;"><i class="fa fa-edit product-edit"></i>
-                            <div class="button-devider"></div><i class="fa fa-remove product-edit"></i>
+                        <td>{{name}}</td>
+                        <td>{{seller}}</td>
+                        <td>{{start}}</td>
+                        <td>{{end}}</td>
+                        <td>
+                             <button type="submit" class="btn btn-outline-danger" name="btn-remove"  formaction="product/del/{{id}}"><i class="far fa-trash-alt"></i></button>
                         </td>
                     </tr>
-                    <tr>
-                        <td><a href="/product-info"><img src="/assets/img/statue.jpg" class="ad-product-img"></a>
-                        </td>
-                        <td>Statue of Demon</td>
-                        <td>Alakazam</td>
-                        <td>10/3/2019</td>
-                        <td style="width: ss;"><i class="fa fa-edit product-edit"></i>
-                            <div class="button-devider"></div><i class="fa fa-remove product-edit"></i>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><a href="/product-info"><img src="/assets/img/statue.jpg" class="ad-product-img"></a>
-                        </td>
-                        <td>Statue of Demon</td>
-                        <td>Alakazam</td>
-                        <td>10/3/2019</td>
-                        <td style="width: ss;"><i class="fa fa-edit product-edit"></i>
-                            <div class="button-devider"></div><i class="fa fa-remove product-edit"></i>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><a href="/product-info"><img src="/assets/img/statue.jpg" class="ad-product-img"></a>
-                        </td>
-                        <td>Statue of Demon</td>
-                        <td>Alakazam</td>
-                        <td>10/3/2019</td>
-                        <td style="width: ss;"><i class="fa fa-edit product-edit"></i>
-                            <div class="button-devider"></div><i class="fa fa-remove product-edit"></i>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><a href="/product-info"><img src="/assets/img/statue.jpg" class="ad-product-img"></a>
-                        </td>
-                        <td>Statue of Demon</td>
-                        <td>Alakazam</td>
-                        <td>10/3/2019</td>
-                        <td style="width: ss;"><i class="fa fa-edit product-edit"></i>
-                            <div class="button-devider"></div><i class="fa fa-remove product-edit"></i>
-                        </td>
-                    </tr>
+                    {{/each}}
                 </tbody>
             </table>
-        </div>
+            <nav class="nav-page" >
+                <ul class="pagination" >
+                    <li class="page-item {{#unless this.can_go_prev}}disabled{{/unless}}">
+                        <a class="page-link"  role="button" href="/product/view/?page={{prev_value}}" tabindex="-1" aria-disabled="true">
+                            <i class="fa fa-backward" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    {{#each this.page_items}}
+                    {{#if this.isActive}}
+                    <li class="page-item active" aria-current="page">
+                        <a class="page-link" >{{value}} <span class="sr-only">(current)</span></a>
+                    </li>
+                    {{else}}
+                    <li class="page-item">
+                        <a class="page-link"  role="button" href="/product/view/?page={{value}}">{{value}}</a>
+                    </li>
+                    {{/if}}
+                    {{/each}}
+                    <li class="page-item {{#unless this.can_go_next}}disabled{{/unless}}">
+                        <a class="page-link"  role="button" href="/product/view/?page={{next_value}}">
+                            <i class="fa fa-forward" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            
+            </div>
     </div>
+    </form>
 </main>
