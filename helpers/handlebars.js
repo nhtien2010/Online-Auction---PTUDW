@@ -14,8 +14,10 @@ var register = function (Handlebars) {
             return "Expired";
         },
         time: function (time) {
-            time = moment(time).format("YYYY/MM/DD");
-            return time;
+            return moment(time).format("YYYY/MM/DD");
+        },
+        timestamp: function(time) {
+            return moment(time).format("YYYY/MM/DD hh:mm:ss");
         },
         new: function (start) {
             if (moment().diff(start, 'days') < 1)

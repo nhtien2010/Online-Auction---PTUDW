@@ -25,4 +25,5 @@ module.exports = {
         const row = await db.select( `select * from product`);
         return row.length;
     },
+    history: id => db.select(`select history.time, history.offer, user.name from history, user where history.product=${id} and history.user=user.id order by time asc`)
 };

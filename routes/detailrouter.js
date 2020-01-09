@@ -6,7 +6,6 @@ const usermodel = require('../models/usermodel');
 const router = express.Router();
 
 router.get('/:id', async function (req, res) {
-    await productmodel.refresh();
     var product = await productmodel.detail(req.params.id);
     if (product.length == 0)
         return res.redirect("/404");
@@ -29,7 +28,7 @@ router.get('/:id', async function (req, res) {
         prepath = await categorymodel.id(path.parent);
         prepath = prepath[0];
     }
-
+    var history = await productmodel.history(req.params.id);
     var announce;
 
     if (req.session.announce) {
@@ -38,7 +37,11 @@ router.get('/:id', async function (req, res) {
     }
     else
         announce = null;
-        
+    var ratinglist;
+    if (seller.id === req.session.user.id)
+        ratinglist = await usermodel.bidderratinglist(product.id);
+    else
+        ratinglist = await usermodel.userratinglist(seller.id);
     req.session.save(function () {
         return res.render('./detail', {
             product: product,
@@ -48,7 +51,9 @@ router.get('/:id', async function (req, res) {
             path: path,
             prepath: prepath,
             image: image,
-            announce: announce
+            announce: announce,
+            history: history,
+            ratinglist: ratinglist
         });
     });
 })
