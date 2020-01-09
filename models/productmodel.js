@@ -1,5 +1,5 @@
-
 const db = require('../utils/db');
+const config = require('../config/default.json');
 
 module.exports = {
     end: _ => (db.select("select * from product where status = 'bidding' order by end asc limit 5")),
@@ -19,5 +19,10 @@ module.exports = {
     countByUser: async userid => {
         const row = await db.select(`select * from product where product.seller = ${userid}`);
         return row.length;
-    }
+    },
+    page: offset => db.select(`select * from product limit ${config.pagination.limit} offset ${offset}`),
+    total: async _ => {
+        const row = await db.select( `select * from product`);
+        return row.length;
+    },
 };

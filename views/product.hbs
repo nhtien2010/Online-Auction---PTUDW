@@ -26,7 +26,7 @@
                     </tr>
                 </thead>
                 <tbody style="padding: 10px;">
-                    {{#each product}}
+                    {{#each products}}
                     <tr>
                         <td>{{id}}</td>
                         <td><a href="{{image}}"><img  class="ad-product-img" src="{{image}}"></a>
@@ -37,13 +37,38 @@
                         <td>{{end}}</td>
                         <td>
                              <button type="submit" class="btn btn-outline-danger" name="btn-remove"  formaction="product/del/{{id}}"><i class="far fa-trash-alt"></i></button>
-                            {{!-- <i role="button" href="product/del/{{id}}" class="btn btn-outline-danger" name="btn-del-prod"><i class=" fas fa-remove"></i></i> --}}
                         </td>
                     </tr>
                     {{/each}}
                 </tbody>
             </table>
-        </div>
+            <nav class="nav-page" >
+                <ul class="pagination" >
+                    <li class="page-item {{#unless this.can_go_prev}}disabled{{/unless}}" style=" text-align: center; align-content: center; align-items: center;">
+                        <a class="page-link"  role="button" href="product/view/?page={{prev_value}}" tabindex="-1" aria-disabled="true">
+                            <i class="fa fa-backward" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    {{#each this.page_items}}
+                    {{#if this.isActive}}
+                    <li class="page-item active" aria-current="page">
+                        <a class="page-link" >{{value}} <span class="sr-only">(current)</span></a>
+                    </li>
+                    {{else}}
+                    <li class="page-item">
+                        <a class="page-link"  role="button" href="product/view/?page={{value}}">{{value}}</a>
+                    </li>
+                    {{/if}}
+                    {{/each}}
+                    <li class="page-item {{#unless this.can_go_next}}disabled{{/unless}}">
+                        <a class="page-link"  role="button" href="product/view/?page={{next_value}}">
+                            <i class="fa fa-forward" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            
+            </div>
     </div>
     </form>
 </main>
