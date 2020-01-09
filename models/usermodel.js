@@ -6,12 +6,10 @@ module.exports = {
     add: entity => db.insert(entity, 'user'),
     check: email => db.select(`select * from user where email='${email}'`),
     update: (entity, condition) => db.update(entity, condition, 'user'),
-<<<<<<< HEAD
     otp: (entity) => db.insert(entity, 'otp'),
     verify: (email) => db.select(`select * from otp where email='${email}' order by otp.start desc limit 1`),
     bid: (entity) => {db.insert(entity, 'history'), db.UpdateHistory(entity)},
-    automated: (entity) => db.insert(entity, 'automation')
-=======
+    automated: (entity) => db.insert(entity, 'automation'),
     all: _ => (db.select('select * from user')),
     getType: type  => (db.select( `select * from user where type = '${type}'`)),
     changeType: entity => {
@@ -36,5 +34,4 @@ module.exports = {
 
     return null;
 },
->>>>>>> 6987579b77c3238c353efc7187a6af4e771db3a0
 };

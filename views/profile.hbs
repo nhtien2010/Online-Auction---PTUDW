@@ -5,7 +5,7 @@
 <main>
     <div href="/assets/css/Profile.css" class="container bootstrap snippets" style="margin-top:2%">
         <div class="row" id="user-profile">
-            {{#with user}}
+            {{#with session.user}}
             <div class="col-lg-3 col-md-4 col-sm-4">
                 <div class="main-box clearfix">
                     <h2 >{{name}}</h2>
@@ -169,8 +169,8 @@
                         </div>
                         <div style="margin-top:2%; margin-left:2%;margin-right:2%">
                             <ul class="nav nav-tabs">
-                                {{#if session.authenticated}}
-                                    {{#if (equal session.user.type "bidder")}}
+                                {{#if ../session.authenticated}}
+                                    {{#if (equal ../session.user.privilege "bidder")}}
                                     <li class="nav-item"><a class="nav-link active" role="tab" data-toggle="tab"
                                             href="#tab-1">Watchlist</a></li>
                                     <li class="nav-item"><a class="nav-link" role="tab" data-toggle="tab"
@@ -178,7 +178,7 @@
                                     <li class="nav-item"><a class="nav-link" role="tab" data-toggle="tab" href="#tab-3">Won
                                             Auctions</a></li>
                                     {{else}}
-                                        {{#if (equal session.user.type "seller")}}
+                                        {{#if (equal ../session.user.privilege "seller")}}
                                         <li class="nav-item"><a class="nav-link active" role="tab" data-toggle="tab" href="#tab-1">Watchlist</a></li>
                                         <li class="nav-item"><a class="nav-link" role="tab" data-toggle="tab" href="#tab-2">Participating Auctions</a></li>
                                         <li class="nav-item"><a class="nav-link" role="tab" data-toggle="tab" href="#tab-3">WonAuctions</a></li>
@@ -189,7 +189,7 @@
                                 {{/if}}
                             </ul>
                             <div class="tab-content">
-                                {{#if (equal session.user.type "bidder")}}
+                                {{#if (equal ../session.user.privilege "bidder")}}
                                 <div class="tab-pane active" role="tabpanel" id="tab-1">
                                     <div class="projects-horizontal">
                                         <div class="container">
