@@ -24,7 +24,7 @@ router.get('/active/:id', async function (req, res) {
         return res.redirect("/404");
     
     const entity = {
-        priviledge: "bidder"
+        type: "bidder"
     }
     const condition = {
         id: user.id

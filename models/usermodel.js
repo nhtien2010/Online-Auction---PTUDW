@@ -11,5 +11,12 @@ module.exports = {
           return rows[0];
     
         return null;
-      }
+    },
+    singleByEmail: async email => {
+      const rows = await db.load(`select * from user where email = '${email}'`);
+      if (rows.length > 0)
+        return rows[0];
+  
+      return null;
+  },
 };

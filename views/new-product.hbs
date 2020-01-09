@@ -8,6 +8,13 @@
             <div class="container-fluid">
                 <h1>New Product</h1>
                 <hr />
+                <label for="exampleFormControlSelect1" style="padding-top: 10px;">Parent Select</label>
+                <select class="form-control" type="text" id="productCategory" name="">
+                    <option value='-1'>null</option>
+                    {{#each category}}
+                        <option value={{id}}>{{name}}</option>
+                    {{/each}}
+                </select>
                 <form action="javascript:void(0);" method="get" id="contactForm"><input class="form-control"
                         type="hidden" name="Introduction" value="This email was sent from www.awebsite.com" /><input
                         class="form-control" type="hidden" name="subject" value="Awebsite.com Contact Form" /><input
