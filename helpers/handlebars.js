@@ -58,6 +58,11 @@ var register = function (Handlebars) {
         },
         sum: function (first, second) {
             return first + second;
+        },
+        disable: function(user, seller) {
+            if (seller != user)
+                return;
+            return "disabled"
         }
     };
 

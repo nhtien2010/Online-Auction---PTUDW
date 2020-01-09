@@ -3,6 +3,10 @@ const productmodel = require('../models/productmodel');
 const categorymodel = require('../models/categorymodel');
 const imagemodel = require('../models/imagemodel');
 const usermodel = require('../models/usermodel');
+const moment = require('moment');
+const configuration = require('../config/default.json');
+const crypt = require('../utils/crypt');
+const mailgun = require('mailgun-js')({ apiKey: crypt.decrypt(configuration.mailgun.api_key), domain: crypt.decrypt(configuration.mailgun.domain) });
 const router = express.Router();
 
 router.get('/:id', async function (req, res) {
@@ -38,10 +42,12 @@ router.get('/:id', async function (req, res) {
     else
         announce = null;
     var ratinglist;
-    if (seller.id === req.session.user.id)
-        ratinglist = await usermodel.bidderratinglist(product.id);
-    else
-        ratinglist = await usermodel.userratinglist(seller.id);
+    if (req.session.authenticated)
+        if (seller.id === req.session.user.id)
+            ratinglist = await usermodel.bidderratinglist(product.id);
+        else
+            ratinglist = await usermodel.userratinglist(seller.id);
+
     req.session.save(function () {
         return res.render('./detail', {
             product: product,
@@ -59,17 +65,100 @@ router.get('/:id', async function (req, res) {
 })
 
 router.post('/:id', async function (req, res) {
-    const entity = {
+    await productmodel.UpdateProduct(req.params.id);
+    var product = await productmodel.detail(req.params.id);
+    product = product[0];
+
+    var entity = {
         user: req.session.user.id,
         offer: req.body.offer,
         product: req.params.id
     }
-    if (req.body.mode == 'on')
-        await usermodel.automated(entity);
-    else
-        await usermodel.bid(entity);
 
-    req.session.announce = "Done!";
+    if (product.status == "bidding") {
+        var exholder = await productmodel.holder(req.params.id);
+
+        if (req.body.mode == 'on')
+            await usermodel.automated(entity);
+        else
+            await usermodel.bid(entity);
+
+        entity = {
+            product: req.params.id,
+            user: req.session.user.id
+        }
+
+        var bidding = await productmodel.bid(entity);
+        bidding = bidding[0];
+
+        product = await productmodel.detail(req.params.id);
+        product = product[0];
+
+        var data = {
+            from: 'Web Nerdy Team <Zerd@WNT.com>',
+            to: bidding.bidderemail,
+            subject: 'Online Auction',
+            text: `Hi ${bidding.bidder},\nCongratulations!\nYou've offered ${bidding.price}$ for ${bidding.name} successfully.\n\nThank you for joining us!\nHappy bidding!\nSent: ${moment()}`
+        };
+        mailgun.messages().send(data);
+
+        data = {
+            from: 'Web Nerdy Team <Zerd@WNT.com>',
+            to: bidding.selleremail,
+            subject: 'Online Auction',
+            text: `Hi ${bidding.seller},\nCongratulations!\nYour product ${bidding.name} has been offered for ${bidding.price}$.\n\nThank you for joining us!\nHappy selling!\nSent: ${moment()}`
+        };
+        mailgun.messages().send(data);
+
+        if (exholder.length == 1) {
+            exholder = exholder[0];
+            data = {
+                from: 'Web Nerdy Team <Zerd@WNT.com>',
+                to: exholder.email,
+                subject: 'Online Auction',
+                text: `Hi ${exholder.name},\nUnfortunately!\nSomeone has offered for ${bidding.name} higher than you.\n\nThank you for joining us!\nHappy bidding!\nSent: ${moment()}`
+            };
+            mailgun.messages().send(data);
+        }
+
+        entity = {
+            product: req.params.id,
+            offer: bidding.price + bidding.increment
+        }
+
+        var factor = await productmodel.xfactor(entity);
+        if (factor.length == 1) {
+            factor = factor[0];
+
+            data = {
+                from: 'Web Nerdy Team <Zerd@WNT.com>',
+                to: factor.email,
+                subject: 'Online Auction',
+                text: `Hi ${factor.name},\nCongratulations!\nYou've offered ${entity.offer}$ for ${bidding.name} successfully.\n\nThank you for joining us!\nHappy bidding!\nSent: ${moment()}`
+            };
+            mailgun.messages().send(data);
+
+            data = {
+                from: 'Web Nerdy Team <Zerd@WNT.com>',
+                to: bidding.bidderemail,
+                subject: 'Online Auction',
+                text: `Hi ${bidding.bidder},\nUnfortunately!\nSomeone has offered for ${bidding.name} higher than you.\n\nThank you for joining us!\nHappy bidding!\nSent: ${moment()}`
+            };
+            mailgun.messages().send(data);
+
+            data = {
+                from: 'Web Nerdy Team <Zerd@WNT.com>',
+                to: bidding.selleremail,
+                subject: 'Online Auction',
+                text: `Hi ${bidding.seller},\nCongratulations!\nYour product ${bidding.name} has been offered for ${entity.offer}$.\n\nThank you for joining us!\nHappy selling!\nSent: ${moment()}`
+            };
+            mailgun.messages().send(data);
+        }
+
+        req.session.announce = "Done!";
+    } else {
+        req.session.announce = "Oops! Something went wrong..."
+    }
 
     req.session.save(function () {
         return res.redirect('/detail/' + req.params.id);
