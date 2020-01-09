@@ -2,13 +2,9 @@ const express = require('express');
 const productmodel = require('../models/profilemodel');
 const usermodel = require('../models/usermodel');
 
-router.get('/profile', async function (req, res) {
-    res.render('./profile', {
-        
-    });
-});
 
-router.post('/user/profile/:name/edit-name', (req, res, next) => {
+
+router.post('/profile/:name/edit-name', (req, res, next) => {
     usermodel.singleByUsername(req.body.newusername)
         .then(user => {
             if (user) {
@@ -39,7 +35,7 @@ router.post('/user/profile/:name/edit-name', (req, res, next) => {
         })
 });
 
-router.post('/user/profile/:name/edit-email', (req, res, next) => {
+router.post('/profile/:name/edit-email', (req, res, next) => {
     usermodel.singleByEmail(req.body.newemail)
         .then(user => {
             if (user) {
@@ -70,7 +66,7 @@ router.post('/user/profile/:name/edit-email', (req, res, next) => {
         })
 });
 
-router.post('/user/profile/:name/edit-dob', (req, res, next) => {
+router.post('/profile/:name/edit-dob', (req, res, next) => {
     usermodel.singleByUsername(req.params.name)
         .then(function() {
                 usermodel
@@ -94,17 +90,5 @@ router.post('/user/profile/:name/edit-dob', (req, res, next) => {
                     console.log("update profile failed!");
                 });
         })
-});
-
-router.post('/upgrade', async function (req, res) {
-    const entity = {
-        id: req.body.id,
-        name: req.body.name,
-        request: 'upgrade'
-    }
-
-    const rs = await usermodel.update(entity);
-
-    res.redirect('#');
 });
 module.exports = router;
