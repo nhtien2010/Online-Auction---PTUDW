@@ -4,22 +4,22 @@ const categorymodel = require('../models/categorymodel');
 const config   = require('../config/default.json');
 const router = express.Router();
 
-router.get('/', async function (req, res) {
-    await productmodel.refresh();
-    var category = await categorymodel.all();
-    var end = await productmodel.end();
-    var price = await productmodel.price();
-    var bid = await productmodel.bid();
+// router.get('/', async function (req, res) {
+//     await productmodel.refresh();
+//     var category = await categorymodel.all();
+//     var end = await productmodel.end();
+//     var price = await productmodel.price();
+//     var bid = await productmodel.bid();
     
-    res.render('./admin', {
-        end: end,
-        price: price,
-        bid: bid,
-        category: category
-    });
-});
+//     res.render('./admin', {
+//         end: end,
+//         price: price,
+//         bid: bid,
+//         category: category
+//     });
+// });
 
-router.get('/view', async function (req, res) {
+router.get('/', async function (req, res) {
   
     const page = +req.query.page || 1;
     if (page < 0) page = 1;
