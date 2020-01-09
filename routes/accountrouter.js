@@ -8,13 +8,20 @@ router.get('/admin', async function (req, res) {
     if (req.session.user.privilege != "admin")
         return res.redirect("/404");
 
-    res.render('./admin');s
+    res.render('./admin');
 });
 
 router.get('/profile', async function (req, res) {
     if (req.session.user.privilege != "bidder" && req.session.user.privilege != "seller")
         return res.redirect("/404");
-    res.render('./profile');
+    res.render('./profile', {
+        user: req.session.user,
+        name: req.session.user.name,
+        email: req.session.user.email,
+        dob: req.session.user.dob,
+        priviledge: req.session.user.priviledge,
+        address: req.session.user.address,
+    })
 });
 
 router.get('/active/:id', async function (req, res) {
