@@ -1,6 +1,6 @@
 const express = require('express');
 const productmodel = require('../models/productmodel');
-const categorymodel = require('../models/categorymodel');
+const imagemodel = require('../models/imagemodel');
 const config   = require('../config/default.json');
 const router = express.Router();
 
@@ -48,11 +48,11 @@ router.get('/', async function (req, res) {
     // req.session.products = rows;
     // res.redirect('/admin/product');
   })
-  
 
 
 // delete product by id
 router.post('/del/:ProdId',async function (req, res) {
+    const rss = await imagemodel.delete(req.params.ProdId);
     const rs = await productmodel.delete(req.params.ProdId);
     res.redirect('/admin/product');
 });

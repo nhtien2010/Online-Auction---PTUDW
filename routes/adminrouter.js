@@ -10,19 +10,23 @@ router.get('/', async function (req, res) {
     var category = await categorymodel.all();
     var end = await productmodel.end();
     var price = await productmodel.price();
-    var bid = await productmodel.bid();
+    var bids = await productmodel.bids();
     
     res.render('./admin', {
         end: end,
         price: price,
-        bid: bid,
+        bid: bids,
         category: category
     });
 });
 
 router.get('/category', async function (req, res) {
     var category = await categorymodel.all();
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> c7d6d9eedbbc528d9b1bde83ba7a5a3f4efb7efd
     res.render('./category', {
         category: category
     });
@@ -56,34 +60,6 @@ router.get('/product', async function (req, res) {
 
 });
 
-// router.get('/product/:pageNum', async function (req, res) {
-  
-//     const page = +req.params.pageNum || 1;
-//     if (page < 0) page = 1;
-//     const offset = (page - 1) * config.pagination.limit;
-//     const total = await productmodel.total();
-//     const rows = await productmodel.page(offset);
-  
-//     const nPages = Math.ceil(total / config.pagination.limit);
-//     const page_items = [];
-//     for (i = 1; i <= nPages; i++) {
-//       const item = {
-//         value: i,
-//         isActive: i === page
-//       }
-//       page_items.push(item);
-//     }
-  
-//     res.render('./product', {
-//       products: rows,
-//       empty: rows.length === 0,
-//       page_items,
-//       can_go_prev: page > 1,
-//       can_go_next: page < nPages,
-//       prev_value: page - 1,
-//       next_value: page + 1,
-//     })
-//   })
 
 router.get('/user', async function (req, res) {
     var bidder = await usermodel.getType("bidder");

@@ -199,6 +199,18 @@
                                         href="#tab-2">Participating Auctions</a></li>
                                 <li class="nav-item"><a class="nav-link" role="tab" data-toggle="tab" href="#tab-3">Won
                                         Auctions</a></li>
+
+                                
+                                {{#if (equal ../session.user.request  null)}}
+                                    <li>
+                                        <form method="POST">    
+                                            <button class="btn btn-outline-warning" type="submit" formaction="/account/upgrade/{{id}}">Upgrade to
+                                                Seller</button>
+                                        </form>                                                 
+                                    </li>
+                                {{/if}}
+                                
+
                                 {{else}}
                                 {{#if (equal ../session.user.privilege "seller")}}
                                 <li class="nav-item"><a class="nav-link active" role="tab" data-toggle="tab"
@@ -217,6 +229,7 @@
                             </ul>
                             <div class="tab-content">
                                 {{#if (equal ../session.user.privilege "bidder")}}
+
                                     <div class="tab-pane active" role="tabpanel" id="tab-1">
                                         <div class="projects-horizontal">
                                             <div class="container">
@@ -246,10 +259,12 @@
                                                         </a>
                                                     </div>
                                                     {{/each}}
+
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
+
                                     <div class="tab-pane" role="tabpanel" id="tab-2">
                                         <div class="projects-horizontal">
                                             <div class="container">
@@ -279,10 +294,12 @@
                                                         </a>
                                                     </div>
                                                     {{/each}}
+
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
+
                                     <div class="tab-pane" role="tabpanel" id="wonAuctions">
                                         <div class="projects-horizontal">
                                             <div class="container">
@@ -308,11 +325,13 @@
                                                         </a>
                                                     </div>
                                                     {{/each}}
+
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 {{else}}
+
                                     {{#if (equal ../session.user.privilege "seller")}}
                                         <div class="tab-pane active" role="tabpanel" id="tab-1">
                                             <div class="projects-horizontal">
@@ -344,9 +363,11 @@
                                                         </div>
                                                         {{/each}}
                                                     </div>
+
                                                 </div>
                                             </div>
                                         </div>
+
                                         <div class="tab-pane" role="tabpanel" id="tab-2">
                                             <div class="projects-horizontal">
                                                 <div class="container">
@@ -380,6 +401,7 @@
                                                 </div>
                                             </div>
                                         </div>
+
                                         <div class="tab-pane" role="tabpanel" id="tab-3">
                                             <div class="projects-horizontal">
                                                 <div class="container">
@@ -409,6 +431,7 @@
                                                 </div>
                                             </div>
                                         </div>
+
                                         <div class="tab-pane" role="tabpanel" id="tab-4">
                                             <div class="projects-horizontal">
                                                 <div class="container">
@@ -438,6 +461,7 @@
                                                 </div>
                                             </div>
                                         </div>
+
                                         <div class="tab-pane" role="tabpanel" id="tab-5">
                                             <div class="projects-horizontal">
                                                 <div class="container">

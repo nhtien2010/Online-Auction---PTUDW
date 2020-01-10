@@ -1,3 +1,4 @@
+
 <style>
   .carousel-indicators li,
   .carousel-indicators li.active {
@@ -37,10 +38,10 @@
 
   <div class="mb-2 bg-white container-xl clearfix justify-content-center row mx-auto">
     <div class="col-10 col-md-4 col-sm-8 m-0 p-0">
-      <div id="carousel" class="carousel slide" data-ride="carousel">
+      <div id="demo" class="carousel slide" data-ride="carousel">
         <ul class="carousel-indicators w-100 m-0 h-25">
           {{#each image}}
-          <li data-target="#carousel" data-slide-to="{{@index}}" class="w-25 {{{imageactive @index}}}">
+          <li data-target="#demo" data-slide-to="{{@index}}" class="w-25 {{{imageactive @index}}}">
             <img src="{{image}}" alt="{{image}}">
           </li>
           {{/each}}
@@ -52,10 +53,10 @@
           </div>
           {{/each}}
         </div>
-        <a class="carousel-control-prev" href="#carousel" data-slide="prev">
+        <a class="carousel-control-prev" href="#demo" data-slide="prev">
           <span class="carousel-control-prev-icon"></span>
         </a>
-        <a class="carousel-control-next" href="#carousel" data-slide="next">
+        <a class="carousel-control-next" href="#demo" data-slide="next">
           <span class="carousel-control-next-icon"></span>
         </a>
 
@@ -130,7 +131,6 @@
           <input type="checkbox" class="custom-control-input" name="mode" id="mode">
           <label class="custom-control-label" for="mode">Automated bid</label>
         </div>
-
         <input class="col-9 col-md-6" type="text" placeholder="{{{sum current increment}}}$" name="offer" id="offer"
           {{{disable status}}} {{{disable ../session.user.rating}}} {{{disable ../session.user.id ../seller.id}}}>
         <button class="col-3" style="background-color: lightcyan; border-radius: 15px; width: 50px;"
@@ -179,13 +179,17 @@
             </div>
           </div>
         </div>
+
       </form>
       {{/if}}
       {{/with}}
     </div>
-
     <div class="col-5 col-md-3 col-sm-5 m-0 border-left">
       <h4 style="margin: 0;">Seller Information</h4>
+
+      <p class="m-0">{{seller.name}} <a class="text-primary" href="/seller-profile">({{seller.rating}} <i
+            class='fa fa-star text-warning'></i>)</a></p>
+
       {{#if session.authenticated}}
       {{#if (equal session.user.id seller.id)}}
       <p class="m-0 d-inline-block"> {{masked seller.name}} <p class="text-primary m-0 d-inline-block">
@@ -239,57 +243,17 @@
           ({{seller.rating}} <i class='fa fa-star text-warning'></i>)</p>
       </p>
       {{/if}}
+
       <hr style="border: 0.1px solid slategray;border-style:dashed;">
       <a class="d-block text-primary small">Save This Seller</a>
       <a class="d-block text-primary small" href="">Contact Seller</a>
       <a class="d-block text-primary small" href="">Visit Store</a>
       <a class="d-block text-primary small" href="">See other Items</a>
-      <a class="d-block text-primary small" {{{disable status}}} {{{disable ../session.user.rating}}}
-        data-toggle="modal" data-target="#history-modal">Bid history</a>
-      <div class="modal fade" id="history-modal" role="dialog">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <form class="form-horizontal" id="announce-form">
-              <div class="modal-header">
-                <h6 class="modal-title">WNT Online Auction: {{product.name}}</h6>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body py-0">
-                <table class="table border my-1">
-                  <thead class="thead-dark">
-                    <tr>
-                      <th>User</th>
-                      <th>Offer</th>
-                      <th>Time</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {{#each history}}
-                    <tr>
-                      <td>{{masked name}}</td>
-                      <td>{{offer}}$</td>
-                      <td>{{timestamp time}}</td>
-                    </tr>
-                    {{/each}}
-                  </tbody>
-                </table>
-              </div>
-              <div class="modal-footer py-0">
-                <button data-dismiss="modal" class="btn btn-danger btn-sm" id="confirm">Confirm</button>
-                <button data-dismiss="modal" class="btn btn-default btn-sm border" id="cancel">Cancel</button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
-  </div>
 
-  <div class="container-xl mx-auto bg-white border py-1" style="border-radius: 25px;">
-    <h3 class="pb-1">Description</h3>
+  <div class="container-xl mx-auto bg-white border" style="border-radius: 25px;">
+    <h3>Description</h3>
     {{{product.description}}}
   </div>
 
@@ -364,3 +328,143 @@
     }
   });
 </script>
+
+
+<style>
+  .carousel-indicators li,
+  .carousel-indicators li.active {
+    position: relative;
+  }
+
+  .carousel-indicators img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+  }
+
+  .carousel-indicators li {
+    height: 100%;
+    background-color: transparent;
+  }
+
+  .carousel-indicators {
+    bottom: -25%;
+  }
+</style>
+
+<main>
+  <ul class="list-group list-group-horizontal ml-2">
+    <li><a class="text-primary" href="/"><small>Home</small></a></li>
+    {{#if prepath}}
+    <li> <a class="text-primary" href="/search/category/{{prepath.id}}"><small> &gt; {{prepath.name}}</small></a></li>
+    {{/if}}
+    {{#if path}}
+    <li> <a class="text-primary" href="/search/category/{{path.id}}"><small> &gt; {{path.name}}</small></a></li>
+    {{/if}}
+  </ul>
+
+  <hr class="m-0">
+
+  <div class="mb-2 bg-white container-xl clearfix justify-content-center row mx-auto">
+    <div class="col-10 col-md-4 col-sm-8 m-0 p-0">
+      <div id="demo" class="carousel slide" data-ride="carousel">
+        <ul class="carousel-indicators w-100 m-0 h-25">
+          {{#each image}}
+          <li data-target="#demo" data-slide-to="{{@index}}" class="w-25 {{{imageactive @index}}}">
+            <img src="{{image}}" alt="{{image}}">
+          </li>
+          {{/each}}
+        </ul>
+        <div class="carousel-inner p-0" onchange="Check()">
+          {{#each image}}
+          <div class="carousel-item {{{imageactive @index}}}" onclick="Change()">
+            <img class="w-100" src="{{image}}" alt="{{image}}">
+          </div>
+          {{/each}}
+        </div>
+        <a class="carousel-control-prev" href="#demo" data-slide="prev">
+          <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#demo" data-slide="next">
+          <span class="carousel-control-next-icon"></span>
+        </a>
+
+      </div>
+
+      <div style="height: 20vh;">
+
+      </div>
+    </div>
+
+    <div class="col-7 col-md-5 col-sm-7 m-0">
+      {{#with product}}
+      <h2 class="m-0 mb-2" id="name">{{name}} {{{new start}}} {{#unless (equal status "bidding")}} <b>({{status}})</b>
+        {{/unless}}</h2>
+      <p class="m-1">End in: <b class="text-danger">{{remain end}}</b></p>
+      <p class="m-1">Current: <b class="text-info" id="current">{{current}}$</b></p>
+      <p class="m-1" id="cap">Deal: {{cap}}$</p>
+      <p class="m-1" id="holder">Bidder: {{{masked ../holder.name}}} ({{../holder.rating}} <i
+          class='fa fa-star text-warning'></i>)</p>
+      <p class="m-1" id="bids">Bids: {{bids}} Times</p>
+      <p class="m-1">Start: {{time start}}</p>
+      {{#if ../session.authenticated}}
+      <form class="row m-0" method="POST">
+        <input class="col-9 col-md-6" type="text" placeholder="$" id="offer" {{{disable status}}}>
+        <button class="col-3" style="background-color: lightcyan; border-radius: 15px; width: 50px;" onclick="Bid()"
+          {{{disable status}}}>Bid
+        </button>
+      </form>
+      {{/if}}
+      {{/with}}
+    </div>
+    <div class="col-5 col-md-3 col-sm-5 m-0 border-left">
+      <h4 style="margin: 0;">Seller Information</h4>
+      <a class="text-primary" href="/seller-profile">{{seller.name}} ({{seller.rating}} <i
+          class='fa fa-star text-warning'></i>)</a>
+      <p><small>96.69% Positive feedback</small></p>
+      <hr style="border: 0.1px solid slategray;border-style:dashed;">
+      <a class="d-block text-primary">Save This Seller</a>
+      <a class="d-block text-primary" href="">Contact Seller</a>
+      <a class="d-block text-primary" href="">Visit Store</a>
+      <a class="d-block text-primary" href="">See other Items</a>
+    </div>
+  </div>
+
+  <div class="container-xl mx-auto bg-white border" style="border-radius: 25px;">
+    <h3>Description</h3>
+    {{{product.description}}}
+  </div>
+
+  <div class="container-xl mx-auto bg-white mt-2">
+    <h4 class="m-0 font-italic">Related</h4>
+    <hr class="m-0">
+    <div class="row">
+      {{#each related}}
+      <div class="col-4 col-sm-3 col-lg-2 product">
+        <a href="/detail/{{id}}">
+          <img src="{{image}}" class="rounded img-fluid m-1" alt="image">
+          <h5 class="text-center">{{name}} {{{new start}}} {{#unless (equal status "bidding")}} <b>({{status}})</b>
+            {{/unless}} </h5>
+          {{#if info}}
+          <p class="text-center m-0">{{{masked info}}}</p>
+          {{else}}
+          <p class="text-center m-0">&nbsp; &nbsp;</p>
+          {{/if}}
+
+          <div class="clearfix">
+            <p class="float-left m-0">{{cap}}$</p>
+            <p class="float-right m-0">{{bids}} Bids</p>
+          </div>
+          <div class="clearfix">
+            <p class="float-left m-0">{{{time start}}}</p>
+            <p class="float-right text-danger m-0">{{{remain end}}}</p>
+          </div>
+          <p class="text-center text-info font-weight-bold">{{current}}$</p>
+        </a>
+      </div>
+      {{/each}}
+    </div>
+  </div>
+</main>

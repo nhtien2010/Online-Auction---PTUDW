@@ -1,4 +1,3 @@
-
 const express = require('express');
 const productmodel = require('../models/productmodel');
 const categorymodel = require('../models/categorymodel');
@@ -6,21 +5,18 @@ const router = express.Router();
 
 router.get('/', async function (req, res) {
     await productmodel.refresh();
-    var category = await categorymodel.all();
-    var end = await productmodel.end();
-    var price = await productmodel.price();
-    var bid = await productmodel.bid();
     
     res.render('./admin', {
-        end: end,
-        price: price,
-        bid: bid,
         category: category
     });
 });
 
 router.get('/category-add',async function (req, res) {
     var category = await categorymodel.all();
+<<<<<<< HEAD
+=======
+
+>>>>>>> c7d6d9eedbbc528d9b1bde83ba7a5a3f4efb7efd
 
     res.render('./category-add', {
         category: category
@@ -50,7 +46,13 @@ router.post('/category-add',async function (req, res) {
     
     //this equals router.get('/category-add',
     var category = await categorymodel.all();
+<<<<<<< HEAD
     res.render('./category-add', {
+=======
+
+    res.render('./category-add', {
+
+>>>>>>> c7d6d9eedbbc528d9b1bde83ba7a5a3f4efb7efd
         category: category
     }
     );
@@ -126,9 +128,10 @@ router.post('/category-edit/:catid', async function(req, res){
 
 // delete category by id
 router.post('/del/:CatId',async function (req, res) {
+    const isParent = await categorymodel.isParent(req.params.CatId);
     const quantity = await productmodel.countByCat(req.params.CatId);   
     var message = "Can not delete category contains product";
-    if(quantity === 0){
+    if(quantity === 0 && isParent !== true){
         const rs = await categorymodel.delete(req.params.CatId);
         message = "Category deleted";
     }

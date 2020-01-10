@@ -1,3 +1,4 @@
+
 const moment = require('moment');
 
 var register = function (Handlebars) {
@@ -14,10 +15,8 @@ var register = function (Handlebars) {
             return "Expired";
         },
         time: function (time) {
-            return moment(time).format("YYYY/MM/DD");
-        },
-        timestamp: function(time) {
-            return moment(time).format("YYYY/MM/DD hh:mm:ss");
+            time = moment(time).format("YYYY/MM/DD");
+            return time;
         },
         new: function (start) {
             if (moment().diff(start, 'days') < 1)
@@ -25,6 +24,9 @@ var register = function (Handlebars) {
         },
         equal: function (first, second) {
             return first === second;
+        },
+        equalBool: function (first, second) {
+            return first == second;
         },
         root: function (set, root) {
             for (var i = 0; i < set.length; i++) {
@@ -35,8 +37,6 @@ var register = function (Handlebars) {
         },
         disable: function (status) {
             if (status == "bidding")
-                return;
-            if (parseFloat(status) > 8)
                 return;
             return "disabled"
         },
@@ -55,6 +55,7 @@ var register = function (Handlebars) {
         imageactive: function (index) {
             if (index == 0)
                 return "active";
+
         },
         sum: function (first, second) {
             return first + second;
@@ -63,6 +64,7 @@ var register = function (Handlebars) {
             if (seller != user)
                 return;
             return "disabled"
+
         }
     };
 

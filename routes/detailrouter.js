@@ -1,3 +1,4 @@
+
 const express = require('express');
 const productmodel = require('../models/productmodel');
 const categorymodel = require('../models/categorymodel');
@@ -10,6 +11,7 @@ const mailgun = require('mailgun-js')({ apiKey: crypt.decrypt(configuration.mail
 const router = express.Router();
 
 router.get('/:id', async function (req, res) {
+    await productmodel.refresh();
     var product = await productmodel.detail(req.params.id);
     if (product.length == 0)
         return res.redirect("/404");
@@ -32,7 +34,7 @@ router.get('/:id', async function (req, res) {
         prepath = await categorymodel.id(path.parent);
         prepath = prepath[0];
     }
-    var history = await productmodel.history(req.params.id);
+
     var announce;
 
     if (req.session.announce) {
@@ -41,6 +43,7 @@ router.get('/:id', async function (req, res) {
     }
     else
         announce = null;
+
     var ratinglist;
     if (req.session.authenticated)
         if (seller.id === req.session.user.id)
@@ -57,9 +60,7 @@ router.get('/:id', async function (req, res) {
             path: path,
             prepath: prepath,
             image: image,
-            announce: announce,
-            history: history,
-            ratinglist: ratinglist
+            announce: announce
         });
     });
 })
@@ -164,5 +165,6 @@ router.post('/:id', async function (req, res) {
         return res.redirect('/detail/' + req.params.id);
     });
 })
+
 
 module.exports = router;

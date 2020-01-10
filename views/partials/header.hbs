@@ -55,13 +55,16 @@
                 <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false"
                     type="button"><i class="fas fa-user"></i></button>
                 <div class="dropdown-menu dropdown-menu-right" role="menu">
+
                     {{#if session.authenticated}}
                     {{#if (equal session.user.privilege "admin")}}
                     <a class="dropdown-item" role="presentation" href="/account/admin">My Profile</a>
                     <a class="dropdown-item" role="presentation" href="/">Homepage</a>
                     <a class="dropdown-item" role="presentation" href="/logout">Sign out</a>
                     {{else}}
+
                     {{#if (equal session.user.privilege "bidder")}}
+
                     <a class="dropdown-item" role="presentation" href="/account/profile">My Profile</a>
                     <a class="dropdown-item" role="presentation" data-toggle="modal"
                         data-target="#upgrade-modal">Upgrade
@@ -93,10 +96,12 @@
                     </div>
                     <a class="dropdown-item" role="presentation" href="/logout">Sign out</a>
                     {{else}}
+
                     {{#if (equal session.user.privilege "seller")}}
-                    <a class="dropdown-item" role="presentation" href="/account/profile">My Profile</a>
+                    <a class="dropdown-item" role="presentation" href="/account/seller">My Profile</a>
                     <a class="dropdown-item" role="presentation" href="/logout">Sign out</a>
                     {{else}}
+
                     <a class="dropdown-item" role="presentation" href="/logout">Sign out</a>
                     {{/if}}
                     {{/if}}
