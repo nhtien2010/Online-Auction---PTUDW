@@ -11,17 +11,18 @@ router.get('/admin', async function (req, res) {
     res.render('./admin');
 });
 
-router.get('/profile', async function (req, res) {
-    if (req.session.user.privilege != "bidder" && req.session.user.privilege != "seller")
+router.get('/bidder', async function (req, res) {
+    if (req.session.user.privilege != "bidder")
         return res.redirect("/404");
-    res.render('./profile', {
-        user: req.session.user,
-        name: req.session.user.name,
-        email: req.session.user.email,
-        dob: req.session.user.dob,
-        priviledge: req.session.user.priviledge,
-        address: req.session.user.address,
-    })
+
+    res.render("./bidder-profile");
+});
+
+router.get('/seller', async function (req, res) {
+    if (req.session.user.privilege != "seller")
+        return res.redirect("/404");
+
+    res.render("./seller-profile");
 });
 
 router.get('/active/:id', async function (req, res) {
@@ -49,18 +50,6 @@ router.get('/active/:id', async function (req, res) {
 
 router.get('/reminder', async function (req, res) {
     res.render("./reminder");
-});
-
-router.post('/upgrade', async function (req, res) {
-    const entity = {
-        id: req.body.id,
-        name: req.body.name,
-        request: 'upgrade'
-    }
-
-    const rs = await usermodel.update(entity);
-
-    res.redirect('#');
 });
 
 module.exports = router;

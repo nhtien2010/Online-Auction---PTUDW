@@ -38,8 +38,8 @@ router.get('/user-view/:UserId',async function (req, res){
 router.post('/up-bidder/:UserId',async function (req, res) {
     const entity = {
         id: req.params.UserId,
-        request: "none",
-        type: "seller"
+        request: false,
+        privilege: "seller"
     }
     // console.log(req.params.UserId);
     const rs = await usermodel.changeType(entity);
@@ -50,8 +50,8 @@ router.post('/up-bidder/:UserId',async function (req, res) {
 router.post('/down-seller/:UserId',async function (req, res) {
     const entity = {
         id: req.params.UserId,
-        request: "none",
-        type: "bidder"
+        request: false,
+        privilege: "bidder"
     }
     const rs = await usermodel.changeType(entity);
     res.redirect('/admin/user');

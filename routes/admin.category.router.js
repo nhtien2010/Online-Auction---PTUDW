@@ -140,9 +140,10 @@ router.post('/category-edit/:catid', async function(req, res){
 
 // delete category by id
 router.post('/del/:CatId',async function (req, res) {
+    const isParent = await categorymodel.isParent(req.params.CatId);
     const quantity = await productmodel.countByCat(req.params.CatId);   
     var message = "Can not delete category contains product";
-    if(quantity === 0){
+    if(quantity === 0 && isParent !== true){
         const rs = await categorymodel.delete(req.params.CatId);
         message = "Category deleted";
     }

@@ -61,8 +61,18 @@
                     <a class="dropdown-item" role="presentation" href="/">Homepage</a>
                     <a class="dropdown-item" role="presentation" href="/logout">Sign out</a>
                     {{else}}
+
+                    {{!-- {{#if (equal session.user.privilege "bidder")}}
+                    <a class="dropdown-item" role="presentation" href="/account/bidder">My
+                        Profile</a>
+                    <a class="dropdown-item" role="presentation" href="/logout">Sign out</a>
+                    {{else}}
+                    {{#if (equal session.user.privilege "seller")}}
+                    <a class="dropdown-item" role="presentation" href="/account/seller">My
+                        Profile</a> --}}
+
                     {{#if (equal session.user.privilege "bidder")}}
-                    <a class="dropdown-item" role="presentation" href="/account/profile">My Profile</a>
+                    <a class="dropdown-item" role="presentation" href="/account/bidder">My Profile</a>
                     <a class="dropdown-item" role="presentation" data-toggle="modal" data-target="#upgradeModal">Upgrade to Seller</a>
                     <div class="modal fade" id="upgradeModal" tabindex="-1" role="dialog" aria-labelledby="upgradeModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
@@ -74,7 +84,7 @@
                                 </button>
                             </div>
                             <div class="modal-body">
-                                <form id="upgrade_form" action="/account/upgrade" method="POST">
+                                <form id="upgrade_form" action="/upgrade" method="POST">
                                     <p>Upgrade to Seller for 7 days?</p>
                                 </form>
                             </div>
@@ -88,7 +98,7 @@
                     <a class="dropdown-item" role="presentation" href="/logout">Sign out</a>
                     {{else}}
                     {{#if (equal session.user.privilege "seller")}}
-                    <a class="dropdown-item" role="presentation" href="/account/profile">My Profile</a>
+                    <a class="dropdown-item" role="presentation" href="/account/seller">My Profile</a>
                     <a class="dropdown-item" role="presentation" href="/logout">Sign out</a>
                     {{else}}
                     <a class="dropdown-item" role="presentation" href="/logout">Sign out</a>
