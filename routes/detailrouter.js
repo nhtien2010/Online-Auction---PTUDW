@@ -36,6 +36,7 @@ router.get('/:id', async function (req, res) {
     }
 
     var announce;
+    var history = await productmodel.history(req.params.id);
 
     if (req.session.announce) {
         announce = req.session.announce;
@@ -60,7 +61,9 @@ router.get('/:id', async function (req, res) {
             path: path,
             prepath: prepath,
             image: image,
-            announce: announce
+            announce: announce,
+            ratinglist: ratinglist,
+            history: history
         });
     });
 })

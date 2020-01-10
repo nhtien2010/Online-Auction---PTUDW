@@ -21,16 +21,14 @@ router.get('/', async function (req, res) {
 });
 
 router.get('/category', async function (req, res) {
-    await productmodel.refresh();
     var category = await categorymodel.all();
-
+    
     res.render('./category', {
         category: category
     });
 });
 
 router.get('/product', async function (req, res) {
-    console.log(1);
     await productmodel.refresh();
     const page = 1;
 

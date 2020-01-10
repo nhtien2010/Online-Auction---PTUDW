@@ -12,9 +12,7 @@ router.get('/', async function (req, res) {
 });
 
 router.get('/category-add',async function (req, res) {
-    await productmodel.refresh();
     var category = await categorymodel.all();
-
 
     res.render('./category-add', {
         category: category
@@ -43,11 +41,9 @@ router.post('/category-add',async function (req, res) {
     }
     
     //this equals router.get('/category-add',
-    await productmodel.refresh();
     var category = await categorymodel.all();
-
+    
     res.render('./category-add', {
-
         category: category
     }
     );
