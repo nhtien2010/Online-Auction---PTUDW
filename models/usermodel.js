@@ -8,7 +8,7 @@ module.exports = {
   update: (entity, condition) => db.update(entity, condition, 'user'),
   otp: (entity) => db.insert(entity, 'otp'),
   verify: (email) => db.select(`select * from otp where email='${email}' order by otp.start desc limit 1`),
-  bid: (entity) => { return db.insert(entity, 'history'), db.UpdateHistory(entity) },
+  bid: async (entity) => { await db.insert(entity, 'history'); await db.UpdateHistory(entity) },
   automated: (entity) => db.insert(entity, 'automation'),
   all: _ => (db.select('select * from user')),
   getType: type => (db.select(`select * from user where type = '${type}'`)),

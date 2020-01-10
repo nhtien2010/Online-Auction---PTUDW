@@ -14,6 +14,7 @@ router.get('/admin', async function (req, res) {
 router.get('/profile', async function (req, res) {
     if (req.session.user.privilege != "bidder" && req.session.user.privilege != "seller")
         return res.redirect("/404");
+        
     res.render('./profile', {
         user: req.session.user,
         name: req.session.user.name,
