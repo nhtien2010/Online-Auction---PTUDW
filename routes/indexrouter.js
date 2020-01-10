@@ -165,7 +165,8 @@ router.post('/register', async function (req, res) {
         const entity = {
             name: req.body.register_name,
             email: req.body.register_email,
-            password: hash
+            password: hash,
+            address: req.body.register_address
         }
 
         await usermodel.add(entity);
