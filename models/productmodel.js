@@ -32,5 +32,10 @@ module.exports = {
     UpdateProduct: id => db.UpdateProduct(id),
     bid: entity => db.select(`select history.offer as price, bidder.name as bidder, bidder.email as bidderemail, seller.name as seller, seller.email as selleremail, product.name, product.increment from history, user as bidder, product, user as seller where history.product=${entity.product} and history.user=${entity.user} and product.id=history.product and bidder.id=history.user and product.seller=seller.id order by history.offer desc limit 1`),
     holder: id => db.select(`select user.name, user.email from history, user where history.product=${id} and user.id=history.user order by history.offer desc limit 1`),
-    xfactor: entity => db.select(`select user.name, user.email from automation, user where automation.product=${entity.product} and automation.offer >= ${entity.offer} and user.id=automation.user order by automation.offer desc limit 1`)
+    xfactor: entity => db.select(`select user.name, user.email from automation, user where automation.product=${entity.product} and automation.offer >= ${entity.offer} and user.id=automation.user order by automation.offer desc limit 1`),
+    wonlist: id => db.select(`select distinct * from product where holder=${id} and status='sold'`),
+    participate: id => db.select(`select distinct product.* from product, history where product.status='bidding' and product.id=history.product and history.user=${id}`),
+    watchlist: id => db.select(`select product.* from product, watchlist where product.id=watchlist.product and watchlist.user=${id}`),
+    ongoing: id => db.select(`select * from product where product.seller=${id} and product.status='bidding`),
+    soldlist: id => db.select(`select * from product where product.seller=${id} and product.status='sold'`)
 };
