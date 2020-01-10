@@ -199,16 +199,18 @@
                                         href="#tab-2">Participating Auctions</a></li>
                                 <li class="nav-item"><a class="nav-link" role="tab" data-toggle="tab" href="#tab-3">Won
                                         Auctions</a></li>
+
                                 
                                 {{#if (equal ../session.user.request  null)}}
                                     <li>
                                         <form method="POST">    
                                             <button class="btn btn-outline-warning" type="submit" formaction="/account/upgrade/{{id}}">Upgrade to
                                                 Seller</button>
-                                        </form>                                                   </div> --}}
+                                        </form>                                                 
                                     </li>
                                 {{/if}}
                                 
+
                                 {{else}}
                                 {{#if (equal ../session.user.privilege "seller")}}
                                 <li class="nav-item"><a class="nav-link active" role="tab" data-toggle="tab"
@@ -227,257 +229,269 @@
                             </ul>
                             <div class="tab-content">
                                 {{#if (equal ../session.user.privilege "bidder")}}
-                                <div class="tab-pane active" role="tabpanel" id="tab-1">
-                                    <div class="projects-horizontal">
-                                        <div class="container">
-                                            <div id="watchList" class="row projects">
-                                                {{#each this.bid}}
-                                                <div class="col-4 col-sm-3 col-lg-2 product">
-                                                    <a href="/detail/{{id}}">
-                                                        <img src="{{image}}" class="rounded img-fluid m-1" alt="image">
-                                                        <h5 class="text-center">{{name}} {{{new start}}}
-                                                            {{#unless (equal status "bidding")}} <b>({{status}})</b>
-                                                            {{/unless}}</h5>
-                                                        {{#if info }}
-                                                        <p class="text-center m-0">{{{masked info}}}</p>
-                                                        {{else}}
-                                                        <p class="text-center m-0">&nbsp; &nbsp;</p>
-                                                        {{/if}}
-                                                        <div class="clearfix">
-                                                            <p class="float-left m-0">{{cap}}$</p>
-                                                            <p class="float-right m-0">{{bids}} Bids</p>
-                                                        </div>
-                                                        <div class="clearfix">
-                                                            <p class="float-left m-0">{{{time start}}}</p>
-                                                            <p class="float-right text-danger m-0">{{{remain end}}}</p>
-                                                        </div>
-                                                        <p class="text-center text-info font-weight-bold">{{current}}$
-                                                        </p>
-                                                    </a>
+
+                                    <div class="tab-pane active" role="tabpanel" id="tab-1">
+                                        <div class="projects-horizontal">
+                                            <div class="container">
+                                                <div id="watchList" class="row projects">
+                                                    {{#each ../watchlist}}
+                                                    <div class="col-4 col-sm-3 col-lg-2 product">
+                                                        <a href="/detail/{{id}}">
+                                                            <img src="{{image}}" class="rounded img-fluid m-1" alt="image">
+                                                            <h5 class="text-center">{{name}} {{{new start}}}
+                                                                {{#unless (equal status "bidding")}} <b>({{status}})</b>
+                                                                {{/unless}}</h5>
+                                                            {{#if info }}
+                                                            <p class="text-center m-0">{{{masked info}}}</p>
+                                                            {{else}}
+                                                            <p class="text-center m-0">&nbsp; &nbsp;</p>
+                                                            {{/if}}
+                                                            <div class="clearfix">
+                                                                <p class="float-left m-0">{{cap}}$</p>
+                                                                <p class="float-right m-0">{{bids}} Bids</p>
+                                                            </div>
+                                                            <div class="clearfix">
+                                                                <p class="float-left m-0">{{{time start}}}</p>
+                                                                <p class="float-right text-danger m-0">{{{remain end}}}</p>
+                                                            </div>
+                                                            <p class="text-center text-info font-weight-bold">{{current}}$
+                                                            </p>
+                                                        </a>
+                                                    </div>
+                                                    {{/each}}
+
                                                 </div>
-                                                {{/each}}
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="tab-pane" role="tabpanel" id="tab-2">
-                                    <div class="projects-horizontal">
-                                        <div class="container">
-                                            <div id="participatingAuctions" class="row projects">
-                                                {{#each this.bid}}
-                                                <div class="col-4 col-sm-3 col-lg-2 product">
-                                                    <a href="/detail/{{id}}">
-                                                        <img src="{{image}}" class="rounded img-fluid m-1" alt="image">
-                                                        <h5 class="text-center">{{name}} {{{new start}}}
-                                                            {{#unless (equal status "bidding")}} <b>({{status}})</b>
-                                                            {{/unless}}</h5>
-                                                        {{#if info }}
-                                                        <p class="text-center m-0">{{{masked info}}}</p>
-                                                        {{else}}
-                                                        <p class="text-center m-0">&nbsp; &nbsp;</p>
-                                                        {{/if}}
-                                                        <div class="clearfix">
-                                                            <p class="float-left m-0">{{cap}}$</p>
-                                                            <p class="float-right m-0">{{bids}} Bids</p>
-                                                        </div>
-                                                        <div class="clearfix">
-                                                            <p class="float-left m-0">{{{time start}}}</p>
-                                                            <p class="float-right text-danger m-0">{{{remain end}}}</p>
-                                                        </div>
-                                                        <p class="text-center text-info font-weight-bold">{{current}}$
-                                                        </p>
-                                                    </a>
+
+                                    <div class="tab-pane" role="tabpanel" id="tab-2">
+                                        <div class="projects-horizontal">
+                                            <div class="container">
+                                                <div id="participatingAuctions" class="row projects">
+                                                    {{#each ../participate}}
+                                                    <div class="col-4 col-sm-3 col-lg-2 product">
+                                                        <a href="/detail/{{id}}">
+                                                            <img src="{{image}}" class="rounded img-fluid m-1" alt="image">
+                                                            <h5 class="text-center">{{name}} {{{new start}}}
+                                                                {{#unless (equal status "bidding")}} <b>({{status}})</b>
+                                                                {{/unless}}</h5>
+                                                            {{#if info }}
+                                                            <p class="text-center m-0">{{{masked info}}}</p>
+                                                            {{else}}
+                                                            <p class="text-center m-0">&nbsp; &nbsp;</p>
+                                                            {{/if}}
+                                                            <div class="clearfix">
+                                                                <p class="float-left m-0">{{cap}}$</p>
+                                                                <p class="float-right m-0">{{bids}} Bids</p>
+                                                            </div>
+                                                            <div class="clearfix">
+                                                                <p class="float-left m-0">{{{time start}}}</p>
+                                                                <p class="float-right text-danger m-0">{{{remain end}}}</p>
+                                                            </div>
+                                                            <p class="text-center text-info font-weight-bold">{{current}}$
+                                                            </p>
+                                                        </a>
+                                                    </div>
+                                                    {{/each}}
+
                                                 </div>
-                                                {{/each}}
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="tab-pane" role="tabpanel" id="wonAuctions">
-                                    <div class="projects-horizontal">
-                                        <div class="container">
-                                            <div id="wonAuctions" class="row projects">
-                                                {{#each this.end}}
-                                                <div class="col-4 col-sm-3 col-lg-2 product">
-                                                    <a href="/detail/{{id}}">
-                                                        <img src="{{image}}" class="rounded img-fluid m-1" alt="image">
-                                                        <h5 class="text-center">{{name}}
-                                                            {{{new start}}}{{#unless (equal status "bidding")}}
-                                                            <b>({{status}})</b> {{/unless}}</i></h5>
-                                                        <p class="text-center m-0">{{{masked info}}}</p>
-                                                        <div class="clearfix">
-                                                            <p class="float-left m-0">{{cap}}$</p>
-                                                            <p class="float-right m-0">{{bids}} Bids</p>
-                                                        </div>
-                                                        <div class="clearfix">
-                                                            <p class="float-left m-0">{{{time start}}}</p>
-                                                            <p class="float-right text-danger m-0">{{{remain end}}}</p>
-                                                        </div>
-                                                        <p class="text-center text-info font-weight-bold">{{current}}$
-                                                        </p>
-                                                    </a>
+
+                                    <div class="tab-pane" role="tabpanel" id="wonAuctions">
+                                        <div class="projects-horizontal">
+                                            <div class="container">
+                                                <div id="wonAuctions" class="row projects">
+                                                    {{#each ../wonlist}}
+                                                    <div class="col-4 col-sm-3 col-lg-2 product">
+                                                        <a href="/detail/{{id}}">
+                                                            <img src="{{image}}" class="rounded img-fluid m-1" alt="image">
+                                                            <h5 class="text-center">{{name}}
+                                                                {{{new start}}}{{#unless (equal status "bidding")}}
+                                                                <b>({{status}})</b> {{/unless}}</i></h5>
+                                                            <p class="text-center m-0">{{{masked info}}}</p>
+                                                            <div class="clearfix">
+                                                                <p class="float-left m-0">{{cap}}$</p>
+                                                                <p class="float-right m-0">{{bids}} Bids</p>
+                                                            </div>
+                                                            <div class="clearfix">
+                                                                <p class="float-left m-0">{{{time start}}}</p>
+                                                                <p class="float-right text-danger m-0">{{{remain end}}}</p>
+                                                            </div>
+                                                            <p class="text-center text-info font-weight-bold">{{current}}$
+                                                            </p>
+                                                        </a>
+                                                    </div>
+                                                    {{/each}}
+
                                                 </div>
-                                                {{/each}}
                                             </div>
                                         </div>
                                     </div>
-                                </div>
                                 {{else}}
-                                {{#if (equal session.user.type "seller")}}
-                                <div class="tab-pane active" role="tabpanel" id="tab-1">
-                                    <div class="projects-horizontal">
-                                        <div class="container">
-                                            <div id="watchList" class="row projects">
-                                                {{#each this.bid}}
-                                                <div class="col-4 col-sm-3 col-lg-2 product">
-                                                    <a href="/detail/{{id}}">
-                                                        <img src="{{image}}" class="rounded img-fluid m-1" alt="image">
-                                                        <h5 class="text-center">{{name}} {{{new start}}}
-                                                            {{#unless (equal status "bidding")}} <b>({{status}})</b>
-                                                            {{/unless}}</h5>
-                                                        {{#if info }}
-                                                        <p class="text-center m-0">{{{masked info}}}</p>
-                                                        {{else}}
-                                                        <p class="text-center m-0">&nbsp; &nbsp;</p>
-                                                        {{/if}}
-                                                        <div class="clearfix">
-                                                            <p class="float-left m-0">{{cap}}$</p>
-                                                            <p class="float-right m-0">{{bids}} Bids</p>
+
+                                    {{#if (equal ../session.user.privilege "seller")}}
+                                        <div class="tab-pane active" role="tabpanel" id="tab-1">
+                                            <div class="projects-horizontal">
+                                                <div class="container">
+                                                    <div id="watchList" class="row projects">
+                                                        {{#each ../watchlist}}
+                                                        <div class="col-4 col-sm-3 col-lg-2 product">
+                                                            <a href="/detail/{{id}}">
+                                                                <img src="{{image}}" class="rounded img-fluid m-1" alt="image">
+                                                                <h5 class="text-center">{{name}} {{{new start}}}
+                                                                    {{#unless (equal status "bidding")}} <b>({{status}})</b>
+                                                                    {{/unless}}</h5>
+                                                                {{#if info }}
+                                                                <p class="text-center m-0">{{{masked info}}}</p>
+                                                                {{else}}
+                                                                <p class="text-center m-0">&nbsp; &nbsp;</p>
+                                                                {{/if}}
+                                                                <div class="clearfix">
+                                                                    <p class="float-left m-0">{{cap}}$</p>
+                                                                    <p class="float-right m-0">{{bids}} Bids</p>
+                                                                </div>
+                                                                <div class="clearfix">
+                                                                    <p class="float-left m-0">{{{time start}}}</p>
+                                                                    <p class="float-right text-danger m-0">{{{remain end}}}</p>
+                                                                </div>
+                                                                <p class="text-center text-info font-weight-bold">{{current}}$
+                                                                </p>
+                                                            </a>
                                                         </div>
-                                                        <div class="clearfix">
-                                                            <p class="float-left m-0">{{{time start}}}</p>
-                                                            <p class="float-right text-danger m-0">{{{remain end}}}</p>
-                                                        </div>
-                                                        <p class="text-center text-info font-weight-bold">{{current}}$
-                                                        </p>
-                                                    </a>
+                                                        {{/each}}
+                                                    </div>
+
                                                 </div>
-                                                {{/each}}
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
-                                <div class="tab-pane" role="tabpanel" id="tab-2">
-                                    <div class="projects-horizontal">
-                                        <div class="container">
-                                            <div id="participatingAuctions" class="row projects">
-                                                {{#each this.bid}}
-                                                <div class="col-4 col-sm-3 col-lg-2 product">
-                                                    <a href="/detail/{{id}}">
-                                                        <img src="{{image}}" class="rounded img-fluid m-1" alt="image">
-                                                        <h5 class="text-center">{{name}} {{{new start}}}
-                                                            {{#unless (equal status "bidding")}} <b>({{status}})</b>
-                                                            {{/unless}}</h5>
-                                                        {{#if info }}
-                                                        <p class="text-center m-0">{{{masked info}}}</p>
-                                                        {{else}}
-                                                        <p class="text-center m-0">&nbsp; &nbsp;</p>
-                                                        {{/if}}
-                                                        <div class="clearfix">
-                                                            <p class="float-left m-0">{{cap}}$</p>
-                                                            <p class="float-right m-0">{{bids}} Bids</p>
+
+                                        <div class="tab-pane" role="tabpanel" id="tab-2">
+                                            <div class="projects-horizontal">
+                                                <div class="container">
+                                                    <div id="participatingAuctions" class="row projects">
+                                                        {{#each ../participate}}
+                                                        <div class="col-4 col-sm-3 col-lg-2 product">
+                                                            <a href="/detail/{{id}}">
+                                                                <img src="{{image}}" class="rounded img-fluid m-1" alt="image">
+                                                                <h5 class="text-center">{{name}} {{{new start}}}
+                                                                    {{#unless (equal status "bidding")}} <b>({{status}})</b>
+                                                                    {{/unless}}</h5>
+                                                                {{#if info }}
+                                                                <p class="text-center m-0">{{{masked info}}}</p>
+                                                                {{else}}
+                                                                <p class="text-center m-0">&nbsp; &nbsp;</p>
+                                                                {{/if}}
+                                                                <div class="clearfix">
+                                                                    <p class="float-left m-0">{{cap}}$</p>
+                                                                    <p class="float-right m-0">{{bids}} Bids</p>
+                                                                </div>
+                                                                <div class="clearfix">
+                                                                    <p class="float-left m-0">{{{time start}}}</p>
+                                                                    <p class="float-right text-danger m-0">{{{remain end}}}</p>
+                                                                </div>
+                                                                <p class="text-center text-info font-weight-bold">{{current}}$
+                                                                </p>
+                                                            </a>
                                                         </div>
-                                                        <div class="clearfix">
-                                                            <p class="float-left m-0">{{{time start}}}</p>
-                                                            <p class="float-right text-danger m-0">{{{remain end}}}</p>
-                                                        </div>
-                                                        <p class="text-center text-info font-weight-bold">{{current}}$
-                                                        </p>
-                                                    </a>
+                                                        {{/each}}
+                                                    </div>
                                                 </div>
-                                                {{/each}}
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
-                                <div class="tab-pane" role="tabpanel" id="tab-3">
-                                    <div class="projects-horizontal">
-                                        <div class="container">
-                                            <div id="wonAuctions" class="row projects">
-                                                {{#each this.end}}
-                                                <div class="col-4 col-sm-3 col-lg-2 product">
-                                                    <a href="/detail/{{id}}">
-                                                        <img src="{{image}}" class="rounded img-fluid m-1" alt="image">
-                                                        <h5 class="text-center">{{name}}
-                                                            {{{new start}}}{{#unless (equal status "bidding")}}
-                                                            <b>({{status}})</b> {{/unless}}</i></h5>
-                                                        <p class="text-center m-0">{{{masked info}}}</p>
-                                                        <div class="clearfix">
-                                                            <p class="float-left m-0">{{cap}}$</p>
-                                                            <p class="float-right m-0">{{bids}} Bids</p>
+
+                                        <div class="tab-pane" role="tabpanel" id="tab-3">
+                                            <div class="projects-horizontal">
+                                                <div class="container">
+                                                    <div id="wonAuctions" class="row projects">
+                                                        {{#each ../wonlist}}
+                                                        <div class="col-4 col-sm-3 col-lg-2 product">
+                                                            <a href="/detail/{{id}}">
+                                                                <img src="{{image}}" class="rounded img-fluid m-1" alt="image">
+                                                                <h5 class="text-center">{{name}}
+                                                                    {{{new start}}}{{#unless (equal status "bidding")}}
+                                                                    <b>({{status}})</b> {{/unless}}</i></h5>
+                                                                <p class="text-center m-0">{{{masked info}}}</p>
+                                                                <div class="clearfix">
+                                                                    <p class="float-left m-0">{{cap}}$</p>
+                                                                    <p class="float-right m-0">{{bids}} Bids</p>
+                                                                </div>
+                                                                <div class="clearfix">
+                                                                    <p class="float-left m-0">{{{time start}}}</p>
+                                                                    <p class="float-right text-danger m-0">{{{remain end}}}</p>
+                                                                </div>
+                                                                <p class="text-center text-info font-weight-bold">{{current}}$
+                                                                </p>
+                                                            </a>
                                                         </div>
-                                                        <div class="clearfix">
-                                                            <p class="float-left m-0">{{{time start}}}</p>
-                                                            <p class="float-right text-danger m-0">{{{remain end}}}</p>
-                                                        </div>
-                                                        <p class="text-center text-info font-weight-bold">{{current}}$
-                                                        </p>
-                                                    </a>
+                                                        {{/each}}
+                                                    </div>
                                                 </div>
-                                                {{/each}}
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
-                                <div class="tab-pane" role="tabpanel" id="tab-4">
-                                    <div class="projects-horizontal">
-                                        <div class="container">
-                                            <div id="ongoingListed" class="row projects">
-                                                {{#each this.bid}}
-                                                <div class="col-4 col-sm-3 col-lg-2 product">
-                                                    <a href="/detail/{{id}}">
-                                                        <img src="{{image}}" class="rounded img-fluid m-1" alt="image">
-                                                        <h5 class="text-center">{{name}}
-                                                            {{{new start}}}{{#unless (equal status "bidding")}}
-                                                            <b>({{status}})</b> {{/unless}}</i></h5>
-                                                        <p class="text-center m-0">{{{masked info}}}</p>
-                                                        <div class="clearfix">
-                                                            <p class="float-left m-0">{{cap}}$</p>
-                                                            <p class="float-right m-0">{{bids}} Bids</p>
+
+                                        <div class="tab-pane" role="tabpanel" id="tab-4">
+                                            <div class="projects-horizontal">
+                                                <div class="container">
+                                                    <div id="ongoingListed" class="row projects">
+                                                        {{#each ../ongoing}}
+                                                        <div class="col-4 col-sm-3 col-lg-2 product">
+                                                            <a href="/detail/{{id}}">
+                                                                <img src="{{image}}" class="rounded img-fluid m-1" alt="image">
+                                                                <h5 class="text-center">{{name}}
+                                                                    {{{new start}}}{{#unless (equal status "bidding")}}
+                                                                    <b>({{status}})</b> {{/unless}}</i></h5>
+                                                                <p class="text-center m-0">{{{masked info}}}</p>
+                                                                <div class="clearfix">
+                                                                    <p class="float-left m-0">{{cap}}$</p>
+                                                                    <p class="float-right m-0">{{bids}} Bids</p>
+                                                                </div>
+                                                                <div class="clearfix">
+                                                                    <p class="float-left m-0">{{{time start}}}</p>
+                                                                    <p class="float-right text-danger m-0">{{{remain end}}}</p>
+                                                                </div>
+                                                                <p class="text-center text-info font-weight-bold">{{current}}$
+                                                                </p>
+                                                            </a>
                                                         </div>
-                                                        <div class="clearfix">
-                                                            <p class="float-left m-0">{{{time start}}}</p>
-                                                            <p class="float-right text-danger m-0">{{{remain end}}}</p>
-                                                        </div>
-                                                        <p class="text-center text-info font-weight-bold">{{current}}$
-                                                        </p>
-                                                    </a>
+                                                        {{/each}}
+                                                    </div>
                                                 </div>
-                                                {{/each}}
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
-                                <div class="tab-pane" role="tabpanel" id="tab-5">
-                                    <div class="projects-horizontal">
-                                        <div class="container">
-                                            <div id="endedListed" class="row projects">
-                                                {{#each this.end}}
-                                                <div class="col-4 col-sm-3 col-lg-2 product">
-                                                    <a href="/detail/{{id}}">
-                                                        <img src="{{image}}" class="rounded img-fluid m-1" alt="image">
-                                                        <h5 class="text-center">{{name}}
-                                                            {{{new start}}}{{#unless (equal status "bidding")}}
-                                                            <b>({{status}})</b> {{/unless}}</i></h5>
-                                                        <p class="text-center m-0">{{{masked info}}}</p>
-                                                        <div class="clearfix">
-                                                            <p class="float-left m-0">{{cap}}$</p>
-                                                            <p class="float-right m-0">{{bids}} Bids</p>
+
+                                        <div class="tab-pane" role="tabpanel" id="tab-5">
+                                            <div class="projects-horizontal">
+                                                <div class="container">
+                                                    <div id="endedListed" class="row projects">
+                                                        {{#each ../soldlist}}
+                                                        <div class="col-4 col-sm-3 col-lg-2 product">
+                                                            <a href="/detail/{{id}}">
+                                                                <img src="{{image}}" class="rounded img-fluid m-1" alt="image">
+                                                                <h5 class="text-center">{{name}}
+                                                                    {{{new start}}}{{#unless (equal status "bidding")}}
+                                                                    <b>({{status}})</b> {{/unless}}</i></h5>
+                                                                <p class="text-center m-0">{{{masked info}}}</p>
+                                                                <div class="clearfix">
+                                                                    <p class="float-left m-0">{{cap}}$</p>
+                                                                    <p class="float-right m-0">{{bids}} Bids</p>
+                                                                </div>
+                                                                <div class="clearfix">
+                                                                    <p class="float-left m-0">{{{time start}}}</p>
+                                                                    <p class="float-right text-danger m-0">{{{remain end}}}</p>
+                                                                </div>
+                                                                <p class="text-center text-info font-weight-bold">{{current}}$
+                                                                </p>
+                                                            </a>
                                                         </div>
-                                                        <div class="clearfix">
-                                                            <p class="float-left m-0">{{{time start}}}</p>
-                                                            <p class="float-right text-danger m-0">{{{remain end}}}</p>
-                                                        </div>
-                                                        <p class="text-center text-info font-weight-bold">{{current}}$
-                                                        </p>
-                                                    </a>
+                                                        {{/each}}
+                                                    </div>
                                                 </div>
-                                                {{/each}}
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
-                                {{/if}}
+                                    {{/if}}
                                 {{/if}}
                             </div>
                         </div>

@@ -167,7 +167,8 @@ router.post('/register', async function (req, res) {
         const entity = {
             name: req.body.register_name,
             email: req.body.register_email,
-            password: hash
+            password: hash,
+            address: req.body.register_address
         }
 
         await usermodel.add(entity);
@@ -191,6 +192,7 @@ router.post('/register', async function (req, res) {
             email: req.body.register_email,
             password: req.body.register_password,
             repeat: req.body.register_repeat,
+            address: req.body.register_address,
             error: "This email address is already being used!"
         });
     }

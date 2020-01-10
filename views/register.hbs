@@ -20,6 +20,8 @@
                 autofocus="" value="{{name}}">
             <input type="email" name="register_email" class="form-control" placeholder="Email address" required
                 autofocus="" value="{{email}}">
+            <input type="text" name="register_address" class="form-control" placeholder="Address" required
+                autofocus="" value="{{address}}">
             <p id="error" class="d-none">{{error}}</p>
             <input type="password" name="register_password" class="form-control" placeholder="Password" required
                 autofocus="" value="{{password}}">
@@ -44,9 +46,9 @@
     }
 
     function Default() {
-         if (email.value == "") {
+        if (email.value == "") {
             email.setCustomValidity("Please fill out this field.");
-        }else {
+        } else {
             email.setCustomValidity('');
         }
     }
