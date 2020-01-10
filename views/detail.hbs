@@ -118,8 +118,8 @@
         </div>
       </div>
       {{else}}
-      <p class="m-1">Bidder: {{{masked ../holder.name}}} (<a class="text-primary">{{../holder.rating}} <i
-            class='fa fa-star text-warning'></i></a>)</p>
+      <p class="m-1 d-inline-block">Bidder: {{{masked ../holder.name}}} (<p class="text-primary d-inline-block m-0">
+          {{../holder.rating}} <i class='fa fa-star text-warning'></i></p>)</p>
       {{/if}}
 
       <p class="m-1">Bids: {{bids}} Times</p>
@@ -135,7 +135,8 @@
           {{{disable status}}} {{{disable ../session.user.rating}}} {{{disable ../session.user.id ../seller.id}}}>
         <button class="col-3" style="background-color: lightcyan; border-radius: 15px; width: 50px;"
           value="{{{sum current increment}}}" {{{disable status}}} {{{disable ../session.user.rating}}} type="button"
-          data-toggle="modal" id="minimum" data-target="#announce-modal" {{{disable status}}} {{{disable ../session.user.rating}}} {{{disable ../session.user.id ../seller.id}}}>Bid</button>
+          data-toggle="modal" id="minimum" data-target="#announce-modal" {{{disable status}}}
+          {{{disable ../session.user.rating}}} {{{disable ../session.user.id ../seller.id}}}>Bid</button>
         <div class="modal fade" id="announce-modal" role="dialog">
           <div class="modal-dialog">
             <div class="modal-content">
@@ -191,7 +192,7 @@
           ({{seller.rating}} <i class='fa fa-star text-warning'></i>)</p>
       </p>
       {{else}}
-      <p class="m-0" data-toggle="modal" data-target="#seller-modal">{{seller.name}} <a
+      <p class="m-0" data-toggle="modal" data-target="#seller-modal">{{masked seller.name}} <a
           class="text-primary">({{seller.rating}} <i class='fa fa-star text-warning'></i>)</a></p>
 
       <div class="modal fade" id="seller-modal" role="dialog">
@@ -325,8 +326,10 @@
 </main>
 
 <script>
-  if (document.getElementById('error').innerHTML.length != 0)
+  if (document.getElementById('error').innerHTML.length != 0) {
     $('#error-modal').modal('show');
+  }
+
 
   $(document).ready(function () {
     $(window).keydown(function (event) {
