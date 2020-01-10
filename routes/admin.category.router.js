@@ -1,4 +1,3 @@
-
 const express = require('express');
 const productmodel = require('../models/productmodel');
 const categorymodel = require('../models/categorymodel');
@@ -6,15 +5,8 @@ const router = express.Router();
 
 router.get('/', async function (req, res) {
     await productmodel.refresh();
-    var category = await categorymodel.all();
-    var end = await productmodel.end();
-    var price = await productmodel.price();
-    var bid = await productmodel.bid();
     
     res.render('./admin', {
-        end: end,
-        price: price,
-        bid: bid,
         category: category
     });
 });
@@ -22,14 +14,9 @@ router.get('/', async function (req, res) {
 router.get('/category-add',async function (req, res) {
     await productmodel.refresh();
     var category = await categorymodel.all();
-    var end = await productmodel.end();
-    var price = await productmodel.price();
-    var bid = await productmodel.bid();
+
 
     res.render('./category-add', {
-        end: end,
-        price: price,
-        bid: bid,
         category: category
     }
     );
@@ -58,13 +45,9 @@ router.post('/category-add',async function (req, res) {
     //this equals router.get('/category-add',
     await productmodel.refresh();
     var category = await categorymodel.all();
-    var end = await productmodel.end();
-    var price = await productmodel.price();
-    var bid = await productmodel.bid();
+
     res.render('./category-add', {
-        end: end,
-        price: price,
-        bid: bid,
+
         category: category
     }
     );

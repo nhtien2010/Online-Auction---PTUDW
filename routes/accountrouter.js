@@ -15,14 +15,14 @@ router.get('/bidder', async function (req, res) {
     if (req.session.user.privilege != "bidder")
         return res.redirect("/404");
 
-    res.render("./bidder-profile");
+    res.render("./profile");
 });
 
 router.get('/seller', async function (req, res) {
     if (req.session.user.privilege != "seller")
         return res.redirect("/404");
 
-    res.render("./seller-profile");
+    res.render("./profile");
 });
 
 router.get('/active/:id', async function (req, res) {
@@ -52,4 +52,12 @@ router.get('/reminder', async function (req, res) {
     res.render("./reminder");
 });
 
+router.post('/upgrade/:Id',async function (req, res) {
+    const entity = {
+        request: "upgrade"
+    }
+    const condition = {id: req.params.Id};
+    const rs = usermodel.update(entity, condition); 
+    res.redirect('/account/bidder');
+});
 module.exports = router;

@@ -23,7 +23,7 @@ module.exports = {
     },
     delete: userid => db.delete({id: userid}, 'user'),
     refresh: _ => db.refresh(),
-    getReqBidder: _ =>(db.select(`select * from user where request=${1}`)),
+    getReqBidder: _ =>(db.select(`select * from user where request='upgrade'`)),
     singleByUserName: async username => {
       const rows = await db.load(`select * from user where username = '${username}'`);
       if (rows.length > 0)
@@ -37,6 +37,5 @@ module.exports = {
       return rows[0];
 
     return null;
-},
-
+  },
 };

@@ -25,6 +25,9 @@ var register = function (Handlebars) {
         equal: function (first, second) {
             return first === second;
         },
+        equalBool: function (first, second) {
+            return first == second;
+        },
         root: function (set, root) {
             for (var i = 0; i < set.length; i++) {
                 if (set[i].parent == root)

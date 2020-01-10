@@ -359,7 +359,7 @@ CREATE TABLE `user` (
   `password` varchar(255) NOT NULL,
   `privilege` varchar(45) DEFAULT NULL,
   `rating` float DEFAULT NULL,
-  `request` bool DEFAULT false,
+  `request` varchar(15) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `email_UNIQUE` (`email`)
 ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -371,7 +371,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'Erod Nelps','erodnelps@gmail.com','$2a$10$PFlKvjXDXnF9xkgFCn8XEu02WSlIswunEqCPm6r9sjwweniDPTc/y','bidder',8.3, false),(2,'Derek Zohar','derekzohar@gmail.com','$2a$10$HLXCmxXJAziwS5I0RUIgSeyF4FgIedu4hoKtQZR1AN6z/M9qCv/L.','seller',8.2,false),(3,'Lena','lena@gmail.com','$2a$10$jZUexXSHXxLEKJQOT1yUD.1DR8v9LIE1JaXJaCXzA.j/0yAQqvIyO','admin',8.3,false),(12,'Zerd','fourthzerd@gmail.com','$2a$10$4nKjydizzQ4CqAT5Krm1MOIPSJdBAD1.YDRWzCa0PkJeYmW9E973C','bidder',8.2,false);
+INSERT INTO `user` VALUES (1,'Erod Nelps','erodnelps@gmail.com','$2a$10$PFlKvjXDXnF9xkgFCn8XEu02WSlIswunEqCPm6r9sjwweniDPTc/y','bidder',8.3, NULL),(2,'Derek Zohar','derekzohar@gmail.com','$2a$10$HLXCmxXJAziwS5I0RUIgSeyF4FgIedu4hoKtQZR1AN6z/M9qCv/L.','seller',8.2,NULL),(3,'Lena','lena@gmail.com','$2a$10$jZUexXSHXxLEKJQOT1yUD.1DR8v9LIE1JaXJaCXzA.j/0yAQqvIyO','admin',8.3,NULL),(12,'Zerd','fourthzerd@gmail.com','$2a$10$4nKjydizzQ4CqAT5Krm1MOIPSJdBAD1.YDRWzCa0PkJeYmW9E973C','bidder',8.2,NULL);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 

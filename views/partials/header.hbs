@@ -55,6 +55,7 @@
                 <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false"
                     type="button"><i class="fas fa-user"></i></button>
                 <div class="dropdown-menu dropdown-menu-right" role="menu">
+
                     {{#if session.authenticated}}
                     {{#if (equal session.user.privilege "admin")}}
                     <a class="dropdown-item" role="presentation" href="/account/admin">My Profile</a>
@@ -62,45 +63,16 @@
                     <a class="dropdown-item" role="presentation" href="/logout">Sign out</a>
                     {{else}}
 
-                    {{!-- {{#if (equal session.user.privilege "bidder")}}
-                    <a class="dropdown-item" role="presentation" href="/account/bidder">My
-                        Profile</a>
-                    <a class="dropdown-item" role="presentation" href="/logout">Sign out</a>
-                    {{else}}
-                    {{#if (equal session.user.privilege "seller")}}
-                    <a class="dropdown-item" role="presentation" href="/account/seller">My
-                        Profile</a> --}}
-
                     {{#if (equal session.user.privilege "bidder")}}
                     <a class="dropdown-item" role="presentation" href="/account/bidder">My Profile</a>
-                    <a class="dropdown-item" role="presentation" data-toggle="modal" data-target="#upgradeModal">Upgrade to Seller</a>
-                    <div class="modal fade" id="upgradeModal" tabindex="-1" role="dialog" aria-labelledby="upgradeModalLabel" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Upgrade</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <form id="upgrade_form" action="/upgrade" method="POST">
-                                    <p>Upgrade to Seller for 7 days?</p>
-                                </form>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="submit" class="btn btn-secondary" data-dismiss="modal" readonly value="upgrade">Cancel</button>
-                                <button type="button" class="btn btn-primary">Upgrade</button>
-                            </div>
-                            </div>
-                        </div>
-                    </div>
                     <a class="dropdown-item" role="presentation" href="/logout">Sign out</a>
                     {{else}}
+
                     {{#if (equal session.user.privilege "seller")}}
                     <a class="dropdown-item" role="presentation" href="/account/seller">My Profile</a>
                     <a class="dropdown-item" role="presentation" href="/logout">Sign out</a>
                     {{else}}
+
                     <a class="dropdown-item" role="presentation" href="/logout">Sign out</a>
                     {{/if}}
                     {{/if}}
