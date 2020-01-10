@@ -190,6 +190,7 @@ router.post('/register', async function (req, res) {
             email: req.body.register_email,
             password: req.body.register_password,
             repeat: req.body.register_repeat,
+            address: req.body.register_address,
             error: "This email address is already being used!"
         });
     }
