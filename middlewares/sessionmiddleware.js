@@ -6,9 +6,9 @@ module.exports = function (app) {
   app.set('trust proxy', 1)
   app.use(session({
     secret: 'keyboard cat',
-    resave: false,
-    saveUninitialized: false,
-    cookie: { secure: false, maxAge: 3600000},
+    resave: true,
+    saveUninitialized: true,
+    cookie: { secure: false, maxAge: 10800000},
     store: new MySQLStore({
       connectionLimit: 100,
       host: 'localhost',

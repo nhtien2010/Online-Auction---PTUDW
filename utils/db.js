@@ -19,5 +19,9 @@ module.exports = {
     insert: (entity, table) => pool_query(`insert into ${table} set ?`, entity),
     delete: (condition, table) => pool_query(`delete from ${table} where ?`, condition),
     update: (entity, condition, table) => pool_query(`update ${table} set ? where ?`, [entity, condition]),
-    UpdateHistory: (entity) => pool_query(`call UpdateHistory(${entity.user}, ${entity.product}, ${entity.offer})`)
+
+    UpdateHistory: (entity) => pool_query(`call UpdateHistory(${entity.user}, ${entity.product}, ${entity.offer})`),
+    rate: entity => pool_query(`call Rate(${entity.user}, ${entity.rating}, ${entity.rator}, ${entity.comment})`),
+    UpdateProduct: id => pool_query(`call UpdateProduct(${id})`)
+
   };
