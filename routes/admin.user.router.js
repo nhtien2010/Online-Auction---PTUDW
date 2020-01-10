@@ -6,16 +6,9 @@ const usermodel = require('../models/usermodel');
 const router = express.Router();
 
 router.get('/', async function (req, res) {
-    await productmodel.refresh();
     var category = await categorymodel.all();
-    var end = await productmodel.end();
-    var price = await productmodel.price();
-    var bid = await productmodel.bid();
     
     res.render('./admin', {
-        end: end,
-        price: price,
-        bid: bid,
         category: category
     });
 });
@@ -39,7 +32,7 @@ router.post('/up-bidder/:UserId',async function (req, res) {
     const entity = {
         id: req.params.UserId,
         request: "none",
-        type: "seller"
+        privilege: "seller"
     }
     // console.log(req.params.UserId);
     const rs = await usermodel.changeType(entity);
@@ -51,7 +44,7 @@ router.post('/down-seller/:UserId',async function (req, res) {
     const entity = {
         id: req.params.UserId,
         request: "none",
-        type: "bidder"
+        privilege: "bidder"
     }
     const rs = await usermodel.changeType(entity);
     res.redirect('/admin/user');

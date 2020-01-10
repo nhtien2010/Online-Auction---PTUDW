@@ -11,7 +11,7 @@ module.exports = {
   bid: async (entity) => { await db.insert(entity, 'history'); await db.UpdateHistory(entity) },
   automated: (entity) => db.insert(entity, 'automation'),
   all: _ => (db.select('select * from user')),
-  getType: type => (db.select(`select * from user where type = '${type}'`)),
+  getType: type => (db.select(`select * from user where privilege = '${type}'`)),
   changeType: entity => {
     const condition = { id: entity.id };
     delete entity.id;

@@ -21,22 +21,14 @@ router.get('/', async function (req, res) {
 });
 
 router.get('/category', async function (req, res) {
-    await productmodel.refresh();
     var category = await categorymodel.all();
-    var end = await productmodel.end();
-    var price = await productmodel.price();
-    var bid = await productmodel.bid();
     
     res.render('./category', {
-        end: end,
-        price: price,
-        bid: bid,
         category: category
     });
 });
 
 router.get('/product', async function (req, res) {
-    console.log(1);
     await productmodel.refresh();
     const page = 1;
 

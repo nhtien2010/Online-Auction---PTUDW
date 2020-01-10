@@ -36,7 +36,6 @@ router.get('/', async function (req, res) {
       }
       page_items.push(item);
     }
-    console.log(2);
     res.render('./product', {
       products: rows,
       empty: rows.length === 0,
