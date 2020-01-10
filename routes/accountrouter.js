@@ -1,20 +1,48 @@
 
 const express = require('express');
 const usermodel = require('../models/usermodel');
+const productmodel = require('../models/productmodel');
 const config = require('../config/default.json');
 const router = express.Router();
 
 router.get('/admin', async function (req, res) {
-    if (req.session.user.privilege != "admin")
-        return res.redirect("/404");
+    if (req.session.user) {
+        if (req.session.user.privilege != "admin")
+            return res.redirect("/404");
+    }
+    else return res.redirect("/404");
 
     res.render('./admin');
 });
 
 router.get('/profile', async function (req, res) {
-    if (req.session.user.privilege != "bidder" && req.session.user.privilege != "seller")
+    if (req.session.user) {
+        if (req.session.user.privilege != "bidder" && req.session.user.privilege != "seller")
+            return res.redirect("/404");
+    }
+    else
         return res.redirect("/404");
-        
+
+    var watchlist = await productmodel.watchlist(req.session.user.id);
+    var participate = await productmodel.participate(req.session.user.id);
+    var wonlist = await productmodel.wonlist(req.session.user.id);
+
+    if (req.session.user.privilege == "bidder")
+        return res.render('./profile', {
+            user: req.session.user,
+            name: req.session.user.name,
+            email: req.session.user.email,
+            dob: req.session.user.dob,
+            priviledge: req.session.user.priviledge,
+            address: req.session.user.address,
+            watchlist: watchlist,
+            participate: participate,
+            wonlist: wonlist
+        });
+    
+    var ongoing = await productmodel.ongoing(req.session.user.id);
+    var soldlist = await productmodel.soldlist(req.session.user.id);
+
     res.render('./profile', {
         user: req.session.user,
         name: req.session.user.name,
@@ -22,7 +50,13 @@ router.get('/profile', async function (req, res) {
         dob: req.session.user.dob,
         priviledge: req.session.user.priviledge,
         address: req.session.user.address,
-    })
+        watchlist: watchlist,
+        participate: participate,
+        wonlist: wonlist,
+        ongoing: ongoing,
+        soldlist: soldlist
+    });
+
 });
 
 router.get('/active/:id', async function (req, res) {
@@ -30,7 +64,7 @@ router.get('/active/:id', async function (req, res) {
     user = user[0];
     if (!user || user.privilege != null)
         return res.redirect("/404");
-    
+
     const entity = {
         privilege: "bidder"
     }

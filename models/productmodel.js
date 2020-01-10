@@ -35,7 +35,7 @@ module.exports = {
     xfactor: entity => db.select(`select user.name, user.email from automation, user where automation.product=${entity.product} and automation.offer >= ${entity.offer} and user.id=automation.user order by automation.offer desc limit 1`),
     wonlist: id => db.select(`select distinct * from product where holder=${id} and status='sold'`),
     participate: id => db.select(`select distinct product.* from product, history where product.status='bidding' and product.id=history.product and history.user=${id}`),
-    watchlist: id => db.select(`select product.* from product, watchlist where product.id=watchlist.product and watchlist.user=${id}`),
-    ongoing: id => db.select(`select * from product where product.seller=${id} and product.status='bidding`),
+    watchlist: id => db.select(`select distinct product.* from product, watchlist where product.id=watchlist.product and watchlist.user=${id}`),
+    ongoing: id => db.select(`select * from product where product.seller=${id} and product.status='bidding'`),
     soldlist: id => db.select(`select * from product where product.seller=${id} and product.status='sold'`)
 };
