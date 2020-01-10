@@ -22,11 +22,7 @@ router.get('/', async function (req, res) {
 
 router.get('/category', async function (req, res) {
     var category = await categorymodel.all();
-<<<<<<< HEAD
     
-=======
-
->>>>>>> c7d6d9eedbbc528d9b1bde83ba7a5a3f4efb7efd
     res.render('./category', {
         category: category
     });

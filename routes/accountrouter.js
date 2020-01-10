@@ -15,18 +15,6 @@ router.get('/admin', async function (req, res) {
     res.render('./admin');
 });
 
-router.get('/bidder', async function (req, res) {
-    if (req.session.user.privilege != "bidder")
-        return res.redirect("/404");
-
-    res.render("./profile");
-});
-
-router.get('/seller', async function (req, res) {
-    if (req.session.user.privilege != "seller")
-        return res.redirect("/404");
-
-    res.render("./profile");
 router.get('/profile', async function (req, res) {
     if (req.session.user) {
         if (req.session.user.privilege != "bidder" && req.session.user.privilege != "seller")
@@ -51,7 +39,7 @@ router.get('/profile', async function (req, res) {
             participate: participate,
             wonlist: wonlist
         });
-    
+
     var ongoing = await productmodel.ongoing(req.session.user.id);
     var soldlist = await productmodel.soldlist(req.session.user.id);
 
@@ -98,12 +86,13 @@ router.get('/reminder', async function (req, res) {
     res.render("./reminder");
 });
 
-router.post('/upgrade/:Id',async function (req, res) {
+router.post('/upgrade/:Id', async function (req, res) {
     const entity = {
         request: "upgrade"
     }
-    const condition = {id: req.params.Id};
-    const rs = usermodel.update(entity, condition); 
+    const condition = { id: req.params.Id };
+    const rs = usermodel.update(entity, condition);
     res.redirect('/account/bidder');
 });
+
 module.exports = router;

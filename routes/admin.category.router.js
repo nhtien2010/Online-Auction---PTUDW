@@ -13,10 +13,6 @@ router.get('/', async function (req, res) {
 
 router.get('/category-add',async function (req, res) {
     var category = await categorymodel.all();
-<<<<<<< HEAD
-=======
-
->>>>>>> c7d6d9eedbbc528d9b1bde83ba7a5a3f4efb7efd
 
     res.render('./category-add', {
         category: category
@@ -46,13 +42,8 @@ router.post('/category-add',async function (req, res) {
     
     //this equals router.get('/category-add',
     var category = await categorymodel.all();
-<<<<<<< HEAD
+    
     res.render('./category-add', {
-=======
-
-    res.render('./category-add', {
-
->>>>>>> c7d6d9eedbbc528d9b1bde83ba7a5a3f4efb7efd
         category: category
     }
     );
